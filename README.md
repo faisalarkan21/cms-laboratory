@@ -1,8 +1,8 @@
-## This project made using :
+## This project made with :
 
-* [Create React App](https://github.com/facebookincubator/create-react-app), for Front-end 
-* [React Router](https://github.com/ReactTraining/react-router), for routing process Front-end
-* [Material-UI](https://github.com/ReactTraining/react-router), for react component which is implement material design
+* [Create React App](https://github.com/facebookincubator/create-react-app),  Front-end 
+* [React Router](https://github.com/ReactTraining/react-router),  routing process Front-end
+* [Material-UI](https://github.com/ReactTraining/react-router), react component which is implement material design
 
 
 * `public/index.html` is the page template;
