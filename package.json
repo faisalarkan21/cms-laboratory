@@ -1,25 +1,29 @@
 {
-  "name": "cms-laboratory",
-  "version": "0.1.0",
+  "name": "server",
+  "version": "0.0.1",
   "private": true,
-  "devDependencies": {
-    "concurrently": "^3.2.0",
-    "react-scripts": "0.9.0"
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ]
   },
   "dependencies": {
-    "express": "^4.14.1",
-    "material-ui": "^0.16.7",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-router": "^3.0.2",
-    "react-tap-event-plugin": "^2.0.1"
+    "babel-cli": "6.14.0",
+    "babel-core": "6.14.0",
+    "babel-preset-es2015": "6.14.0",
+    "babel-preset-stage-0": "6.5.0",
+    "express": "4.13.3",
+    "fs": "0.0.2",
+    "sql.js": "^0.3.2"
   },
   "scripts": {
-    "start" : "concurrently \"npm run start:server\" \"npm run start:client\"", 
-    "start:server": "node server",
-    "start:client": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "babel-node server.js",
+    "client": "babel-node start-client.js",
+    "dev": "echo \"This command has been deprecated. Use 'npm start'\" && exit 1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0"
   }
 }
