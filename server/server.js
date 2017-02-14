@@ -5,9 +5,7 @@ var app = express()
 var routes = require('./routes/index');
 
 
-app.get('/pesan', function (req, res) {
-  res.json({pesan: 'selamat datang XD '});
-})
+app.get('/pesan', routes.pesan);
 
 app.set('port', (process.env.PORT || 3001));
 
