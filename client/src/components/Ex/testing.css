@@ -1,0 +1,23 @@
+
+/*@import url('https://fonts.googleapis.com/css?family=Roboto');*/
+@font-face {
+    font-family: Roboto;
+    src: url('../../font/roboto/Roboto-Regular.ttf');
+}
+
+h2 {
+
+    font-weight: 400;
+    font-family: Roboto;
+
+
+}
+
+
+.coba {
+
+    /*margin-left: 300px;*/
+
+}
+
+
