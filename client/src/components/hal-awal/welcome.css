@@ -4,17 +4,36 @@ body {
   /*font-family: sans-serif;*/
 }
 
+@font-face {
+  font-family: Roboto;
+  src: url('../../font/roboto/Roboto-Regular.ttf') ;
+}
+
+
 /*.divpaper {
   padding: 100px;
 }*/
+
+
 /*
 .paper {
   width: 600px;
   height: 400px;
 }*/
 
-.satu {
+h3,
+label {
+  font-family: 'Roboto'
+}
 
-  background-color: black;
+html {
+  font-family: 'Roboto' !important;
+}
 
+.panel {
+  padding-top: 50px;
+}
+
+.innerPanel {
+  padding: 10px;
 }
