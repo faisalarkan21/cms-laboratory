@@ -1,45 +1,54 @@
 import React, {Component} from 'react';
+// import { Button } from 'react-toolbox/lib/button';
 import RaisedButton from 'material-ui/RaisedButton';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Paper from 'material-ui/Paper';
+import './welcome.css'
 
+// const {Grid, Row, Col} = require('react-flexbox-grid');
 
-
-const style = {
-    height: 700,
-    width: 900,
-    // marginLeft: 230,
-    // marginTop: 60,
+const styles = {
+  div:{
+    display: 'flex',
+    flexDirection: 'row wrap',
+    padding: 20,
+    width: '100%'
+  },
+  paperLeft:{
+    flex: 1,
+    height: '100%',
+    margin: 10,
     textAlign: 'center',
-    display: 'inline-block'
+    padding: 10
+  },
+  paperRight:{
+    height: 600,
+    flex: 2,
+    margin: 10,
+    textAlign: 'center',
+  }
 };
-
 class Welcome extends Component {
     render() {
         return (
-            <MuiThemeProvider >
-
+            <MuiThemeProvider>
                 <div>
-
-                    <Paper className="coba" style={style} zDepth={3}>
-
-                        <h2>
-                            Selaaaaaaaaaaaaaamat Datang
-                        </h2>
-                    </Paper>
+                    <div style={styles.div}>
+                        <Paper zDepth={3} style={styles.paperLeft}>
+                            <h4>First Vertical component</h4>
+                        </Paper>
+                        <Paper zDepth={3} style={styles.paperRight}>
+                            <h4>Second Vertical component</h4>
+                        </Paper>
+                    </div>
                 </div>
-
             </MuiThemeProvider>
 
         );
     }
 
     testApi() {
-
-        // fetch('http://localhost:3001/pesan')     .then(function (err, res) { if (err)
-        // {             console.log(err);         }         return res.json();     })
 
         fetch('/pesan')
             .then(function (res) {

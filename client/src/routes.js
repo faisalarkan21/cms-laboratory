@@ -7,9 +7,7 @@ import Test from './components/Ex/Test.js';
 import Welcome from './components/hal-awal/Welcome';
 // import About from './components/About'; import coba from './components/coba';
 import TidakDitemukan from './components/NotFound/404.js';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 
-injectTapEventPlugin();
 
 
 const Routes = (props) => (
