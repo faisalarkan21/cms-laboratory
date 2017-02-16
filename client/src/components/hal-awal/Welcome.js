@@ -24,7 +24,7 @@ const styles = {
   },
   paperRight:{
     height: 600,
-    flex: 2,
+    flex: 3,
     margin: 10,
     textAlign: 'center',
   }
