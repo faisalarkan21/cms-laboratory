@@ -5,17 +5,14 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Paper from 'material-ui/Paper';
 import './welcome.css'
+import {Grid, Row,Col} from 'react-flexbox-grid/lib';
 
 // const {Grid, Row, Col} = require('react-flexbox-grid');
 
 const styles = {
     div: {
-        // display: 'flex',
-        // flexDirection: 'row warp',
-        // padding: 20,
-        // justifyContent: 'center',
-      
-        // maxWidth: '70%'
+        // display: 'flex', flexDirection: 'row warp', padding: 20, justifyContent:
+        // 'center', maxWidth: '70%'
     },
     paperLeft: {
         flex: 4,
@@ -26,11 +23,7 @@ const styles = {
     },
     paperRight: {
         height: 400,
-        // flex: 1,
-        // width:'20%',
-        // order:4,  flexShrink: 4,
-        
-        // margin: 10,
+        // flex: 1, width:'20%', order:4,  flexShrink: 4, margin: 10,
         textAlign: 'center'
     }
 };
