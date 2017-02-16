@@ -1,18 +1,13 @@
 import React, {Component} from 'react';
-// import { Button } from 'react-toolbox/lib/button';
-import RaisedButton from 'material-ui/RaisedButton';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Divider from 'material-ui/Divider';
-
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import injectTapEventPlugin from 'react-tap-event-plugin';
 import Paper from 'material-ui/Paper';
-import './welcome.css'
 import {Grid, Row, Col} from 'react-flexbox-grid/lib';
 import {deepOrange500, green500, green700} from 'material-ui/styles/colors';
 import LinearProgress from 'material-ui/LinearProgress';
-
-// const {Grid, Row, Col} = require('react-flexbox-grid');
+import Pemisah from '../../modify-components/Komponen-Pemisah/Pemisah.js'
+import './welcome.css'
 
 const muiTheme = getMuiTheme({
     palette: {
@@ -28,10 +23,7 @@ const styles = {
         paddingRight: 40
 
     },
-    pemisah:{
 
-        marginBottom:10
-    },
     progress: {
 
         paddingTop: 220,
@@ -63,9 +55,9 @@ class Welcome extends Component {
                             className="col-xs-offset-1 col-xs-10 col-md-7 col-md-offset-3 ">
                             <div className="innerPanel">
 
-                                <h3>Selamat datang Di CMS Laboratorium</h3>
+                                <h3>Selamat datang di CMS Laboratorium</h3>
                                 <div style={styles.div}>
-                                    <Divider style={styles.pemisah}/>
+                                    <Pemisah/>
                                     <label>Kami menyediakan Lanyanan berbagai layanan untuk memudahkan memanajemen
                                         laboratorium
                                     </label><br/>
