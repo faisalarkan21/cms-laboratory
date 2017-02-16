@@ -5,6 +5,7 @@ import {Router, Route,IndexRedirect} from 'react-router'
 import App from './components/App';
 import Test from './components/Ex/Test.js';
 import Welcome from './components/hal-awal/Welcome';
+import Database from './components/hal-awal/Set-Database';
 // import About from './components/About'; import coba from './components/coba';
 import TidakDitemukan from './components/NotFound/404.js';
 
@@ -16,6 +17,7 @@ const Routes = (props) => (
 
     <Route path="/" component={Welcome}>
       <IndexRedirect to = "/selamat-datang" />
+      <Route path="/setting-database" component={Database}/> 
       <Route path="*" component={TidakDitemukan}/>
     </Route>
   </Router>
