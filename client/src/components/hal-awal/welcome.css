@@ -6,7 +6,7 @@ body {
 
 @font-face {
   font-family: Roboto;
-  src: url('../../font/roboto/Roboto-Regular.ttf') ;
+  src: url('../../font/roboto/Roboto-Regular.ttf');
 }
 
 
@@ -23,17 +23,28 @@ body {
 
 h3,
 label {
-  font-family: 'Roboto'
+  font-family: 'Roboto';
 }
 
 html {
   font-family: 'Roboto' !important;
+  font-size: 16px  !important;
+  line-height: 1.6  !important;
+  word-wrap: break-word  !important;
 }
 
 .panel {
   padding-top: 50px;
 }
 
-.innerPanel {
-  padding: 10px;
+/*.innerPanel {
+  padding: 15px;
+  /*padding-right: 20px;
+  padding-left: 20px;
+}*/
+
+.progress {
+
+  /*padding-top: 230px;*/
+  /*padding: 20px;*/
 }
