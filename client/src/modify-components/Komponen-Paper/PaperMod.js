@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
-
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Paper from 'material-ui/Paper';
 import DividerMod from '../Komponen-Divider/DividerMod.js';
 import LinearProgress from 'material-ui/LinearProgress';
+import Divider from 'material-ui/Divider';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const styles = {
 
-    paperPutih: {
+    paperWellcome: {
         height: 400,
         // flex: 1, width:'20%', order:4,  flexShrink: 4, margin: 10,
         width: "100%",
@@ -30,12 +31,16 @@ const styles = {
         paddingRight: 20
 
     }
+
 }
 
 function Tulisan(props) {
     return (
         <div>
-            <h3>{props.judul}</h3>
+
+            <div>
+                {props.judul}
+            </div>
 
             <div style={styles.div}>
                 <DividerMod/>
@@ -51,18 +56,38 @@ function Tulisan(props) {
     )
 }
 
-const PaperMod = () => (
+const judulDepan = (
 
-    <Paper
-        zDepth={3}
-        style={styles.paperPutih}
-        className="col-xs-offset-1 col-xs-10 col-md-7 col-md-offset-3 ">
-            <Tulisan judul={'makan'}/>
-        <div style={styles.progress}>
-            <LinearProgress mode="indeterminate"/>
-        </div>
-    </Paper>
+    <h1>
+        asasasas</h1>
 
 );
+
+class PaperMod extends Component {
+
+    render() {
+
+        return (
+
+            <div>
+                <Paper zDepth={3} style={styles.paperWellcome} className={this.props.letak}>
+                    <div>
+                        {this.props.judul}
+                    </div>
+
+                    <div>
+                        <DividerMod/>
+                        <label>
+                            {this.props.body}
+                        </label>
+                    </div><br/>
+                </Paper>
+            </div>
+
+        );
+
+    }
+
+}
 
 export default PaperMod;

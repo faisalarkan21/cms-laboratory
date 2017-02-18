@@ -16,29 +16,15 @@ const muiTheme = getMuiTheme({
     }
 });
 
-const styles = {
-    
-
-
-};
+const styles = {};
 class Welcome extends Component {
     render() {
         return (
 
             <MuiThemeProvider muiTheme={muiTheme}>
 
-                <div className="row">
-                    <div className="col-md-12 panel">
+               <PaperMod letak={'col-xs-offset-2 col-xs-10 col-md-7 col-md-offset-3 '} judul={'Makan Nasi'} body={'kjhbdasdlksahds'} />
 
-                        <PaperMod/>
-
-
-                         
-
-                          
-                        
-                    </div>
-                </div>
 
             </MuiThemeProvider>
 
@@ -60,3 +46,19 @@ class Welcome extends Component {
 }
 
 export default Welcome;
+
+
+
+// const PaperMod = () => (
+
+//     <Paper
+//         zDepth={3}
+//         style={styles.paperPutih}
+//         className="col-xs-offset-1 col-xs-10 col-md-7 col-md-offset-3 ">
+//         <Tulisan judul={judulDepan}/>
+//         <div style={styles.progress}>
+//             <LinearProgress mode="indeterminate"/>
+//         </div>
+//     </Paper>
+
+// );
