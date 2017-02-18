@@ -5,6 +5,7 @@ import DividerMod from '../Komponen-Divider/DividerMod.js';
 import LinearProgress from 'material-ui/LinearProgress';
 import Divider from 'material-ui/Divider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import StepperMod from '../Komponen-Stepper/StepperMod.js';
 
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
@@ -12,13 +13,13 @@ import MenuItem from 'material-ui/MenuItem';
 const styles = {
 
     paperWellcome: {
-        height: 400,
+        height: 500,
         // flex: 1, width:'20%', order:4,  flexShrink: 4, margin: 10,
         width: "100%",
         textAlign: 'center'
     },
     divPaper: {
-        marginTop: 50,
+        marginTop: 70,
         marginRight: 50
     },
     divContent: {
@@ -31,7 +32,7 @@ const styles = {
 
     progress: {
 
-        paddingTop: 250,
+        paddingTop: 70,
         paddingLeft: 25,
         paddingRight: 20
 
@@ -47,9 +48,13 @@ const styles = {
         paddingTop: 5,
         paddingLeft: 20,
         paddingRight: 20
+    },
+
+    Stepper: {
+        textAlign: 'center',
+        paddingTop: 140
+
     }
-
-
 
 }
 
@@ -62,37 +67,39 @@ export default class PaperMod extends Component {
             <div style={styles.divPaper}>
                 <Paper zDepth={3} style={styles.paperWellcome} className={this.props.letak}>
                     <div style={styles.panelDalamJudul}>
-                        <h3>
+                        <h3 >
                             {this.props.judul}
                         </h3>
                     </div>
-                    <DividerMod/>
+                    <DividerMod />
                     <div style={styles.Badan}>
-
-                        <label>
-                            <div>
+                        <div style={{paddingBottom:90}}>
+                            <label>
                                 <div>
-                                    {this.props.body}
+                                    <div>
+                                        {this.props.body}
+                                    </div>
+
                                 </div>
 
-                                <Paper style={styles}>
-                                  
-                                </Paper>
+                            </label>
 
-                            </div>
+                        </div>
 
-                        </label>
+                        <div style={styles.Stepper}>
+                            <DividerMod/>
+                            <StepperMod/>
+
+                        </div>
 
                     </div>
 
-                    <div style={styles.progress}>
-                    <LinearProgress />
-                    </div>
+                    
 
                     <br/>
-                    
+
                 </Paper>
-                
+
             </div>
 
         );

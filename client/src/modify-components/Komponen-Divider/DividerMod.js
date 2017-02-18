@@ -11,7 +11,7 @@ const styles = {
 
     pemisah:{
 
-        marginBottom:10
+        marginBottom:12
     },
 
 }
