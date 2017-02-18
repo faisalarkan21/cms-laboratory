@@ -14,7 +14,7 @@ const Routes = (props) => (
 
     <Route path="/">
       <IndexRedirect to="/selamat-datang"/>
-      <Route path="about" component={Test}/>
+      <Route path="test" component={Test}/>
 
     </Route>
     <Route path="selamat-datang" component={Welcome}/>
