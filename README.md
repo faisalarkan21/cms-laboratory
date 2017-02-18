@@ -21,7 +21,6 @@ I just save it on github for greater ease in the process of program development.
 
 Made by :computer:
  <br>
-Happy Codings !!
-
+Happy Coding !! :zap:
 <!--## Table of Contents-->
 
