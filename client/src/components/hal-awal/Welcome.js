@@ -30,6 +30,8 @@ export default  class Welcome extends Component {
 
                <PaperMod letak={'col-xs-offset-2 col-xs-10 col-md-7 col-md-offset-3 '} judul={Text.Judul} body={Text.Badan} />
 
+               
+
 
             </MuiThemeProvider>
 
@@ -52,4 +54,3 @@ export default  class Welcome extends Component {
 
 
 
-    

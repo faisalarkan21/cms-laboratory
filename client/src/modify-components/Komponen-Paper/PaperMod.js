@@ -6,6 +6,9 @@ import LinearProgress from 'material-ui/LinearProgress';
 import Divider from 'material-ui/Divider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
+
 const styles = {
 
     paperWellcome: {
@@ -16,7 +19,7 @@ const styles = {
     },
     divPaper: {
         marginTop: 50,
-        marginRight :50
+        marginRight: 50
     },
     divContent: {
         textAlign: 'left',
@@ -28,25 +31,25 @@ const styles = {
 
     progress: {
 
-        paddingTop: 220,
+        paddingTop: 250,
         paddingLeft: 25,
         paddingRight: 20
 
     },
 
-    panelDalamJudul : {
-        
-         paddingTop: 5,
+    panelDalamJudul: {
 
+        paddingTop: 5
     },
 
     Badan: {
         textAlign: 'left',
-        paddingTop : 5,
-        paddingLeft:20,
-        paddingRight:20
-    } 
-    
+        paddingTop: 5,
+        paddingLeft: 20,
+        paddingRight: 20
+    }
+
+
 
 }
 
@@ -63,14 +66,33 @@ export default class PaperMod extends Component {
                             {this.props.judul}
                         </h3>
                     </div>
-     <DividerMod/>
+                    <DividerMod/>
                     <div style={styles.Badan}>
-                   
+
                         <label>
-                            {this.props.body}
+                            <div>
+                                <div>
+                                    {this.props.body}
+                                </div>
+
+                                <Paper style={styles}>
+                                  
+                                </Paper>
+
+                            </div>
+
                         </label>
-                    </div><br/>
+
+                    </div>
+
+                    <div style={styles.progress}>
+                    <LinearProgress />
+                    </div>
+
+                    <br/>
+                    
                 </Paper>
+                
             </div>
 
         );
@@ -78,4 +100,3 @@ export default class PaperMod extends Component {
     }
 
 }
-
