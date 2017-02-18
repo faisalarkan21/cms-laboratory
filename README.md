@@ -17,7 +17,7 @@
 
 ## How to Use
 Sorry, for a while this repository not for being used for the public. It's for my scientific journal. :warning:  <br>
-I just keep it on github for greater ease in the process of program development. thank you! :gift:
+I just save it on github for greater ease in the process of program development. thank you! :gift:
 
 Made by :computer:
  <br>
