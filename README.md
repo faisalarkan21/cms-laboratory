@@ -11,8 +11,7 @@
 * [concurrently](https://github.com/kimmobrunfeldt/concurrently), for run multiple commands
 
 ## How to Use
-Sorry, for the moment not to be used for the public. It's for my scientific journals.
-I just save it on github for easier in the process of developing program. thanks !
+Sorry, for a while this repository not for being used for the public. It's for my scientific journals. I just keep it on github for greater ease in the process of program development. thank you!
 
 Made by :computer:
  <br>
