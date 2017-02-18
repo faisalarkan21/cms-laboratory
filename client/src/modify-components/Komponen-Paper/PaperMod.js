@@ -12,11 +12,13 @@ const styles = {
         height: 400,
         // flex: 1, width:'20%', order:4,  flexShrink: 4, margin: 10,
         width: "100%",
-        textAlign: 'center',
-        paddingTop: 15
-
+        textAlign: 'center'
     },
-    div: {
+    divPaper: {
+        marginTop: 50,
+        marginRight :50
+    },
+    divContent: {
         textAlign: 'left',
         // paddingTop: 10,
         paddingLeft: 50,
@@ -30,53 +32,40 @@ const styles = {
         paddingLeft: 25,
         paddingRight: 20
 
-    }
+    },
+
+    panelDalamJudul : {
+        
+         paddingTop: 5,
+
+    },
+
+    Badan: {
+        textAlign: 'left',
+        paddingTop : 5,
+        paddingLeft:20,
+        paddingRight:20
+    } 
+    
 
 }
 
-function Tulisan(props) {
-    return (
-        <div>
-
-            <div>
-                {props.judul}
-            </div>
-
-            <div style={styles.div}>
-                <DividerMod/>
-                <label>Kami menyediakan Lanyanan berbagai layanan untuk memudahkan memanajemen
-                    laboratorium
-                </label><br/>
-
-                <label>
-                    fitur yang kami berikan adalah sebagai berikut :</label>
-            </div>
-
-        </div>
-    )
-}
-
-const judulDepan = (
-
-    <h1>
-        asasasas</h1>
-
-);
-
-class PaperMod extends Component {
+export default class PaperMod extends Component {
 
     render() {
 
         return (
 
-            <div>
+            <div style={styles.divPaper}>
                 <Paper zDepth={3} style={styles.paperWellcome} className={this.props.letak}>
-                    <div>
-                        {this.props.judul}
+                    <div style={styles.panelDalamJudul}>
+                        <h3>
+                            {this.props.judul}
+                        </h3>
                     </div>
-
-                    <div>
-                        <DividerMod/>
+     <DividerMod/>
+                    <div style={styles.Badan}>
+                   
                         <label>
                             {this.props.body}
                         </label>
@@ -90,4 +79,3 @@ class PaperMod extends Component {
 
 }
 
-export default PaperMod;
