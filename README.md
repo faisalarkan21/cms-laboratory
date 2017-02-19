@@ -2,25 +2,25 @@
 ## This project made with :
 
 
-
+* [Material-UI](http://www.material-ui.com/), react component which is implement material design
+* [Node.js](https://github.com/nodejs/node), Node.js JavaScript runtime
 * [Express.js](https://github.com/expressjs/express), Fast, unopinionated, minimalist web framework for node.
-* [Create React App](https://github.com/facebookincubator/create-react-app), as Front-end 
-* [React Router](https://github.com/ReactTraining/react-router),  routing process Front-end
-* [Material-UI](https://github.com/ReactTraining/react-router), react component which is implement material design
-* [NeDB](https://github.com/louischatriot/nedb), Embedded persistent or in memory database for Node.js
+* [Create React App](https://github.com/facebookincubator/create-react-app), as front-end starter-kit from facebook facebook incubator repositories
+* [Original Webpage React.js](https://facebook.github.io/react/)
+* [React Router](https://github.com/ReactTraining/react-router),  routing process front-end
+* [Babel.js](https://babeljs.io/), support for the latest version of JavaScript through syntax transformers. 
+* [flexboxgrid](http://flexboxgrid.com/), a grid system based on the flex display property.
+* [Webpack](https://github.com/webpack/webpack),  packs many modules into a few bundled assets.
+* [NeDB](https://github.com/louischatriot/nedb), embedded persistent or in memory database for Node.js
 * [concurrently](https://github.com/kimmobrunfeldt/concurrently), for run multiple commands
 
-## How to Use 
 
-You should do `npm install` or `npm i ` in this location for install node Dependencies : 
-* `npm i` on root folder for install concurrently 
-* `npm i` on folder client for react stuff
-* `npm i` on server for express.js and NeDB
-* `npm start` run it on root folder.
+## How to Use
+Sorry, for a while this repository not for being used for the public. It's for my scientific journal. :warning:  <br>
+I just save it on github in order for making the process of program development easier. thanks! :gift:
 
 Made by :computer:
  <br>
-Happy Codings !!
-
+Happy Coding !! :zap:
 <!--## Table of Contents-->
 
