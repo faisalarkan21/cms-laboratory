@@ -80,6 +80,12 @@ export default class PaperMod extends Component {
                                         {this.props.body}
                                     </div>
 
+
+                                    <div>
+                                       {this.props.Optional}
+                                    </div>
+
+
                                 </div>
 
                             </label>
@@ -90,9 +96,17 @@ export default class PaperMod extends Component {
                             <DividerMod/>
                             <StepperMod/>
 
+
                         </div>
 
                     </div>
+
+                    
+
+                    <br/>
+
+
+
 
                     
 
