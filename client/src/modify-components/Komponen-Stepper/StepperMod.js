@@ -4,6 +4,10 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+var Link = require('react-router').Link
+
+
+
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
  * Avoid using long step names in horizontal steppers.
@@ -81,7 +85,7 @@ class HorizontalLinearStepper extends React.Component {
                         ? (
                             <p>
                                 <a
-                                    href="#"
+                                    href="/setting-database"
                                     onClick={(event) => {
                                     event.preventDefault();
                                     this.setState({stepIndex: 0, finished: false});
@@ -92,9 +96,7 @@ class HorizontalLinearStepper extends React.Component {
                             </p>
                         )
                         : (
-                            <div
-                                style={perubahan.letakTombol
-                            }>
+                            <div style={perubahan.letakTombol}>
 
                                 <div
                                     style={{
@@ -108,11 +110,13 @@ class HorizontalLinearStepper extends React.Component {
                                         marginRight: 12
                                     }}/>
                                     <RaisedButton
+                                        containerElement={<Link to="/setting-database" />}   
                                         label={stepIndex === 2
                                         ? 'Selesai'
                                         : 'Lanjut'}
                                         primary={true}
-                                        onTouchTap={this.handleNext}/>
+                                        onTouchTap={this.handleNext}></RaisedButton>
+
                                 </div>
                             </div>
                         )}
