@@ -18,6 +18,7 @@ const Routes = (props) => (
 
     </Route>
     <Route path="selamat-datang" component={Welcome}/>
+    <Route path="setting-database" component={Database}/>
     <Route path="*" component={TidakDitemukan}/>
 
   </Router>

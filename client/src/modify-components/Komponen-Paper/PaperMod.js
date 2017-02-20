@@ -32,7 +32,7 @@ const styles = {
     },
     divPaper: {
         marginTop: 55,
-        marginRight: 50
+        marginRight: 60
     },
     divContent: {
         textAlign: 'left',

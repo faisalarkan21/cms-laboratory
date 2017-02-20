@@ -109,8 +109,8 @@ class HorizontalLinearStepper extends React.Component {
                                     }}/>
                                     <RaisedButton
                                         label={stepIndex === 2
-                                        ? 'Finish'
-                                        : 'Next'}
+                                        ? 'Selesai'
+                                        : 'Lanjut'}
                                         primary={true}
                                         onTouchTap={this.handleNext}/>
                                 </div>
