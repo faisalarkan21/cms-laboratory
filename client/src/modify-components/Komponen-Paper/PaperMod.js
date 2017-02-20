@@ -6,7 +6,8 @@ import LinearProgress from 'material-ui/LinearProgress';
 import Divider from 'material-ui/Divider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import StepperMod from '../Komponen-Stepper/StepperMod.js';
-
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+    
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 
@@ -91,6 +92,7 @@ export default class PaperMod extends Component {
                             </label>
 
                         </div>
+<i className="fa fa-hourglass" aria-hidden="true"></i>
 
                         <div style={styles.Stepper}>
                             <DividerMod/>

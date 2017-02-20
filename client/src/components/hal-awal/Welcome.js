@@ -2,27 +2,20 @@ import React, {Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import PaperMod from '../../modify-components/Komponen-Paper/PaperMod.js';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import IconButton from 'material-ui/IconButton';
 
 import './welcome.css';
 
-
-const muiTheme = getMuiTheme({
-    palette: {
+const muiTheme = getMuiTheme({palette: {
         // accent1Color: deepOrange500
-    }
-});
-
-
-
-
-               
-
+    }});
 
 function Fitur(props) {
 
     return (
         <ul>
-            <li>Fitur ke {props.nomor}
+            <li className="listFitur">{props.nomor}
             </li>
 
         </ul>
@@ -31,7 +24,7 @@ function Fitur(props) {
 
 const DivFitur = (
     <div>
-        <Fitur nomor={" 1"}/>
+        <Fitur nomor={"Management Pengajaran"}/>
         <Fitur nomor={" 2"}/>
         <Fitur nomor={" 3"}/>
         <Fitur nomor={" 4"}/>
@@ -57,7 +50,6 @@ export default class Welcome extends Component {
                     body={Text.Badan}
                     Optional={DivFitur}/>
 
-
             </MuiThemeProvider>
 
         );
@@ -76,4 +68,3 @@ export default class Welcome extends Component {
     }
 
 }
-
