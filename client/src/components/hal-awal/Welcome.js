@@ -5,7 +5,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import IconButton from 'material-ui/IconButton';
 
-import './welcome.css';
+import './hal-awal.css';
 
 // temp
 import {List, ListItem} from 'material-ui/List';

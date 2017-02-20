@@ -7,10 +7,9 @@ import Divider from 'material-ui/Divider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import StepperMod from '../Komponen-Stepper/StepperMod.js';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
-    
+
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
-
 
 // temp
 import {List, ListItem} from 'material-ui/List';
@@ -20,7 +19,9 @@ import ContentSend from 'material-ui/svg-icons/content/send';
 import ContentDrafts from 'material-ui/svg-icons/content/drafts';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 
-
+import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+var Link = require('react-router').Link
 
 const styles = {
 
@@ -52,9 +53,7 @@ const styles = {
 
     panelDalamJudul: {
 
-        paddingTop: 10,
-       
-      
+        paddingTop: 10
     },
 
     Badan: {
@@ -85,7 +84,7 @@ export default class PaperMod extends Component {
                             {this.props.judul}
                         </h3>
                     </div>
-                    <DividerMod />
+                    <DividerMod/>
                     <div style={styles.Badan}>
                         <div >
                             <label>
@@ -94,11 +93,9 @@ export default class PaperMod extends Component {
                                         {this.props.body}
                                     </div>
 
-
                                     <div >
-                                       {this.props.Optional}
+                                        {this.props.Optional}
                                     </div>
-
 
                                 </div>
 
@@ -106,26 +103,19 @@ export default class PaperMod extends Component {
 
                         </div>
 
-
                         <div style={styles.Stepper}>
                             <DividerMod/>
                             <StepperMod/>
 
-
+                            <RaisedButton
+                                containerElement={< Link to = "/setting-database" />}
+                                primary={true}
+                                onTouchTap={this.handleNext}></RaisedButton>
                         </div>
-
-                    
 
                     </div>
 
-                    
-
                     <br/>
-
-
-
-
-                    
 
                     <br/>
 

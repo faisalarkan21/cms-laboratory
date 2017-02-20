@@ -2,9 +2,9 @@ import React from 'react';
 import {Step, Stepper, StepLabel} from 'material-ui/Stepper';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
+var Link = require('react-router').Link
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-var Link = require('react-router').Link
 
 
 
@@ -109,13 +109,7 @@ class HorizontalLinearStepper extends React.Component {
                                         style={{
                                         marginRight: 12
                                     }}/>
-                                    <RaisedButton
-                                        containerElement={<Link to="/setting-database" />}   
-                                        label={stepIndex === 2
-                                        ? 'Selesai'
-                                        : 'Lanjut'}
-                                        primary={true}
-                                        onTouchTap={this.handleNext}></RaisedButton>
+                                   
 
                                 </div>
                             </div>

@@ -9,7 +9,7 @@ const muiTheme = getmuiTheme({})
 const Text = {
         Judul: "Setting Database CMS"
 }
-
+                    
 
 class Databse extends Component {
 
