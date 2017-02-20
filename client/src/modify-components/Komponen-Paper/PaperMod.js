@@ -11,6 +11,17 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 
+
+// temp
+import {List, ListItem} from 'material-ui/List';
+import ContentInbox from 'material-ui/svg-icons/content/inbox';
+import ActionGrade from 'material-ui/svg-icons/action/grade';
+import ContentSend from 'material-ui/svg-icons/content/send';
+import ContentDrafts from 'material-ui/svg-icons/content/drafts';
+import ActionInfo from 'material-ui/svg-icons/action/info';
+
+
+
 const styles = {
 
     paperWellcome: {
@@ -20,7 +31,7 @@ const styles = {
         textAlign: 'center'
     },
     divPaper: {
-        marginTop: 70,
+        marginTop: 55,
         marginRight: 50
     },
     divContent: {
@@ -41,7 +52,9 @@ const styles = {
 
     panelDalamJudul: {
 
-        paddingTop: 5
+        paddingTop: 10,
+       
+      
     },
 
     Badan: {
@@ -53,7 +66,7 @@ const styles = {
 
     Stepper: {
         textAlign: 'center',
-        paddingTop: 140
+        paddingTop: 30
 
     }
 
@@ -74,15 +87,15 @@ export default class PaperMod extends Component {
                     </div>
                     <DividerMod />
                     <div style={styles.Badan}>
-                        <div style={{paddingBottom:90}}>
+                        <div >
                             <label>
                                 <div>
-                                    <div>
+                                    <div style={this.props.styleBadan}>
                                         {this.props.body}
                                     </div>
 
 
-                                    <div>
+                                    <div >
                                        {this.props.Optional}
                                     </div>
 
@@ -92,7 +105,7 @@ export default class PaperMod extends Component {
                             </label>
 
                         </div>
-<i className="fa fa-hourglass" aria-hidden="true"></i>
+
 
                         <div style={styles.Stepper}>
                             <DividerMod/>
@@ -100,6 +113,8 @@ export default class PaperMod extends Component {
 
 
                         </div>
+
+                    
 
                     </div>
 
