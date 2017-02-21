@@ -19,26 +19,41 @@ const Text = {
 
 const inputConifg = (
 
-    <div >
-        <Menu >
-            <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
-                <TextField hintText="Nama Laboratorium"/>
-                <br/>
-            </MenuItem>
-        </Menu>
+    <div className="col-md-offset-1">
 
-        <Menu >
-            <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
-                <TextField hintText="Nama Admin"/>
-                <br/>
-            </MenuItem>
-        </Menu>
+        <div style={{
+            paddingTop: 10
+        }}>
 
-        <Menu >
-            <MenuItem leftIcon={< Lock style = {{marginLeft:20}}/>} disabled={true}>
-                <TextField hintText="Password Admin" type="Password"/>
-            </MenuItem>
-        </Menu>
+            <label >Tolong mengisi informasi berikut untuk data laboratorium anda :
+            </label>
+            <br/>
+
+        </div>
+
+        <div >
+
+            <Menu >
+                <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
+                    <TextField hintText="Nama Laboratorium"/>
+                    <br/>
+                </MenuItem>
+            </Menu>
+
+            <Menu >
+                <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
+                    <TextField hintText="Nama Admin"/>
+                    <br/>
+                </MenuItem>
+            </Menu>
+
+            <Menu >
+                <MenuItem leftIcon={< Lock style = {{marginLeft:20}}/>} disabled={true}>
+                    <TextField hintText="Password Admin" type="Password"/>
+                </MenuItem>
+            </Menu>
+        </div>
+
     </div>
 );
 

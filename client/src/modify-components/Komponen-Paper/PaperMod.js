@@ -28,7 +28,7 @@ var Link = require('react-router').Link
 const styles = {
 
     paperWellcome: {
-        height: 500,
+        height: 510,
         // flex: 1, width:'20%', order:4,  flexShrink: 4, margin: 10,
         width: "100%",
         textAlign: 'center'
@@ -73,6 +73,12 @@ const styles = {
 
     letakTombol: {
         textAlign: "right"
+    },
+
+    sizeJudul: {
+
+        fontSize:21
+
     }
 
 }
@@ -91,7 +97,7 @@ export default class PaperMod extends Component {
             <div style={styles.divPaper}>
                 <Paper zDepth={3} style={styles.paperWellcome} className={this.props.letak}>
                     <div style={styles.panelDalamJudul}>
-                        <h3 >
+                        <h3 style={styles.sizeJudul} >
                             {this.props.judul}
                         </h3>
                     </div>
