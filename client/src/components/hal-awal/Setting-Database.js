@@ -19,19 +19,20 @@ const Text = {
 
 const inputConifg = (
 
-    <div className="col-md-offset-1">
+    <div className="col-md-offset-2">
 
         <div style={{
-            paddingTop: 10
+            paddingTop: 10, 
+            paddingBottom:10
         }}>
 
-            <label >Tolong mengisi informasi berikut untuk data laboratorium anda :
+            <label >Tolong mengisi informasi berikut untuk data awal laboratorium anda :
             </label>
             <br/>
 
         </div>
 
-        <div >
+        <div  className="col-md-offset-1">
 
             <Menu >
                 <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
