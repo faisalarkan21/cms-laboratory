@@ -71,7 +71,7 @@ export default class Welcome extends Component {
                     styleBadan={{
                     textAlign: 'center',
                     paddingTop: 10
-                }}/>
+                }} langkah={0}  alamatSelanjutnya={'/setting-database'}/>
 
             </MuiThemeProvider>
 

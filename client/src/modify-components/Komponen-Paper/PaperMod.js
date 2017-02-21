@@ -5,7 +5,9 @@ import DividerMod from '../Komponen-Divider/DividerMod.js';
 import LinearProgress from 'material-ui/LinearProgress';
 import Divider from 'material-ui/Divider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import StepperMod from '../Komponen-Stepper/StepperMod.js';
+import {Step, Stepper, StepLabel} from 'material-ui/Stepper';
+
+var Link = require('react-router').Link;
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
 import Menu from 'material-ui/Menu';
@@ -67,13 +69,22 @@ const styles = {
         textAlign: 'center',
         paddingTop: 30
 
+    },
+
+    letakTombol: {
+        textAlign: "right"
     }
 
 }
 
 export default class PaperMod extends Component {
 
+
     render() {
+
+        const contentStyle = {
+            margin: '0 16px'
+        };
 
         return (
 
@@ -105,12 +116,53 @@ export default class PaperMod extends Component {
 
                         <div style={styles.Stepper}>
                             <DividerMod/>
-                            <StepperMod/>
+                            <div
+                                style={{
+                                width: '100%',
+                                maxWidth: 700,
+                                margin: 'auto'
+                            }}>
+                                <Stepper activeStep={this.props.langkah}>
+                                    <Step>
+                                        <StepLabel>Pengenalan Fitur</StepLabel>
+                                    </Step>
+                                    <Step>
+                                        <StepLabel>Setting Database</StepLabel>
+                                    </Step>
+                                    <Step>
+                                        <StepLabel>Selesai</StepLabel>
+                                    </Step>
+                                </Stepper>
+                                <div style={contentStyle}>
 
-                            <RaisedButton
-                                containerElement={< Link to = "/setting-database" />}
-                                primary={true}
-                                onTouchTap={this.handleNext}></RaisedButton>
+                                    <div style={styles.letakTombol}>
+
+                                        <div
+                                            style={{
+                                            marginTop: 3
+                                        }}>
+                                            <RaisedButton
+                                                containerElement={< Link to = {
+                                                this.props.alamatSebelumnya
+                                            } />}
+                                                disabled={this.props.langkah === 0}
+                                                style={{
+                                                marginRight: 12
+                                            }}
+                                                label="Back"></RaisedButton>
+                                            <RaisedButton
+                                                containerElement={< Link to = {
+                                                this.props.alamatSelanjutnya
+                                            } />}
+                                                primary={true}
+                                                label="Next"></RaisedButton>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
