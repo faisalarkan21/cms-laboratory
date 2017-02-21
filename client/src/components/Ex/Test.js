@@ -1,127 +1,48 @@
 import React from 'react';
-import {Step, Stepper, StepLabel} from 'material-ui/Stepper';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
+import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
  * Avoid using long step names in horizontal steppers.
  *
  * Linear steppers require users to complete one step in order to move on to the next.
  */
-class HorizontalLinearStepper extends React.Component {
+const TextFieldExampleError = () => (
+    <MuiThemeProvider>
 
-    static childContextTypes = {
-        muiTheme: React.PropTypes.object
-    }
+        <div>
+            <TextField hintText="Hint Text"/><br/>
+            <br/>
+            <TextField hintText="The hint text can be as long as you want, it will wrap."/><br/>
+            <TextField id="text-field-default" defaultValue="Default Value"/><br/>
+            <TextField hintText="Hint Text" floatingLabelText="Floating Label Text"/><br/>
+            <TextField
+                defaultValue="Default Value"
+                floatingLabelText="Floating Label Text"/><br/>
+            <TextField
+                hintText="Hint Text"
+                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelFixed={true}/><br/>
+            <TextField
+                hintText="Password Field"
+                floatingLabelText="Password"
+                type="password"/><br/>
+            <TextField
+                hintText="MultiLine with rows: 2 and rowsMax: 4"
+                multiLine={true}
+                rows={2}
+                rowsMax={4}/><br/>
+            <TextField
+                hintText="Message Field"
+                floatingLabelText="MultiLine and FloatingLabel"
+                multiLine={true}
+                rows={2}/><br/>
+            <TextField hintText="Full width" fullWidth={true}/>
+        </div>
+    </MuiThemeProvider>
 
-    getChildContext()
-    {
-        return {muiTheme: getMuiTheme()}
-    }
+);
 
-    state = {
-        finished: false,
-        stepIndex: 0
-    };
-
-    handleNext = () => {
-        const {stepIndex} = this.state;
-        this.setState({
-            stepIndex: stepIndex + 1,
-            finished: stepIndex >= 2
-        });
-    };
-
-    handlePrev = () => {
-        const {stepIndex} = this.state;
-        if (stepIndex > 0) {
-            this.setState({
-                stepIndex: stepIndex - 1
-            });
-        }
-    };
-
-    getStepContent(stepIndex) {
-        switch (stepIndex) {
-            case 0:
-                return 'Select campaign settings...';
-            case 1:
-                return 'What is an ad group anyways?';
-            case 2:
-                return 'This is the bit I really care about!';
-            default:
-                return 'You\'re a long way from home sonny jim!';
-        }
-    }
-
-    render() {
-        const {finished, stepIndex} = this.state;
-        const contentStyle = {
-            margin: '0 16px'
-        };
-
-        return (
-            <div
-                style={{
-                width: '100%',
-                maxWidth: 700,
-                margin: 'auto'
-            }}>
-                <Stepper activeStep={stepIndex}>
-                    <Step>
-                        <StepLabel>Select campaign settings</StepLabel>
-                    </Step>
-                    <Step>
-                        <StepLabel>Create an ad group</StepLabel>
-                    </Step>
-                    <Step>
-                        <StepLabel>Create an ad</StepLabel>
-                    </Step>
-                </Stepper>
-                <div style={contentStyle}>
-                    {finished
-                        ? (
-                            <p>
-                                <a
-                                    href="#"
-                                    onClick={(event) => {
-                                    event.preventDefault();
-                                    this.setState({stepIndex: 0, finished: false});
-                                }}>
-                                    Click here
-                                </a>
-                                to reset the example.
-                            </p>
-                        )
-                        : (
-                            <div>
-                                <p>{this.getStepContent(stepIndex)}</p>
-                                <div
-                                    style={{
-                                    marginTop: 12
-                                }}>
-                                    <FlatButton
-                                        label="Back"
-                                        disabled={stepIndex === 0}
-                                        onTouchTap={this.handlePrev}
-                                        style={{
-                                        marginRight: 12
-                                    }}/>
-                                    <RaisedButton
-                                        label={stepIndex === 2
-                                        ? 'Finish'
-                                        : 'Next'}
-                                        primary={true}
-                                        onTouchTap={this.handleNext}/>
-                                </div>
-                            </div>
-                        )}
-                </div>
-            </div>
-        );
-    }
-}
-
-export default HorizontalLinearStepper;
+export default TextFieldExampleError;

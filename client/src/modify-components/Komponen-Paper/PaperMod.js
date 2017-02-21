@@ -97,14 +97,14 @@ export default class PaperMod extends Component {
                     </div>
                     <DividerMod/>
                     <div style={styles.Badan}>
-                        <div >
+                        <div>
                             <label>
                                 <div>
                                     <div style={this.props.styleBadan}>
                                         {this.props.body}
                                     </div>
 
-                                    <div >
+                                    <div>
                                         {this.props.Optional}
                                     </div>
 
