@@ -11,6 +11,23 @@ import Lock from 'material-ui/svg-icons/action/lock';
 import Orang from 'material-ui/svg-icons/social/people';
 import Gedung from 'material-ui/svg-icons/communication/business';
 
+var orang = {
+
+    nama: "faisal arkan",
+    kelas: "3ia08"
+
+}
+
+fetch('/test', {
+        method: 'POST',
+        body: orang
+    }).then(function (res) {
+    return res.json();
+})
+    .then(function (json) {
+        console.log(json);
+    });
+
 const muiTheme = getmuiTheme({})
 
 const Text = {
@@ -22,8 +39,7 @@ const inputConifg = (
     <div className="col-md-offset-2">
 
         <div style={{
-            paddingTop: 10, 
-            paddingBottom:10
+            paddingTop: 3
         }}>
 
             <label >Tolong mengisi informasi berikut untuk data awal laboratorium anda :
@@ -32,7 +48,7 @@ const inputConifg = (
 
         </div>
 
-        <div  className="col-md-offset-1">
+        <div className="col-md-offset-1">
 
             <Menu >
                 <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>

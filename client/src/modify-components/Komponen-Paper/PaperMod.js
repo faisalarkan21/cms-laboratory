@@ -77,14 +77,13 @@ const styles = {
 
     sizeJudul: {
 
-        fontSize:21
+        fontSize: 21
 
     }
 
 }
 
 export default class PaperMod extends Component {
-
 
     render() {
 
@@ -97,7 +96,7 @@ export default class PaperMod extends Component {
             <div style={styles.divPaper}>
                 <Paper zDepth={3} style={styles.paperWellcome} className={this.props.letak}>
                     <div style={styles.panelDalamJudul}>
-                        <h3 style={styles.sizeJudul} >
+                        <h3 style={styles.sizeJudul}>
                             {this.props.judul}
                         </h3>
                     </div>

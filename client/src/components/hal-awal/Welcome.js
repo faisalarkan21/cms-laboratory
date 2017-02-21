@@ -16,6 +16,7 @@ import LocalLibrary from 'material-ui/svg-icons/maps/local-library';
 import DeviceHandphone from 'material-ui/svg-icons/device/devices';
 import Database from 'material-ui/svg-icons/file/cloud-off';
 
+import RaisedButton from 'material-ui/RaisedButton';
 const muiTheme = getMuiTheme({palette: {
         // accent1Color: deepOrange500
     }});
@@ -43,7 +44,6 @@ const DivFitur = (
             <ListItem
                 primaryText="Database yang tertanam didalam CMS dengan NeDB."
                 leftIcon={< Database />}/>
-          
 
         </List>
     </div>
@@ -62,7 +62,7 @@ export default class Welcome extends Component {
         return (
 
             <MuiThemeProvider muiTheme={muiTheme}>
-
+            <div>
                 <PaperMod
                     letak={'col-xs-offset-2 col-xs-10 col-md-7 col-md-offset-3 '}
                     judul={Text.Judul}
@@ -71,8 +71,13 @@ export default class Welcome extends Component {
                     styleBadan={{
                     textAlign: 'center',
                     paddingTop: 10
-                }} langkah={0}  alamatSelanjutnya={'/setting-database'}/>
+                }}
+                    langkah={0}
+                    alamatSelanjutnya={'/setting-database'}></PaperMod>
 
+                <RaisedButton onClick={this.testApi}>sadsada
+                </RaisedButton>
+                </div>
             </MuiThemeProvider>
 
         );

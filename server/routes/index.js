@@ -27,12 +27,6 @@ var Datastore = require('nedb'),
 
 // people.push(scott, elon, jack);
 
-// db.insert(people, function(err, docs) {  
-//     docs.forEach(function(d) {
-//         console.log('Saved user:', d.name);
-//     });
-// });
-
 
 
 
@@ -42,12 +36,24 @@ var Datastore = require('nedb'),
 exports.pesan = function (req, res) {
 
     db.findOne({
-        twitter: '@ScottWRobinson'
+        _id: 'sLWMVcoGGCnoLtQ7'
     }, function (err, doc) {
         
-        res.json(doc.name);
+        res.json(doc);
 
     });
 
 
 }
+
+
+exports.test = function (req, res) {
+
+   		console.log("masuk");
+     db.insert({name : req.body});
+
+};
+
+
+
+

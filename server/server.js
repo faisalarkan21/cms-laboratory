@@ -6,6 +6,8 @@ var routes = require('./routes/index');
 
 
 app.get('/pesan', routes.pesan);
+app.post('/test', routes.test);
+
 
 app.set('port', (process.env.PORT || 3001));
 
