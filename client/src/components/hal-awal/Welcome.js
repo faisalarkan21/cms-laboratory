@@ -62,21 +62,21 @@ export default class Welcome extends Component {
         return (
 
             <MuiThemeProvider muiTheme={muiTheme}>
-            <div>
-                <PaperMod
-                    letak={'col-xs-offset-2 col-xs-10 col-md-7 col-md-offset-3 '}
-                    judul={Text.Judul}
-                    body={Text.Badan}
-                    Optional={DivFitur}
-                    styleBadan={{
-                    textAlign: 'center',
-                    paddingTop: 10
-                }}
-                    langkah={0}
-                    alamatSelanjutnya={'/setting-database'}></PaperMod>
+                <div>
+                    <PaperMod
+                        letak={'col-xs-offset-2 col-xs-10 col-md-7 col-md-offset-3 '}
+                        judul={Text.Judul}
+                        body={Text.Badan}
+                        Optional={DivFitur}
+                        styleBadan={{
+                        textAlign: 'center',
+                        paddingTop: 10
+                    }}
+                        langkah={0}
+                        alamatSelanjutnya={'/setting-database'}></PaperMod>
 
-                <RaisedButton onClick={this.testApi}>sadsada
-                </RaisedButton>
+                    <RaisedButton onClick={this.testApi}>sadsada
+                    </RaisedButton>
                 </div>
             </MuiThemeProvider>
 
@@ -85,13 +85,18 @@ export default class Welcome extends Component {
 
     testApi() {
 
-        fetch('/pesan')
-            .then(function (res) {
-                return res.text();
+        var body = {
+            nama: "asasassa"
+        };
+        fetch('/simpan', {
+            method: 'POST',
+            body: JSON.stringify(body),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             })
-            .then(function (body) {
-                console.log(body);
-            });
+            .then(res => res.json())
+            .then(json => console.log(json));
 
     }
 

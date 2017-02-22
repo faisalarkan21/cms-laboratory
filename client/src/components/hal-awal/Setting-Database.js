@@ -18,11 +18,6 @@ var orang = {
 
 }
 
-fetch('/simpan', { method: 'POST', body: 'a=1' })     
-.then(function(res) {
-return res.json();})
-.then(function(body) 
-{ console.log(body);});
 
 // fetch('/pesan').then(function (response) {
 //     return response.json();

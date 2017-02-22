@@ -69,7 +69,7 @@ exports.pesan = function (req, res) {
 
 db.insert([{ nama: "Faisal" }, { nama: "orang" }], function (err, newDocs) {
     
-
+    console.log(newDocs);
     res.send("Masuk");
 
 });
@@ -94,8 +94,8 @@ exports.simpan = function (req, res) {
 
     var nama = req.body.nama;
 
-    console.log(nama);
-    res.send("nama lau " + nama);
+    console.log(nama)
+    res.json(nama);
 
 
 }
