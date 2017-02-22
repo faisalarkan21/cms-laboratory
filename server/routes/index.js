@@ -94,8 +94,11 @@ exports.simpan = function (req, res) {
 
     var nama = req.body.nama;
 
-    console.log(nama)
-    res.json(nama);
+    db.insert({ nama: nama }, function (err, newDocs) {
+    
+    console.log(newDocs);
+    res.json(newDocs);
+});
 
 
 }
