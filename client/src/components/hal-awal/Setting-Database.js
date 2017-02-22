@@ -18,15 +18,18 @@ var orang = {
 
 }
 
-fetch('/test', {
-        method: 'POST',
-        body: orang
-    }).then(function (res) {
-    return res.json();
-})
-    .then(function (json) {
-        console.log(json);
-    });
+fetch('/simpan', { method: 'POST', body: 'a=1' })     
+.then(function(res) {
+return res.json();})
+.then(function(body) 
+{ console.log(body);});
+
+// fetch('/pesan').then(function (response) {
+//     return response.json();
+// })
+//     .then(function (body) {
+//         console.log(body);
+//     });
 
 const muiTheme = getmuiTheme({})
 
