@@ -44,9 +44,9 @@ export default class NameForm extends React.Component {
         </label>
         <input type="submit" value="Submit"/>
 
-        <textarea value={this.state.value} onChange={this.handleChange}/>
+        <textarea value={this.state.value} />
 
-      </form>
+      </form>                   
     );
   }
 }

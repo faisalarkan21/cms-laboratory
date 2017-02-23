@@ -27,55 +27,62 @@ const muiTheme = getmuiTheme({})
 const Text = {
     Judul: "Setting Database CMS"
 }
+/*
+const inputConifg = React.Component({
 
+    constructor(props) {
+        super(props);
 
+        this.state = {value:''}; 
 
+    }
 
-const inputConifg = (
+    render() {
 
-  
+        return (
 
-    <div className="col-md-offset-2">
+            <div className="col-md-offset-2">
 
-        <div style={{
-            paddingTop: 3
-        }}>
+                <div style={{
+                    paddingTop: 3
+                }}>
 
-            <label >Tolong mengisi informasi berikut untuk data awal laboratorium anda :
-            </label>
-            <br/>
-
-        </div>
-
-        <div className="col-md-offset-1">
-
-            <Menu >
-                <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
-                    <TextField   hintText="Nama Laboratorium" name="textNama"/>
+                    <label >Tolong mengisi informasi berikut untuk data awal laboratorium anda :
+                    </label>
                     <br/>
-                </MenuItem>
-            </Menu>
 
-            <Menu >
-                <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
-                    <TextField hintText="Nama Admin"/>
-                    <br/>
-                </MenuItem>
-            </Menu>
+                </div>
 
-            <Menu >
-                <MenuItem leftIcon={< Lock style = {{marginLeft:20}}/>} disabled={true}>
-                    <TextField hintText="Password Admin" type="Password"/>
-                </MenuItem>
-            </Menu>
+                <div className="col-md-offset-1">
 
-            <RaisedButton onClick={inputDatabase}>Test Api
-            </RaisedButton>
-        </div>
+                    <Menu >
+                        <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
+                            <TextField hintText="Nama Laboratorium" name="textNama"/>
+                            <br/>
+                        </MenuItem>
+                    </Menu>
 
-    </div>
-);
+                    <Menu >
+                        <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
+                            <TextField hintText="Nama Admin"/>
+                            <br/>
+                        </MenuItem>
+                    </Menu>
 
+                    <Menu >
+                        <MenuItem leftIcon={< Lock style = {{marginLeft:20}}/>} disabled={true}>
+                            <TextField hintText="Password Admin" type="Password"/>
+                        </MenuItem>
+                    </Menu>
+
+                    <RaisedButton onClick={inputDatabase}>Test Api
+                    </RaisedButton>
+                </div>
+
+            </div>
+        )
+    }
+})*/
 
 function inputDatabase() {
 
@@ -94,8 +101,6 @@ function inputDatabase() {
 
 }
 
-
-
 class Databse extends Component {
 
     render() {
@@ -107,8 +112,9 @@ class Databse extends Component {
                     letak={'col-xs-offset-2 col-xs-10 col-md-7 col-md-offset-3 '}
                     judul={Text.Judul}
                     langkah={1}
-                    alamatSebelumnya={'/selamat-datang'}
-                    body={inputConifg}></PaperMod>
+                    alamatSebelumnya={'/selamat-datang'} />
+                  
+                   
 
             </MuiThemeProvider>
 
