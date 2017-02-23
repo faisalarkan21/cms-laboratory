@@ -6,6 +6,7 @@ import getmuiTheme from 'material-ui/styles/getMuiTheme';
 import TextField from 'material-ui/TextField';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import Lock from 'material-ui/svg-icons/action/lock';
 import Orang from 'material-ui/svg-icons/social/people';
@@ -18,13 +19,8 @@ var orang = {
 
 }
 
-
-// fetch('/pesan').then(function (response) {
-//     return response.json();
-// })
-//     .then(function (body) {
-//         console.log(body);
-//     });
+// fetch('/pesan').then(function (response) {     return response.json(); })
+// .then(function (body) {         console.log(body);     });
 
 const muiTheme = getmuiTheme({})
 
@@ -32,7 +28,12 @@ const Text = {
     Judul: "Setting Database CMS"
 }
 
+
+
+
 const inputConifg = (
+
+  
 
     <div className="col-md-offset-2">
 
@@ -50,7 +51,7 @@ const inputConifg = (
 
             <Menu >
                 <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
-                    <TextField hintText="Nama Laboratorium"/>
+                    <TextField   hintText="Nama Laboratorium" name="textNama"/>
                     <br/>
                 </MenuItem>
             </Menu>
@@ -67,10 +68,33 @@ const inputConifg = (
                     <TextField hintText="Password Admin" type="Password"/>
                 </MenuItem>
             </Menu>
+
+            <RaisedButton onClick={inputDatabase}>Test Api
+            </RaisedButton>
         </div>
 
     </div>
 );
+
+
+function inputDatabase() {
+
+    var body = {
+        nama: "asasas"
+    };
+    fetch('/simpan', {
+        method: 'POST',
+        body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(json => console.log(json));
+
+}
+
+
 
 class Databse extends Component {
 

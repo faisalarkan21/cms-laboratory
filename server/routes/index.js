@@ -90,6 +90,22 @@ db.find({ nama: 'Faisal' }, function (err, docs) {
 
 
 
+// exports.simpan = function (req, res) {
+
+//     var nama = req.body.nama;
+
+//     db.insert({ nama: nama }, function (err, newDocs) {
+    
+//     console.log(newDocs);
+//     res.json(newDocs);
+// });
+
+
+// }
+
+
+
+
 exports.simpan = function (req, res) {
 
     var nama = req.body.nama;
@@ -102,7 +118,6 @@ exports.simpan = function (req, res) {
 
 
 }
-
 
 
 
