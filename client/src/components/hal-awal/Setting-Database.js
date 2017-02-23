@@ -12,7 +12,8 @@ import Lock from 'material-ui/svg-icons/action/lock';
 import Orang from 'material-ui/svg-icons/social/people';
 import Gedung from 'material-ui/svg-icons/communication/business';
 
-import InputDatabase from '../../modify-components/Komponen-Input/InputDatabase.js';
+// import InputDatabase from
+// '../../modify-components/Komponen-Input/InputDatabase.js';
 
 var orang = {
 
@@ -103,20 +104,102 @@ function AASA() {
 
 }
 
+class InputDatabase extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            value: ''
+        };
+
+        this.handleChange = this
+            .handleChange
+            .bind(this);
+        this.handleSubmit = this
+            .handleSubmit
+            .bind(this);
+
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        this.setState({value: event.target.value})
+        alert(this.state.value);
+    }
+
+    render() {
+
+        return (
+
+            <div>
+
+                <div className="col-md-offset-2">
+
+                    <div style={{
+                        paddingTop: 3
+                    }}>
+
+                        <label >Tolong mengisi informasi berikut untuk data awal laboratorium anda :
+                        </label>
+                        <br/>
+
+                    </div>
+
+                    <div className="col-md-offset-1">
+
+                        <Menu >
+                            <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
+                                <TextField onChange={this.handleChange} hintText="Nama Laboratorium" name="textNama"/>
+                                <br/>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu >
+                            <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
+                                <TextField value={this.state.value} hintText="Nama Admin"/>
+                                <br/>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu >
+                            <MenuItem leftIcon={< Lock style = {{marginLeft:20}}/>} disabled={true}>
+                                <TextField hintText="Password Admin" type="Password"/>
+                            </MenuItem>
+                        </Menu>
+
+                        <RaisedButton >Test Api
+                        </RaisedButton>
+                    </div>
+
+                </div>
+
+            </div>
+
+        )
+
+    }
+
+}
+
 class Database extends Component {
 
     render() {
         return (
 
             <div>
-               
+
                 <MuiThemeProvider muiTheme={muiTheme}>
 
                     <PaperMod
                         letak={'col-xs-offset-2 col-xs-10 col-md-7 col-md-offset-3 '}
                         judul={Text.Judul}
                         langkah={1}
-                        alamatSebelumnya={'/selamat-datang'} body={ <InputDatabase/>}/>
+                        alamatSebelumnya={'/selamat-datang'}
+                        body={< InputDatabase />}/>
 
                 </MuiThemeProvider>
             </div>
