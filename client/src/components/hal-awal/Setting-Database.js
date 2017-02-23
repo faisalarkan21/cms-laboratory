@@ -12,6 +12,8 @@ import Lock from 'material-ui/svg-icons/action/lock';
 import Orang from 'material-ui/svg-icons/social/people';
 import Gedung from 'material-ui/svg-icons/communication/business';
 
+import InputDatabase from '../../modify-components/Komponen-Input/InputDatabase.js';
+
 var orang = {
 
     nama: "faisal arkan",
@@ -33,7 +35,7 @@ const inputConifg = React.Component({
     constructor(props) {
         super(props);
 
-        this.state = {value:''}; 
+        this.state = {value:''};
 
     }
 
@@ -84,7 +86,7 @@ const inputConifg = React.Component({
     }
 })*/
 
-function inputDatabase() {
+function AASA() {
 
     var body = {
         nama: "asasas"
@@ -101,26 +103,26 @@ function inputDatabase() {
 
 }
 
-class Databse extends Component {
+class Database extends Component {
 
     render() {
         return (
 
-            <MuiThemeProvider muiTheme={muiTheme}>
+            <div>
+               
+                <MuiThemeProvider muiTheme={muiTheme}>
 
-                <PaperMod
-                    letak={'col-xs-offset-2 col-xs-10 col-md-7 col-md-offset-3 '}
-                    judul={Text.Judul}
-                    langkah={1}
-                    alamatSebelumnya={'/selamat-datang'} />
-                  
-                   
+                    <PaperMod
+                        letak={'col-xs-offset-2 col-xs-10 col-md-7 col-md-offset-3 '}
+                        judul={Text.Judul}
+                        langkah={1}
+                        alamatSebelumnya={'/selamat-datang'} body={ <InputDatabase/>}/>
 
-            </MuiThemeProvider>
-
+                </MuiThemeProvider>
+            </div>
         )
     }
 
 }
 
-export default Databse;
+export default Database;

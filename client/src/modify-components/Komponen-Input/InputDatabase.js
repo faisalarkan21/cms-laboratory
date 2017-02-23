@@ -8,6 +8,10 @@ export default class InputDatabase extends React.Component {
         this.state = {
             value: ''
         };
+
+
+        this.handleChange = this.handleChange.bind(this);
+
     }
 
     handleChange(event) {

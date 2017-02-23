@@ -10,12 +10,15 @@ import settingUser from './components/hal-awal/Setting-User';
 // import About from './components/About'; import coba from './components/coba';
 import TidakDitemukan from './components/NotFound/404.js';
 
+// temp
+import InputDatabase from './modify-components/Komponen-Input/InputDatabase.js';
+
 const Routes = (props) => (
   <Router {...props}>
 
     <Route path="/">
       <IndexRedirect to="/selamat-datang"/>
-      <Route path="test" component={Test}/>
+      <Route path="test" component={InputDatabase}/>
 
     </Route>
     <Route path="selamat-datang" component={Welcome}/>
