@@ -1,6 +1,3 @@
-
-
-
 var Datastore = require('nedb'),
     db = new Datastore({
         filename: './database/database-cms',
@@ -65,26 +62,26 @@ var Datastore = require('nedb'),
 
 
 
-exports.pesan = function (req, res) {
+exports.pesan = function(req, res) {
 
-db.insert([{ nama: "Faisal" }, { nama: "orang" }], function (err, newDocs) {
-    
-    console.log(newDocs);
-    res.send("Masuk");
+    db.insert([{ nama: "Faisal" }, { nama: "orang" }], function(err, newDocs) {
 
-});
+        console.log(newDocs);
+        res.send("Masuk");
+
+    });
 
 }
 
 
-exports.ambil = function (req, res) {
+exports.ambil = function(req, res) {
 
-db.find({ nama: 'Faisal' }, function (err, docs) {
-  
+    db.find({ nama: 'Faisal' }, function(err, docs) {
 
-    res.send(docs);
 
-});
+        res.send(docs);
+
+    });
 
 }
 
@@ -95,7 +92,7 @@ db.find({ nama: 'Faisal' }, function (err, docs) {
 //     var nama = req.body.nama;
 
 //     db.insert({ nama: nama }, function (err, newDocs) {
-    
+
 //     console.log(newDocs);
 //     res.json(newDocs);
 // });
@@ -106,16 +103,17 @@ db.find({ nama: 'Faisal' }, function (err, docs) {
 
 
 
-exports.simpan = function (req, res) {
+exports.simpan = function(req, res) {
 
     var namaLab = req.body.NamaLab;
-     var namaAdmin = req.body.NamaAdmin;
+    var namaAdmin = req.body.NamaAdmin;
+    var passwordAdmin = req.body.PasswordAdmin;
 
-    db.insert({ Lab: namaLab, Admin: namaAdmin }, function (err, newDocs) {
-    
-    console.log(newDocs);
-    res.json(newDocs);
-});
+    db.insert({ Lab: namaLab, Admin: namaAdmin, passwordAdmin: passwordAdmin }, function(err, newDocs) {
+
+        console.log(newDocs);
+        res.json(newDocs);
+    });
 
 
 }
@@ -124,12 +122,10 @@ exports.simpan = function (req, res) {
 
 
 
-exports.test = function (req, res) {
+exports.test = function(req, res) {
 
-		var user_id = req.body.nama;
+    var user_id = req.body.nama;
 
-   		res.send("nama lau : " + user_id);
+    res.send("nama lau : " + user_id);
 
 };
-
-

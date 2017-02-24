@@ -44,13 +44,17 @@ class InputDatabase extends React.Component {
                 .bind(this, 'NamaLab'),
             NamaAdmin: this
                 .handleChange
-                .bind(this, 'NamaAdmin')
+                .bind(this, 'NamaAdmin'),
+            PasswordAdmin: this
+                .handleChange
+                .bind(this, 'PasswordAdmin')
         }
 
         this.state = {
 
             NamaLab: '',
-            NamaAdmin: ''
+            NamaAdmin: '',
+            PasswordAdmin: ''
         };
 
     }
@@ -71,7 +75,8 @@ class InputDatabase extends React.Component {
 
         var body = {
             NamaLab: this.state.NamaLab,
-            NamaAdmin: this.state.NamaAdmin
+            NamaAdmin: this.state.NamaAdmin,
+            PasswordAdmin: this.state.PasswordAdmin
         };
         fetch('/simpan', {
             method: 'POST',
@@ -109,29 +114,26 @@ class InputDatabase extends React.Component {
                         .bind(this)}>
                         <div className="col-md-offset-1">
 
-                            <Menu >
+                            <Menu>
                                 <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
-                                    <TextField
-                                        onChange={this.onChange.NamaLab}
-                                      
-                                        hintText="Laboratorium"
-                                        name="textNama"/>
+                                    <TextField onChange={this.onChange.NamaLab} hintText="Laboratorium"/>
                                     <br/>
                                 </MenuItem>
                             </Menu>
 
                             <Menu >
                                 <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
-                                    <TextField
-                                        onChange={this.onChange.NamaAdmin}
-                                        hintText="Nama Admin"/>
+                                    <TextField onChange={this.onChange.NamaAdmin} hintText="Nama Admin"/>
                                     <br/>
                                 </MenuItem>
                             </Menu>
 
-                            <Menu >
+                            <Menu>
                                 <MenuItem leftIcon={< Lock style = {{marginLeft:20}}/>} disabled={true}>
-                                    <TextField hintText="Password Admin" type="Password"/>
+                                    <TextField
+                                        onChange={this.onChange.PasswordAdmin}
+                                        hintText="Password Admin"
+                                        type="Password"/>
                                 </MenuItem>
                             </Menu>
 
