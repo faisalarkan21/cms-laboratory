@@ -5,8 +5,6 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import IconButton from 'material-ui/IconButton';
 
-
-
 import './hal-awal.css';
 
 // temp
@@ -18,10 +16,13 @@ import LocalLibrary from 'material-ui/svg-icons/maps/local-library';
 import DeviceHandphone from 'material-ui/svg-icons/device/devices';
 import Database from 'material-ui/svg-icons/file/cloud-off';
 
+var Link = require('react-router').Link;
 import RaisedButton from 'material-ui/RaisedButton';
 const muiTheme = getMuiTheme({palette: {
         // accent1Color: deepOrange500
     }});
+
+
 
 // const DivFitur = (     <div>         <Fitur nomor={"Penjadwalan pengajaran
 // untuk asisten agar pengajaran dapat berjalan dengan terstruktur  "}/> <Fitur
@@ -52,6 +53,25 @@ const DivFitur = (
 
 )
 
+const TombolNext = (
+    <div>
+        <RaisedButton
+          
+            disabled={true}
+            style={{
+            marginRight: 12
+        }}
+            label="Back"></RaisedButton>
+        <RaisedButton
+            
+            href={'/setting-database'}
+            primary={true}
+          
+            label="Next"></RaisedButton>
+    </div>
+
+)
+
 const Text = {
 
     Judul: "Selamat Datang di CMS Laboratorium",
@@ -75,9 +95,8 @@ export default class Welcome extends Component {
                         paddingTop: 10
                     }}
                         langkah={0}
-                        alamatSelanjutnya={'/setting-database'}></PaperMod>
+                        alamatSelanjutnya={'/setting-database'} tombolNext={TombolNext}></PaperMod>
 
-                   
                 </div>
             </MuiThemeProvider>
 

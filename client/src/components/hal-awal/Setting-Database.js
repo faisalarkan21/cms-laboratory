@@ -12,6 +12,9 @@ import Lock from 'material-ui/svg-icons/action/lock';
 import Orang from 'material-ui/svg-icons/social/people';
 import Gedung from 'material-ui/svg-icons/communication/business';
 
+var Link = require('react-router').Link;
+
+
 // import InputDatabase from
 // '../../modify-components/Komponen-Input/InputDatabase.js';
 
@@ -30,6 +33,8 @@ const muiTheme = getmuiTheme({})
 const Text = {
     Judul: "Setting Database CMS"
 }
+
+var TombolCheck = true;
 
 class InputDatabase extends React.Component {
 
@@ -61,6 +66,7 @@ class InputDatabase extends React.Component {
 
     handleChange(name, event) {
         this.setState({[name]: event.target.value});
+
     }
 
     handleSubmit(event) {
@@ -71,15 +77,25 @@ class InputDatabase extends React.Component {
 
     }
 
+    handleNext() {
 
-    handleNext (){
+        if ((this.state.NamaAdmin.length != 0) && (this.state.NamaLab.length != 0) && (this.state.PasswordAdmin != 0)) {
 
-        if (this.state.NamaAdmin && this.state.NamaLab && this.state.PasswordAdmin){
+            console.log("engga null");
 
+            TombolCheck = false;
             
+        } else {
+
+            console.log("null");
+            TombolCheck = true;
 
         }
 
+    }
+
+    componentDidUpdate() {
+        this.handleNext();
     }
 
     SubmitApiDatabase() {
@@ -157,9 +173,12 @@ class InputDatabase extends React.Component {
                             </div>
                             <div
                                 style={{
-                                paddingTop: 5
+                                paddingTop: 13
                             }}
-                                className="col-md-16 col-md-offset-5">
+                                className="col-md-16 col-md-offset-3">
+                                <RaisedButton containerElement={< Link to = {
+                                                'selamat-datang'
+                                            } />}  label="Kembali" style={{ marginRight: 15}}  type="submit"></RaisedButton>
                                 <RaisedButton label="Simpan Data" primary={true} type="submit"></RaisedButton>
                             </div>
                         </div>
@@ -176,6 +195,12 @@ class InputDatabase extends React.Component {
 
 class Database extends Component {
 
+    componentDidUpdate() {
+
+        
+ 
+    }
+
     render() {
         return (
 
@@ -189,8 +214,10 @@ class Database extends Component {
                         langkah={1}
                         alamatSebelumnya={'/selamat-datang'}
                         alamatSelanjutnya={'/setting-user'}
-                        body={< InputDatabase />} tombolDisable={true}/>
+                        body={< InputDatabase />}
+                        tombolDisable={TombolCheck}/>
 
+       
                 </MuiThemeProvider>
             </div>
         )

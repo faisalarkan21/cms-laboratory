@@ -28,7 +28,7 @@ var Link = require('react-router').Link
 const styles = {
 
     paperWellcome: {
-        height: 560,
+        height: 530,
         // flex: 1, width:'20%', order:4,  flexShrink: 4, margin: 10,
         width: "100%",
         textAlign: 'center'
@@ -146,21 +146,9 @@ export default class PaperMod extends Component {
                                             style={{
                                             marginTop: 3
                                         }}>
-                                            <RaisedButton
-                                                containerElement={< Link to = {
-                                                this.props.alamatSebelumnya
-                                            } />}
-                                                disabled={this.props.langkah === 0}
-                                                style={{
-                                                marginRight: 12
-                                            }}
-                                                label="Back"></RaisedButton>
-                                            <RaisedButton
-                                                linkButton
-                                                href={this.props.alamatSelanjutnya}
-                                                primary={true}
-                                                disabled={this.props.tombolDisable}
-                                                label="Next"></RaisedButton>
+
+                                        {this.props.tombolNext} 
+                                           
 
                                         </div>
                                     </div>
