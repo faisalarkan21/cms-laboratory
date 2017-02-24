@@ -38,6 +38,15 @@ class InputDatabase extends React.Component {
     constructor(props) {
         super(props);
 
+        this.onChange = {
+            NamaLab: this
+                .handleChange
+                .bind(this, 'NamaLab'),
+            NamaAdmin: this
+                .handleChange
+                .bind(this, 'NamaAdmin')
+        }
+
         this.state = {
 
             NamaLab: '',
@@ -46,24 +55,20 @@ class InputDatabase extends React.Component {
 
     }
 
-    handleChange(event, namaState) {
-        this.setState({[namaState]: event.target.value});
+    handleChange(name, event) {
+        this.setState({[name]: event.target.value});
     }
 
     handleSubmit(event) {
         // this.setState({NamaLab: event.target.value})
         this.SubmitApiDatabase();
 
-      
-
-        // alert(this.state.NamaLab);
-        // alert(this.state.NamaAdmin);
+        // alert(this.state.NamaLab); alert(this.state.NamaAdmin);
 
     }
 
     SubmitApiDatabase() {
 
-        
         var body = {
             NamaLab: this.state.NamaLab,
             NamaAdmin: this.state.NamaAdmin
@@ -107,8 +112,8 @@ class InputDatabase extends React.Component {
                             <Menu >
                                 <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
                                     <TextField
-                                        onChange={(event) => this.handleChange(event, 'NamaLab')}
-                                        value={this.state.NamaLab}
+                                        onChange={this.onChange.NamaLab}
+                                      
                                         hintText="Laboratorium"
                                         name="textNama"/>
                                     <br/>
@@ -118,7 +123,7 @@ class InputDatabase extends React.Component {
                             <Menu >
                                 <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
                                     <TextField
-                                        onChange={(event) => this.handleChange(event, 'NamaAdmin')}
+                                        onChange={this.onChange.NamaAdmin}
                                         hintText="Nama Admin"/>
                                     <br/>
                                 </MenuItem>
