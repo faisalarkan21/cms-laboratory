@@ -14,7 +14,7 @@ class SettingUser extends Component {
 
             <MuiThemeProvider>
 
-            <PaperMod  letak={'col-xs-offset-2 col-xs-10 col-md-7 col-md-offset-3 '} judul={"Makan"}/>
+            <PaperMod  letak={'col-xs-offset-2 col-xs-10 col-md-7 col-md-offset-3 '} judul={"Makan"}   alamatSebelumnya={'/setting-database'}/>
 
 
 

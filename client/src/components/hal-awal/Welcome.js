@@ -77,8 +77,7 @@ export default class Welcome extends Component {
                         langkah={0}
                         alamatSelanjutnya={'/setting-database'}></PaperMod>
 
-                    <RaisedButton onClick={this.testApi}>Test Api
-                    </RaisedButton>
+                   
                 </div>
             </MuiThemeProvider>
 

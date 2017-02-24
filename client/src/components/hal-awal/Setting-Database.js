@@ -33,8 +33,6 @@ const Text = {
 
 class InputDatabase extends React.Component {
 
-    getInitialState() {}
-
     constructor(props) {
         super(props);
 
@@ -49,6 +47,8 @@ class InputDatabase extends React.Component {
                 .handleChange
                 .bind(this, 'PasswordAdmin')
         }
+
+        // this.handleSubmit = this.handleSubmit.bind(this);
 
         this.state = {
 
@@ -94,11 +94,11 @@ class InputDatabase extends React.Component {
 
         return (
 
-            <div>
+            <div className="row">
 
-                <div className="col-md-offset-2">
+                <div className="col-md-12 col-md-offset-1">
 
-                    <div style={{
+                    <div className="col-md-10 " style={{
                         paddingTop: 3
                     }}>
 
@@ -112,33 +112,35 @@ class InputDatabase extends React.Component {
                         onSubmit={this
                         .handleSubmit
                         .bind(this)}>
-                        <div className="col-md-offset-1">
+                        <div>
 
-                            <Menu>
-                                <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
-                                    <TextField onChange={this.onChange.NamaLab} hintText="Laboratorium"/>
-                                    <br/>
-                                </MenuItem>
-                            </Menu>
+                            <div style={{paddingTop:8}} className="col-md-2 col-md-offset-1 ">
+                                <Menu>
+                                    <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
+                                        <TextField onChange={this.onChange.NamaLab} hintText="Nama Laboratorium"/>
+                                        <br/>
+                                    </MenuItem>
+                                </Menu>
 
-                            <Menu >
-                                <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
-                                    <TextField onChange={this.onChange.NamaAdmin} hintText="Nama Admin"/>
-                                    <br/>
-                                </MenuItem>
-                            </Menu>
+                                <Menu >
+                                    <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
+                                        <TextField onChange={this.onChange.NamaAdmin} hintText="Nama Admin"/>
+                                        <br/>
+                                    </MenuItem>
+                                </Menu>
 
-                            <Menu>
-                                <MenuItem leftIcon={< Lock style = {{marginLeft:20}}/>} disabled={true}>
-                                    <TextField
-                                        onChange={this.onChange.PasswordAdmin}
-                                        hintText="Password Admin"
-                                        type="Password"/>
-                                </MenuItem>
-                            </Menu>
-
-                            <RaisedButton type="submit">Test Api
-                            </RaisedButton>
+                                <Menu>
+                                    <MenuItem leftIcon={< Lock style = {{marginLeft:20}}/>} disabled={true}>
+                                        <TextField
+                                            onChange={this.onChange.PasswordAdmin}
+                                            hintText="Password Admin"
+                                            type="Password"/>
+                                    </MenuItem>
+                                </Menu>
+                            </div>
+                            <div style={{paddingTop:5}} className="col-md-16 col-md-offset-5">
+                                <RaisedButton label="Simpan Data" primary={true} type="submit"></RaisedButton>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -165,6 +167,7 @@ class Database extends Component {
                         judul={Text.Judul}
                         langkah={1}
                         alamatSebelumnya={'/selamat-datang'}
+                        alamatSelanjutnya={'/setting-user'}
                         body={< InputDatabase />}/>
 
                 </MuiThemeProvider>
