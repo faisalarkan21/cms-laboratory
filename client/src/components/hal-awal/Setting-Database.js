@@ -30,107 +30,43 @@ const muiTheme = getmuiTheme({})
 const Text = {
     Judul: "Setting Database CMS"
 }
-/*
-const inputConifg = React.Component({
-
-    constructor(props) {
-        super(props);
-
-        this.state = {namaLab:''};
-
-    }
-
-    render() {
-
-        return (
-
-            <div className="col-md-offset-2">
-
-                <div style={{
-                    paddingTop: 3
-                }}>
-
-                    <label >Tolong mengisi informasi berikut untuk data awal laboratorium anda :
-                    </label>
-                    <br/>
-
-                </div>
-
-                <div className="col-md-offset-1">
-
-                    <Menu >
-                        <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
-                            <TextField hintText="Nama Laboratorium" name="textNama"/>
-                            <br/>
-                        </MenuItem>
-                    </Menu>
-
-                    <Menu >
-                        <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
-                            <TextField hintText="Nama Admin"/>
-                            <br/>
-                        </MenuItem>
-                    </Menu>
-
-                    <Menu >
-                        <MenuItem leftIcon={< Lock style = {{marginLeft:20}}/>} disabled={true}>
-                            <TextField hintText="Password Admin" type="Password"/>
-                        </MenuItem>
-                    </Menu>
-
-                    <RaisedButton onClick={inputDatabase}>Test Api
-                    </RaisedButton>
-                </div>
-
-            </div>
-        )
-    }
-})*/
-
-// function AASA() {     var body = {         nama: "asasas"     };
-// fetch('/simpan', {         method: 'POST',         body:
-// JSON.stringify(body),             headers: {                 'Content-Type':
-// 'application/json'             }         })         .then(res => res.json())
-//        .then(json => console.log(json)); }
 
 class InputDatabase extends React.Component {
 
-    getInitialState (){
-
-    }
-
+    getInitialState() {}
 
     constructor(props) {
         super(props);
 
         this.state = {
-          
-            Nama: ''
-        };
 
-      
-        this.handleSubmit = this
-            .handleSubmit
-            .bind(this);
+            NamaLab: '',
+            NamaAdmin: ''
+        };
 
     }
 
-    handleChange(event) {
-        this.setState({Nama: event.target.value});
+    handleChange(event, namaState) {
+        this.setState({[namaState]: event.target.value});
     }
 
     handleSubmit(event) {
-        this.setState({Nama: event.target.value})
-        // this.SubmitApiDatabase();
+        // this.setState({NamaLab: event.target.value})
+        this.SubmitApiDatabase();
 
-        alert(this.state.Nama);
+      
+
+        // alert(this.state.NamaLab);
+        // alert(this.state.NamaAdmin);
 
     }
 
     SubmitApiDatabase() {
 
+        
         var body = {
-            nama: this.state.value
+            NamaLab: this.state.NamaLab,
+            NamaAdmin: this.state.NamaAdmin
         };
         fetch('/simpan', {
             method: 'POST',
@@ -162,13 +98,17 @@ class InputDatabase extends React.Component {
 
                     </div>
 
-                    <form onSubmit={this.handleSubmit}>
+                    <form
+                        onSubmit={this
+                        .handleSubmit
+                        .bind(this)}>
                         <div className="col-md-offset-1">
 
                             <Menu >
                                 <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
                                     <TextField
-                                       onChange={this.handleChange.bind(this)}   value={this.state.Nama}
+                                        onChange={(event) => this.handleChange(event, 'NamaLab')}
+                                        value={this.state.NamaLab}
                                         hintText="Laboratorium"
                                         name="textNama"/>
                                     <br/>
@@ -177,7 +117,9 @@ class InputDatabase extends React.Component {
 
                             <Menu >
                                 <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
-                                    <TextField   hintText="Nama Admin"/>
+                                    <TextField
+                                        onChange={(event) => this.handleChange(event, 'NamaAdmin')}
+                                        hintText="Nama Admin"/>
                                     <br/>
                                 </MenuItem>
                             </Menu>

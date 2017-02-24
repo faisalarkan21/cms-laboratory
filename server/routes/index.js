@@ -108,9 +108,10 @@ db.find({ nama: 'Faisal' }, function (err, docs) {
 
 exports.simpan = function (req, res) {
 
-    var nama = req.body.nama;
+    var namaLab = req.body.NamaLab;
+     var namaAdmin = req.body.NamaAdmin;
 
-    db.insert({ nama: nama }, function (err, newDocs) {
+    db.insert({ Lab: namaLab, Admin: namaAdmin }, function (err, newDocs) {
     
     console.log(newDocs);
     res.json(newDocs);
