@@ -36,7 +36,7 @@ const inputConifg = React.Component({
     constructor(props) {
         super(props);
 
-        this.state = {value:''};
+        this.state = {namaLab:''};
 
     }
 
@@ -87,35 +87,28 @@ const inputConifg = React.Component({
     }
 })*/
 
-function AASA() {
-
-    var body = {
-        nama: "asasas"
-    };
-    fetch('/simpan', {
-        method: 'POST',
-        body: JSON.stringify(body),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(json => console.log(json));
-
-}
+// function AASA() {     var body = {         nama: "asasas"     };
+// fetch('/simpan', {         method: 'POST',         body:
+// JSON.stringify(body),             headers: {                 'Content-Type':
+// 'application/json'             }         })         .then(res => res.json())
+//        .then(json => console.log(json)); }
 
 class InputDatabase extends React.Component {
+
+    getInitialState (){
+
+    }
+
 
     constructor(props) {
         super(props);
 
         this.state = {
-            value: ''
+          
+            Nama: ''
         };
 
-        this.handleChange = this
-            .handleChange
-            .bind(this);
+      
         this.handleSubmit = this
             .handleSubmit
             .bind(this);
@@ -123,12 +116,32 @@ class InputDatabase extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({value: event.target.value});
+        this.setState({Nama: event.target.value});
     }
 
     handleSubmit(event) {
-        this.setState({value: event.target.value})
-        alert(this.state.value);
+        this.setState({Nama: event.target.value})
+        // this.SubmitApiDatabase();
+
+        alert(this.state.Nama);
+
+    }
+
+    SubmitApiDatabase() {
+
+        var body = {
+            nama: this.state.value
+        };
+        fetch('/simpan', {
+            method: 'POST',
+            body: JSON.stringify(body),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(res => res.json())
+            .then(json => console.log(json));
+
     }
 
     render() {
@@ -149,32 +162,36 @@ class InputDatabase extends React.Component {
 
                     </div>
 
-                    <div className="col-md-offset-1">
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="col-md-offset-1">
 
-                        <Menu >
-                            <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
-                                <TextField onChange={this.handleChange} hintText="Nama Laboratorium" name="textNama"/>
-                                <br/>
-                            </MenuItem>
-                        </Menu>
+                            <Menu >
+                                <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
+                                    <TextField
+                                       onChange={this.handleChange.bind(this)}   value={this.state.Nama}
+                                        hintText="Laboratorium"
+                                        name="textNama"/>
+                                    <br/>
+                                </MenuItem>
+                            </Menu>
 
-                        <Menu >
-                            <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
-                                <TextField value={this.state.value} hintText="Nama Admin"/>
-                                <br/>
-                            </MenuItem>
-                        </Menu>
+                            <Menu >
+                                <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
+                                    <TextField   hintText="Nama Admin"/>
+                                    <br/>
+                                </MenuItem>
+                            </Menu>
 
-                        <Menu >
-                            <MenuItem leftIcon={< Lock style = {{marginLeft:20}}/>} disabled={true}>
-                                <TextField hintText="Password Admin" type="Password"/>
-                            </MenuItem>
-                        </Menu>
+                            <Menu >
+                                <MenuItem leftIcon={< Lock style = {{marginLeft:20}}/>} disabled={true}>
+                                    <TextField hintText="Password Admin" type="Password"/>
+                                </MenuItem>
+                            </Menu>
 
-                        <RaisedButton >Test Api
-                        </RaisedButton>
-                    </div>
-
+                            <RaisedButton type="submit">Test Api
+                            </RaisedButton>
+                        </div>
+                    </form>
                 </div>
 
             </div>
