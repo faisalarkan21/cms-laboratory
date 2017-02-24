@@ -71,6 +71,17 @@ class InputDatabase extends React.Component {
 
     }
 
+
+    handleNext (){
+
+        if (this.state.NamaAdmin && this.state.NamaLab && this.state.PasswordAdmin){
+
+            
+
+        }
+
+    }
+
     SubmitApiDatabase() {
 
         var body = {
@@ -98,7 +109,9 @@ class InputDatabase extends React.Component {
 
                 <div className="col-md-12 col-md-offset-1">
 
-                    <div className="col-md-10 " style={{
+                    <div
+                        className="col-md-10 "
+                        style={{
                         paddingTop: 3
                     }}>
 
@@ -114,7 +127,11 @@ class InputDatabase extends React.Component {
                         .bind(this)}>
                         <div>
 
-                            <div style={{paddingTop:8}} className="col-md-2 col-md-offset-1 ">
+                            <div
+                                style={{
+                                paddingTop: 8
+                            }}
+                                className="col-md-2 col-md-offset-1 ">
                                 <Menu>
                                     <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
                                         <TextField onChange={this.onChange.NamaLab} hintText="Nama Laboratorium"/>
@@ -138,7 +155,11 @@ class InputDatabase extends React.Component {
                                     </MenuItem>
                                 </Menu>
                             </div>
-                            <div style={{paddingTop:5}} className="col-md-16 col-md-offset-5">
+                            <div
+                                style={{
+                                paddingTop: 5
+                            }}
+                                className="col-md-16 col-md-offset-5">
                                 <RaisedButton label="Simpan Data" primary={true} type="submit"></RaisedButton>
                             </div>
                         </div>
@@ -168,7 +189,7 @@ class Database extends Component {
                         langkah={1}
                         alamatSebelumnya={'/selamat-datang'}
                         alamatSelanjutnya={'/setting-user'}
-                        body={< InputDatabase />}/>
+                        body={< InputDatabase />} tombolDisable={true}/>
 
                 </MuiThemeProvider>
             </div>

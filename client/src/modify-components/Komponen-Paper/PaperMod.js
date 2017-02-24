@@ -155,11 +155,11 @@ export default class PaperMod extends Component {
                                                 marginRight: 12
                                             }}
                                                 label="Back"></RaisedButton>
-                                            <RaisedButton 
-                                                containerElement={< Link to = {
-                                                this.props.alamatSelanjutnya
-                                            } />}
+                                            <RaisedButton
+                                                linkButton
+                                                href={this.props.alamatSelanjutnya}
                                                 primary={true}
+                                                disabled={this.props.tombolDisable}
                                                 label="Next"></RaisedButton>
 
                                         </div>
