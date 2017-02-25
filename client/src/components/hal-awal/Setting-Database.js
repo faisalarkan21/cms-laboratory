@@ -11,6 +11,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Lock from 'material-ui/svg-icons/action/lock';
 import Orang from 'material-ui/svg-icons/social/people';
 import Gedung from 'material-ui/svg-icons/communication/business';
+import {browserHistory} from 'react-router';
 
 var Link = require('react-router').Link;
 
@@ -79,8 +80,11 @@ class InputDatabase extends React.Component {
     handleSubmit(event) {
 
         this.SubmitApiDatabase();
+        browserHistory.push('/setting-user');
 
     }
+
+    
 
     SubmitApiDatabase() {
 
@@ -179,7 +183,7 @@ class InputDatabase extends React.Component {
                                 }}></RaisedButton>
                                 <RaisedButton
                                     label="Simpan Data"
-                                    primary={true}
+                                    primary={true}                              
                                     disabled={isDisable}
                                     type="submit"></RaisedButton>
                             </div>

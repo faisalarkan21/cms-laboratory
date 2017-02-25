@@ -22,8 +22,6 @@ const muiTheme = getMuiTheme({palette: {
         // accent1Color: deepOrange500
     }});
 
-
-
 // const DivFitur = (     <div>         <Fitur nomor={"Penjadwalan pengajaran
 // untuk asisten agar pengajaran dapat berjalan dengan terstruktur  "}/> <Fitur
 // nomor={"Manajemen inventaris ruangan laboratorium"}/>         <Fitur
@@ -56,17 +54,14 @@ const DivFitur = (
 const TombolNext = (
     <div>
         <RaisedButton
-          
             disabled={true}
             style={{
             marginRight: 12
         }}
             label="Back"></RaisedButton>
         <RaisedButton
-            
-            href={'/setting-database'}
+            containerElement={< Link to = "/setting-database" />}
             primary={true}
-          
             label="Next"></RaisedButton>
     </div>
 
@@ -95,7 +90,8 @@ export default class Welcome extends Component {
                         paddingTop: 10
                     }}
                         langkah={0}
-                        alamatSelanjutnya={'/setting-database'} tombolNext={TombolNext}></PaperMod>
+                        alamatSelanjutnya={'/setting-database'}
+                        tombolNext={TombolNext}></PaperMod>
 
                 </div>
             </MuiThemeProvider>
