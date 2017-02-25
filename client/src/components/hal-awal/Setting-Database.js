@@ -14,7 +14,6 @@ import Gedung from 'material-ui/svg-icons/communication/business';
 
 var Link = require('react-router').Link;
 
-
 // import InputDatabase from
 // '../../modify-components/Komponen-Input/InputDatabase.js';
 
@@ -59,13 +58,15 @@ class InputDatabase extends React.Component {
 
             NamaLab: '',
             NamaAdmin: '',
-            PasswordAdmin: ''
+            PasswordAdmin: '',
+            checkTombol: true
         };
 
     }
 
     handleChange(name, event) {
         this.setState({[name]: event.target.value});
+        this.handleCheckTombol();
 
     }
 
@@ -77,26 +78,34 @@ class InputDatabase extends React.Component {
 
     }
 
-    handleNext() {
+    handleCheckTombol() {
 
-        if ((this.state.NamaAdmin.length != 0) && (this.state.NamaLab.length != 0) && (this.state.PasswordAdmin != 0)) {
+        if (this.state.NamaLab.length <= 2) {
+            this.setState({checkTombol: true})
+
+            console.log("NamaLab kena : " + this.state.NamaLab.length);
+        } else if (this.state.NamaAdmin.length <= 2) {
+            this.setState({checkTombol: true})
+
+            console.log("NamaAdmin kena : "+ this.state.NamaAdmin.length);
+        } else if (this.state.PasswordAdmin.length <= 2) {
+            this.setState({checkTombol: true})
+
+            console.log("PasswordAdmin Kena : "+ this.state.PasswordAdmin.length);
+        } else {
+
+
+            console.log("Nilai PasswordAdmin "+ this.state.PasswordAdmin.length);
 
             console.log("engga null");
 
-            TombolCheck = false;
-            
-        } else {
-
-            console.log("null");
-            TombolCheck = true;
+            this.setState({checkTombol: false})
 
         }
 
     }
 
-    componentDidUpdate() {
-        this.handleNext();
-    }
+    componentWillUpdate() {}
 
     SubmitApiDatabase() {
 
@@ -150,21 +159,21 @@ class InputDatabase extends React.Component {
                                 className="col-md-2 col-md-offset-1 ">
                                 <Menu>
                                     <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
-                                        <TextField onChange={this.onChange.NamaLab} hintText="Nama Laboratorium"/>
+                                        <TextField require onChange={this.onChange.NamaLab} hintText="Nama Laboratorium"/>
                                         <br/>
                                     </MenuItem>
                                 </Menu>
 
                                 <Menu >
                                     <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
-                                        <TextField onChange={this.onChange.NamaAdmin} hintText="Nama Admin"/>
+                                        <TextField require onChange={this.onChange.NamaAdmin} hintText="Nama Admin"/>
                                         <br/>
                                     </MenuItem>
                                 </Menu>
 
                                 <Menu>
                                     <MenuItem leftIcon={< Lock style = {{marginLeft:20}}/>} disabled={true}>
-                                        <TextField
+                                        <TextField require
                                             onChange={this.onChange.PasswordAdmin}
                                             hintText="Password Admin"
                                             type="Password"/>
@@ -176,10 +185,19 @@ class InputDatabase extends React.Component {
                                 paddingTop: 13
                             }}
                                 className="col-md-16 col-md-offset-3">
-                                <RaisedButton containerElement={< Link to = {
-                                                'selamat-datang'
-                                            } />}  label="Kembali" style={{ marginRight: 15}}  type="submit"></RaisedButton>
-                                <RaisedButton label="Simpan Data" primary={true} type="submit"></RaisedButton>
+                                <RaisedButton
+                                    containerElement={< Link to = {
+                                    'selamat-datang'
+                                } />}
+                                    label="Kembali"
+                                    style={{
+                                    marginRight: 15
+                                }}></RaisedButton>
+                                <RaisedButton
+                                    label="Simpan Data"
+                                    primary={true}
+                                    disabled={this.state.checkTombol}
+                                    type="submit"></RaisedButton>
                             </div>
                         </div>
                     </form>
@@ -195,11 +213,7 @@ class InputDatabase extends React.Component {
 
 class Database extends Component {
 
-    componentDidUpdate() {
-
-        
- 
-    }
+    componentDidUpdate() {}
 
     render() {
         return (
@@ -217,7 +231,6 @@ class Database extends Component {
                         body={< InputDatabase />}
                         tombolDisable={TombolCheck}/>
 
-       
                 </MuiThemeProvider>
             </div>
         )
