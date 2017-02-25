@@ -9,42 +9,71 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
  *
  * Linear steppers require users to complete one step in order to move on to the next.
  */
-export default class Test extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.onChange = {
-      name1: this.handleChange.bind(this, 'name1'),
-      name2: this.handleChange.bind(this, 'name2'),
-    }
-
-    this.state = {
-      name1: '',
-      name2: ''
-    };
-  };
-
-  handleChange(name, event) {
-    this.setState({ [name]: event.target.value });
-  };
-
-
-  render() {
-    return (
-      <div class="row column">
-        <Label name={this.state.name1}/>
-        <Input onChange={ this.onChange.name1 } />
-        <Label name={this.state.name2}/>
-        <Input onChange={ this.onChange.name2 } />
-      </div>
-    );
+function validate(email, password) {
+  // true means invalid, so our conditions got reversed
+  return {
+    email: email.length === 0,
+    password: password.length === 0,
   };
 }
 
-const Label = props => (
-  <p {...props}>Hello: <span className="label-name">{props.name}</span></p>
-);
+export default class SignUpForm extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      email: '',
+      password: '',
+      
+      everFocusedEmail: false,
+      everFocusedPassword: false,
+      inFocus: '',
+    };
+  }
+  
+  handleEmailChange = (evt) => {
+    this.setState({ email: evt.target.value });
+  }
+  
+  handlePasswordChange = (evt) => {
+    this.setState({ password: evt.target.value });
+  }
+  
+  handleSubmit = (evt) => {
+    if (!this.canBeSubmitted()) {
+      evt.preventDefault();
+      return;
+    }
+    const { email, password } = this.state;
+    alert(`Signed up with email: ${email} password: ${password}`);
+  }
+  
+  render() {
+    const errors = validate(this.state.email, this.state.password);
+    console.log(errors);
 
-const Input = props => (
-  <input placeholder="Enter your name" {...props} type="text" /> 
-);
+    const isDisabled = Object.keys(errors).some(function (x) {
+
+    	return errors[x];
+    }  );
+     console.log(isDisabled);
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input
+          className={errors.email ? "error" : ""}
+          type="text"
+          placeholder="Enter email"
+          value={this.state.email}
+          onChange={this.handleEmailChange}
+        />
+        <input
+          className={errors.password ? "error" : ""}
+          type="password"
+          placeholder="Enter password"
+          value={this.state.password}
+          onChange={this.handlePasswordChange}
+        />
+        <button disabled={isDisabled}>Sign up</button>
+      </form>
+    )
+  }
+}

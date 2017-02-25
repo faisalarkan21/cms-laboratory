@@ -33,7 +33,14 @@ const Text = {
     Judul: "Setting Database CMS"
 }
 
-var TombolCheck = true;
+function validasi(NamaLab, NamaAdmin, PasswordAdmin) {
+    return {
+        NamaLab: NamaLab.length === 0,
+        NamaAdmin: NamaAdmin.length === 0,
+        PasswordAdmin: PasswordAdmin.length < 6
+
+    };
+}
 
 class InputDatabase extends React.Component {
 
@@ -66,46 +73,14 @@ class InputDatabase extends React.Component {
 
     handleChange(name, event) {
         this.setState({[name]: event.target.value});
-        this.handleCheckTombol();
 
     }
 
     handleSubmit(event) {
-        // this.setState({NamaLab: event.target.value})
+
         this.SubmitApiDatabase();
 
-        // alert(this.state.NamaLab); alert(this.state.NamaAdmin);
-
     }
-
-    handleCheckTombol() {
-
-        if (this.state.NamaLab.length <= 2) {
-            this.setState({checkTombol: true})
-
-            console.log("NamaLab kena : " + this.state.NamaLab.length);
-        } else if (this.state.NamaAdmin.length <= 2) {
-            this.setState({checkTombol: true})
-
-            console.log("NamaAdmin kena : "+ this.state.NamaAdmin.length);
-        } else if (this.state.PasswordAdmin.length <= 2) {
-            this.setState({checkTombol: true})
-
-            console.log("PasswordAdmin Kena : "+ this.state.PasswordAdmin.length);
-        } else {
-
-
-            console.log("Nilai PasswordAdmin "+ this.state.PasswordAdmin.length);
-
-            console.log("engga null");
-
-            this.setState({checkTombol: false})
-
-        }
-
-    }
-
-    componentWillUpdate() {}
 
     SubmitApiDatabase() {
 
@@ -127,6 +102,15 @@ class InputDatabase extends React.Component {
     }
 
     render() {
+
+        const errors = validasi(this.state.NamaLab, this.state.NamaAdmin, this.state.PasswordAdmin);
+
+        // const isDisable = Object     .keys(errors)     .some(function (x) {
+        // return errors[x];     });
+
+        const isDisable = Object
+            .keys(errors)
+            .some(x => errors[x]);
 
         return (
 
@@ -159,21 +143,21 @@ class InputDatabase extends React.Component {
                                 className="col-md-2 col-md-offset-1 ">
                                 <Menu>
                                     <MenuItem leftIcon={< Gedung style = {{marginLeft:20}}/>} disabled={true}>
-                                        <TextField require onChange={this.onChange.NamaLab} hintText="Nama Laboratorium"/>
+                                        <TextField onChange={this.onChange.NamaLab} hintText="Nama Laboratorium"/>
                                         <br/>
                                     </MenuItem>
                                 </Menu>
 
                                 <Menu >
                                     <MenuItem leftIcon={< Orang style = {{marginLeft:20}}/>} disabled={true}>
-                                        <TextField require onChange={this.onChange.NamaAdmin} hintText="Nama Admin"/>
+                                        <TextField onChange={this.onChange.NamaAdmin} hintText="Nama Admin"/>
                                         <br/>
                                     </MenuItem>
                                 </Menu>
 
                                 <Menu>
                                     <MenuItem leftIcon={< Lock style = {{marginLeft:20}}/>} disabled={true}>
-                                        <TextField require
+                                        <TextField
                                             onChange={this.onChange.PasswordAdmin}
                                             hintText="Password Admin"
                                             type="Password"/>
@@ -196,7 +180,7 @@ class InputDatabase extends React.Component {
                                 <RaisedButton
                                     label="Simpan Data"
                                     primary={true}
-                                    disabled={this.state.checkTombol}
+                                    disabled={isDisable}
                                     type="submit"></RaisedButton>
                             </div>
                         </div>
@@ -228,8 +212,7 @@ class Database extends Component {
                         langkah={1}
                         alamatSebelumnya={'/selamat-datang'}
                         alamatSelanjutnya={'/setting-user'}
-                        body={< InputDatabase />}
-                        tombolDisable={TombolCheck}/>
+                        body={< InputDatabase />}/>
 
                 </MuiThemeProvider>
             </div>
