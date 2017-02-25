@@ -58,19 +58,29 @@ const TombolNext = (
             style={{
             marginRight: 12
         }}
-            label="Back"></RaisedButton>
+            label="Kembali"></RaisedButton>
         <RaisedButton
             containerElement={< Link to = "/setting-database" />}
             primary={true}
-            label="Next"></RaisedButton>
+            label="Selanjunya"></RaisedButton>
     </div>
 
 )
 
 const Text = {
 
-    Judul: "Selamat Datang di CMS Laboratorium",
-    Badan: "Kami menyediakan lanyanan management laboratorium seperti :"
+    Judul: (
+
+        <label>
+            Selamat Datang di CMS Laboratorium</label>
+
+    ),
+    Badan: (
+
+        <label>Kami menyediakan lanyanan management laboratorium seperti
+        </label>
+
+    )
 
 }
 

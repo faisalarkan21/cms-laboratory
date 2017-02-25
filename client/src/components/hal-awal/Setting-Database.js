@@ -80,11 +80,9 @@ class InputDatabase extends React.Component {
     handleSubmit(event) {
 
         this.SubmitApiDatabase();
-        browserHistory.push('/setting-user');
+        browserHistory.push('/selesai');
 
     }
-
-    
 
     SubmitApiDatabase() {
 
@@ -109,8 +107,8 @@ class InputDatabase extends React.Component {
 
         const errors = validasi(this.state.NamaLab, this.state.NamaAdmin, this.state.PasswordAdmin);
 
-        // const isDisable = Object     .keys(errors)     .some(function (x) {
-        // return errors[x];     });
+        // const isDisable = Object     .keys(errors)     .some(function (x) { return
+        // errors[x];     });
 
         const isDisable = Object
             .keys(errors)
@@ -183,7 +181,7 @@ class InputDatabase extends React.Component {
                                 }}></RaisedButton>
                                 <RaisedButton
                                     label="Simpan Data"
-                                    primary={true}                              
+                                    primary={true}
                                     disabled={isDisable}
                                     type="submit"></RaisedButton>
                             </div>
