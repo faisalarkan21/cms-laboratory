@@ -15,6 +15,9 @@ import Event from 'material-ui/svg-icons/action/event';
 import LocalLibrary from 'material-ui/svg-icons/maps/local-library';
 import DeviceHandphone from 'material-ui/svg-icons/device/devices';
 import Database from 'material-ui/svg-icons/file/cloud-off';
+import Memory from 'material-ui/svg-icons//hardware/memory';
+
+
 
 var Link = require('react-router').Link;
 import RaisedButton from 'material-ui/RaisedButton';
@@ -34,6 +37,13 @@ const DivFitur = (
         paddingTop: 5
     }}>
         <List>
+
+            <ListItem
+                primaryText="Arsitektur isomorphic apps dengan library React.js "
+                leftIcon={< Memory viewBox = {
+                "0 0 24 24"
+            } />}/>
+          
             <ListItem
                 primaryText="Manajemen laboratorium secara keseluruhan"
                 leftIcon={< LocalLibrary viewBox = {
@@ -127,3 +137,6 @@ export default class Welcome extends Component {
     }
 
 }
+
+
+

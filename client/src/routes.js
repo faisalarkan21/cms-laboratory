@@ -24,7 +24,9 @@ const Routes = (props) => (
     <Route path="selamat-datang" component={Welcome}/>
     <Route path="setting-database" component={Database}/>
     <Route path="selesai" component={selesai}/>
+    <Route path="login" component={App}/>
     <Route path="*" component={TidakDitemukan}/>
+
 
   </Router>
 );

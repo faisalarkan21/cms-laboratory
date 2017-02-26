@@ -28,7 +28,7 @@ var Link = require('react-router').Link
 const styles = {
 
     paperWellcome: {
-        height: 530,
+        height: 545,
         // flex: 1, width:'20%', order:4,  flexShrink: 4, margin: 10,
         width: "100%",
         textAlign: 'center'
