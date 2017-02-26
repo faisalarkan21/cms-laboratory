@@ -1,7 +1,7 @@
 
 ## Screenshot :
 
-![alt tag](https://github.com/faisalarkan21/cms-laboratory/blob/master/screenshot.png)
+![alt tag](https://github.com/faisalarkan21/cms-laboratory/blob/master/screenshot1.png)
 
 ## This project made with :
 
