@@ -15,12 +15,14 @@ import DividerMod from '../../modify-components/Komponen-Divider/DividerMod.js';
 
 import Visibility from 'material-ui/svg-icons/action/visibility';
 import VisibilityOff from 'material-ui/svg-icons/action/visibility-off';
-import Checkbox from 'material-ui/Checkbox';
-
+import Memory from 'material-ui/svg-icons//hardware/memory';
 import People from 'material-ui/svg-icons/social/people';
 
+import Checkbox from 'material-ui/Checkbox';
+import Divider from 'material-ui/Divider';
+
 import {List, ListItem} from 'material-ui/List';
-import {blue500, red500, greenA200,grey900} from 'material-ui/styles/colors';
+import {blue500, red500, greenA200, grey900} from 'material-ui/styles/colors';
 
 import './login.css'
 
@@ -49,7 +51,9 @@ const style = {
         maxWidth: 250
     },
     checkbox: {
-        marginBottom: 16
+        marginBottom: 16,
+        verticalAlign: 'center'
+
     }
 };
 
@@ -72,40 +76,48 @@ export default class Login extends React.Component {
 
         return (
 
-            <MuiThemeProvider  muiTheme={muiTheme}>
+            <MuiThemeProvider muiTheme={muiTheme}>
 
                 <div
                     style={{
                     paddingRight: 60
                 }}
-                    className={"col-md-10 col-md-offset-4"}
-                  >
+                    className={"col-md-10 col-md-offset-4"}>
                     <br/>
                     <br/>
-                    <Paper zDepth={4} style={style.paperLogin}  >
+                    <Paper zDepth={4} style={style.paperLogin}>
                         <div>
-                            <div className={"judulLogin"} style={style.judulLogin}>
-                                <MenuItem 
+                            <div style={style.judulLogin}>
+                                <ListItem
                                     disabled={true}
-                                    rightIcon={< People color={'#424242'} style = {{marginRight:120, width: 36, height: 36, marginTop:4}}/>}>
-                                    <h3 
+                                    rightIcon={< Memory color = {
+                                    '#424242'
+                                }
+                                style = {{marginRight:80, width: 40, height: 40, marginTop:28}}/>}>
+                                    <h3
                                         style={{
                                         fontSize: 25,
-                                        color:'#424242'
+                                        color: '#424242'
                                     }}>
-                                        Login Masuk
+                                        CMS Laboratorium
                                     </h3>
-                                </MenuItem>
+
+                                </ListItem>
                                 <DividerMod/>
                             </div>
+
                             <div className={"col-md-10 col-md-offset-1"}>
+
                                 <div style={style.bodyLogin}>
 
                                     <div>
-                                        <ListItem 
-                                            leftIcon={< Orang color={'#424242'} style = {{marginLeft:25 , paddingTop:15}}/>}
+                                        <ListItem
+                                            leftIcon={< Orang color = {
+                                            '#424242'
+                                        }
+                                        style = {{marginLeft:25 , paddingTop:15}}/>}
                                             disabled={true}>
-                                            <TextField  style={style.lebarInput} hintText="Masukan Username"></TextField>
+                                            <TextField style={style.lebarInput} hintText="Masukan Username"></TextField>
                                         </ListItem>
                                     </div>
                                     <div
@@ -113,7 +125,10 @@ export default class Login extends React.Component {
                                         marginTop: -17
                                     }}>
                                         <ListItem
-                                            leftIcon={< Lock color={'#424242'} style = {{marginLeft:25 , paddingTop:15}}/>}
+                                            leftIcon={< Lock color = {
+                                            '#424242'
+                                        }
+                                        style = {{marginLeft:25 , paddingTop:15}}/>}
                                             disabled={true}>
                                             <TextField style={style.lebarInput} hintText="Masukan Password"></TextField>
 
@@ -122,7 +137,6 @@ export default class Login extends React.Component {
                                     </div>
                                 </div>
                                 <DividerMod/>
-
                                 <div
                                     className={"col-md-offset-1"}
                                     style={{
@@ -131,24 +145,23 @@ export default class Login extends React.Component {
                                     paddingBottom: 15
                                 }}>
 
-                                    <Checkbox label="Masuk sebagai admin" style={style.checkbox} />
+                                    <Checkbox label="Masuk Sebagai Admin" style={style.checkbox}/>
 
                                 </div>
                                 <DividerMod/>
                                 <div
                                     style={{
                                     paddingTop: 17
-                                
                                 }}
                                     className={"col-md-10 col-md-offset-1 row"}>
                                     <div >
 
-                                        <RaisedButton label="Submit Data"   />
+                                        <RaisedButton label="Submit Data"/>
 
                                     </div>
 
                                     <div className={"col-md-offset-1"}>
-                                        <RaisedButton label="Masuk" primary={true}  type="sumbit" />
+                                        <RaisedButton label="Masuk" primary={true} type="sumbit"/>
 
                                     </div>
 
