@@ -17,7 +17,7 @@ import Visibility from 'material-ui/svg-icons/action/visibility';
 import VisibilityOff from 'material-ui/svg-icons/action/visibility-off';
 import Checkbox from 'material-ui/Checkbox';
 
-import Verified from 'material-ui/svg-icons/action/verified-user';
+import People from 'material-ui/svg-icons/social/people';
 
 import {List, ListItem} from 'material-ui/List';
 import {blue500, red500, greenA200} from 'material-ui/styles/colors';
@@ -35,12 +35,12 @@ const style = {
     },
     lebarInput: {
 
-        width: '200%'
+        width: '120%'
 
     },
     bodyLogin: {
 
-        paddingTop: 15
+        marginTop: -5
 
     },
     block: {
@@ -72,15 +72,20 @@ export default class Login extends React.Component {
                     <Paper zDepth={4} style={style.paperLogin}>
                         <div>
                             <div style={style.judulLogin}>
-                                <MenuItem disabled={true} style={{}} rightIcon={< Verified />}>
-                                    <h3>
+                                <MenuItem
+                                    disabled={true}
+                                    rightIcon={< People style = {{marginRight:115, width: 36, height: 36, marginTop:4}}/>}>
+                                    <h3
+                                        style={{
+                                        fontSize: 25
+                                    }}>
                                         Login Masuk
                                     </h3>
                                 </MenuItem>
                                 <DividerMod/>
                             </div>
 
-                            <div style={style.bodyLogin} className={"col-md-6 col-md-offset-1"}>
+                            <div style={style.bodyLogin} className={"col-md-8 col-md-offset-1"}>
                                 <div>
                                     <ListItem
                                         leftIcon={< Orang style = {{marginLeft:25 , paddingTop:15}}/>}
@@ -88,7 +93,10 @@ export default class Login extends React.Component {
                                         <TextField style={style.lebarInput} hintText="Masukan Username"></TextField>
                                     </ListItem>
                                 </div>
-                                <div style={{marginTop:-15}}>
+                                <div
+                                    style={{
+                                    marginTop: -15
+                                }}>
                                     <ListItem
                                         leftIcon={< Lock style = {{marginLeft:25 , paddingTop:15}}/>}
                                         disabled={true}>
@@ -97,18 +105,14 @@ export default class Login extends React.Component {
                                     </ListItem>
                                 </div>
 
-                                <div>
-                                    <Menu>
-                                        <MenuItem
-                                            style={{
-                                            marginLeft: 12
-                                        }}
-                                            disabled={true}>
+                                <div
+                                    className={"col-md-offset-1"}
+                                    style={{
+                                    marginLeft: 30,
+                                    paddingTop: 10
+                                }}>
 
-                                            <Checkbox label="Login Sebagai Admin" style={style.checkbox}/>
-
-                                        </MenuItem>
-                                    </Menu>
+                                    <Checkbox label="Login Sebagai Admin" style={style.checkbox} color={red500}/>
 
                                 </div>
 
