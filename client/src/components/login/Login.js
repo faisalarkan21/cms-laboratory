@@ -24,8 +24,8 @@ import {blue500, red500, greenA200} from 'material-ui/styles/colors';
 
 const style = {
     paperLogin: {
-        height: 450,
-        width: 430,
+        height: 480,
+        width: 450,
         margin: 20,
         display: 'inline-block'
     },
@@ -35,12 +35,12 @@ const style = {
     },
     lebarInput: {
 
-        width: '120%'
+        width: '80%'
 
     },
     bodyLogin: {
 
-        marginTop: -5
+        paddingBottom: 10
 
     },
     block: {
@@ -84,42 +84,58 @@ export default class Login extends React.Component {
                                 </MenuItem>
                                 <DividerMod/>
                             </div>
+                            <div className={"col-md-10 col-md-offset-1"}>
+                                <div style={style.bodyLogin}>
 
-                            <div style={style.bodyLogin} className={"col-md-8 col-md-offset-1"}>
-                                <div>
-                                    <ListItem
-                                        leftIcon={< Orang style = {{marginLeft:25 , paddingTop:15}}/>}
-                                        disabled={true}>
-                                        <TextField style={style.lebarInput} hintText="Masukan Username"></TextField>
-                                    </ListItem>
-                                </div>
-                                <div
-                                    style={{
-                                    marginTop: -15
-                                }}>
-                                    <ListItem
-                                        leftIcon={< Lock style = {{marginLeft:25 , paddingTop:15}}/>}
-                                        disabled={true}>
-                                        <TextField style={style.lebarInput} hintText="Masukan Password"></TextField>
+                                    <div>
+                                        <ListItem
+                                            leftIcon={< Orang style = {{marginLeft:25 , paddingTop:15}}/>}
+                                            disabled={true}>
+                                            <TextField style={style.lebarInput} hintText="Masukan Username"></TextField>
+                                        </ListItem>
+                                    </div>
+                                    <div
+                                        style={{
+                                        marginTop: -15
+                                    }}>
+                                        <ListItem
+                                            leftIcon={< Lock style = {{marginLeft:25 , paddingTop:15}}/>}
+                                            disabled={true}>
+                                            <TextField style={style.lebarInput} hintText="Masukan Password"></TextField>
 
-                                    </ListItem>
+                                        </ListItem>
+
+                                    </div>
                                 </div>
+                                <DividerMod/>
 
                                 <div
                                     className={"col-md-offset-1"}
                                     style={{
                                     marginLeft: 30,
-                                    paddingTop: 10
+                                    paddingTop: 15,
+                                    paddingBottom: 15
                                 }}>
 
-                                    <Checkbox label="Login Sebagai Admin" style={style.checkbox} color={red500}/>
+                                    <Checkbox label="Masuk sebagai admin" style={style.checkbox} color={red500}/>
 
                                 </div>
+                                <DividerMod/>
+                                <div
+                                    style={{
+                                    paddingTop: 15
+                                }}
+                                    className={"col-md-10 col-md-offset-1 row"}>
+                                    <div >
 
-                                <div>
-                                    <div></div>
+                                        <RaisedButton label="Submit Data"/>
 
-                                    <div></div>
+                                    </div>
+
+                                    <div className={"col-md-offset-1"}>
+                                        <RaisedButton label="Masuk" primary={true} type="sumbit"/>
+
+                                    </div>
 
                                 </div>
 
