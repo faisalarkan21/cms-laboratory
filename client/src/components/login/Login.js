@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getmuiTheme from 'material-ui/styles/getMuiTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -20,13 +20,15 @@ import Checkbox from 'material-ui/Checkbox';
 import People from 'material-ui/svg-icons/social/people';
 
 import {List, ListItem} from 'material-ui/List';
-import {blue500, red500, greenA200} from 'material-ui/styles/colors';
+import {blue500, red500, greenA200,grey900} from 'material-ui/styles/colors';
+
+import './login.css'
 
 const style = {
     paperLogin: {
         height: 480,
         width: 450,
-        margin: 20,
+        marginTop: 10,
         display: 'inline-block'
     },
     judulLogin: {
@@ -40,7 +42,7 @@ const style = {
     },
     bodyLogin: {
 
-        paddingBottom: 10
+        paddingBottom: 15
 
     },
     block: {
@@ -50,6 +52,12 @@ const style = {
         marginBottom: 16
     }
 };
+
+const muiTheme = getMuiTheme({
+    palette: {
+        accent1Color: red500
+    }
+});
 
 export default class Login extends React.Component {
 
@@ -64,17 +72,22 @@ export default class Login extends React.Component {
 
         return (
 
-            <MuiThemeProvider>
+            <MuiThemeProvider  muiTheme={muiTheme}>
 
-                <div className={"col-md-10 col-md-offset-4"}>
+                <div
+                    style={{
+                    paddingRight: 60
+                }}
+                    className={"col-md-10 col-md-offset-4"}
+                  >
                     <br/>
                     <br/>
-                    <Paper zDepth={4} style={style.paperLogin}>
+                    <Paper zDepth={4} style={style.paperLogin}  >
                         <div>
-                            <div style={style.judulLogin}>
-                                <MenuItem
+                            <div className={"judulLogin"} style={style.judulLogin}>
+                                <MenuItem 
                                     disabled={true}
-                                    rightIcon={< People style = {{marginRight:115, width: 36, height: 36, marginTop:4}}/>}>
+                                    rightIcon={< People style = {{marginRight:120, width: 36, height: 36, marginTop:4}}/>}>
                                     <h3
                                         style={{
                                         fontSize: 25
@@ -88,15 +101,15 @@ export default class Login extends React.Component {
                                 <div style={style.bodyLogin}>
 
                                     <div>
-                                        <ListItem
+                                        <ListItem 
                                             leftIcon={< Orang style = {{marginLeft:25 , paddingTop:15}}/>}
                                             disabled={true}>
-                                            <TextField style={style.lebarInput} hintText="Masukan Username"></TextField>
+                                            <TextField  style={style.lebarInput} hintText="Masukan Username"></TextField>
                                         </ListItem>
                                     </div>
                                     <div
                                         style={{
-                                        marginTop: -15
+                                        marginTop: -17
                                     }}>
                                         <ListItem
                                             leftIcon={< Lock style = {{marginLeft:25 , paddingTop:15}}/>}
@@ -117,23 +130,24 @@ export default class Login extends React.Component {
                                     paddingBottom: 15
                                 }}>
 
-                                    <Checkbox label="Masuk sebagai admin" style={style.checkbox} color={red500}/>
+                                    <Checkbox label="Masuk sebagai admin" style={style.checkbox} />
 
                                 </div>
                                 <DividerMod/>
                                 <div
                                     style={{
-                                    paddingTop: 15
+                                    paddingTop: 17
+                                
                                 }}
                                     className={"col-md-10 col-md-offset-1 row"}>
                                     <div >
 
-                                        <RaisedButton label="Submit Data"/>
+                                        <RaisedButton label="Submit Data"   />
 
                                     </div>
 
                                     <div className={"col-md-offset-1"}>
-                                        <RaisedButton label="Masuk" primary={true} type="sumbit"/>
+                                        <RaisedButton label="Masuk" primary={true}  type="sumbit" />
 
                                     </div>
 

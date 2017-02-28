@@ -23,6 +23,7 @@ import ActionInfo from 'material-ui/svg-icons/action/info';
 
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
+
 var Link = require('react-router').Link
 
 const styles = {
