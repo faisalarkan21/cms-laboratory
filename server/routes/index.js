@@ -108,6 +108,7 @@ exports.simpan = function(req, res) {
     var namaLab = req.body.NamaLab;
     var namaAdmin = req.body.NamaAdmin;
     var passwordAdmin = req.body.PasswordAdmin;
+    console.log("Masuk Gan!");
 
     db.insert({ Lab: namaLab, Admin: namaAdmin, passwordAdmin: passwordAdmin }, function(err, newDocs) {
 

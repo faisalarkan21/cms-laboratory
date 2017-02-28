@@ -17,8 +17,6 @@ import DeviceHandphone from 'material-ui/svg-icons/device/devices';
 import Database from 'material-ui/svg-icons/file/cloud-off';
 import Memory from 'material-ui/svg-icons//hardware/memory';
 
-
-
 var Link = require('react-router').Link;
 import RaisedButton from 'material-ui/RaisedButton';
 const muiTheme = getMuiTheme({palette: {
@@ -43,7 +41,7 @@ const DivFitur = (
                 leftIcon={< Memory viewBox = {
                 "0 0 24 24"
             } />}/>
-          
+
             <ListItem
                 primaryText="Manajemen laboratorium secara keseluruhan"
                 leftIcon={< LocalLibrary viewBox = {
@@ -72,7 +70,7 @@ const TombolNext = (
         <RaisedButton
             containerElement={< Link to = "/setting-database" />}
             primary={true}
-            label="Selanjunya"></RaisedButton>
+            label="Selanjutnya"></RaisedButton>
     </div>
 
 )
@@ -137,6 +135,3 @@ export default class Welcome extends Component {
     }
 
 }
-
-
-
