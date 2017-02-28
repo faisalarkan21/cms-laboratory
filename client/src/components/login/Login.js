@@ -87,10 +87,11 @@ export default class Login extends React.Component {
                             <div className={"judulLogin"} style={style.judulLogin}>
                                 <MenuItem 
                                     disabled={true}
-                                    rightIcon={< People style = {{marginRight:120, width: 36, height: 36, marginTop:4}}/>}>
-                                    <h3
+                                    rightIcon={< People color={'#424242'} style = {{marginRight:120, width: 36, height: 36, marginTop:4}}/>}>
+                                    <h3 
                                         style={{
-                                        fontSize: 25
+                                        fontSize: 25,
+                                        color:'#424242'
                                     }}>
                                         Login Masuk
                                     </h3>
@@ -102,7 +103,7 @@ export default class Login extends React.Component {
 
                                     <div>
                                         <ListItem 
-                                            leftIcon={< Orang style = {{marginLeft:25 , paddingTop:15}}/>}
+                                            leftIcon={< Orang color={'#424242'} style = {{marginLeft:25 , paddingTop:15}}/>}
                                             disabled={true}>
                                             <TextField  style={style.lebarInput} hintText="Masukan Username"></TextField>
                                         </ListItem>
@@ -112,7 +113,7 @@ export default class Login extends React.Component {
                                         marginTop: -17
                                     }}>
                                         <ListItem
-                                            leftIcon={< Lock style = {{marginLeft:25 , paddingTop:15}}/>}
+                                            leftIcon={< Lock color={'#424242'} style = {{marginLeft:25 , paddingTop:15}}/>}
                                             disabled={true}>
                                             <TextField style={style.lebarInput} hintText="Masukan Password"></TextField>
 
