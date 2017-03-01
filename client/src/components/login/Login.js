@@ -193,6 +193,7 @@ export default class Login extends React.Component {
                                                 <TextField
                                                     onChange={this.onChange.Password}
                                                     style={style.lebarInput}
+                                                    type={"password"}
                                                     hintText="Masukan Password"></TextField>
 
                                             </ListItem>
