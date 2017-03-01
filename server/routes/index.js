@@ -74,12 +74,13 @@ exports.pesan = function(req, res) {
 }
 
 
-exports.ambil = function(req, res) {
+exports.login = function(req, res) {
 
     console.log("Masuk");
 
     console.log(req.body.IdAdmin);
     console.log(req.body.password);
+    console.log(req.body.IsAdmin);
 
     db.find({ Admin: req.body.IdAdmin }, function(err, docs) {
 

@@ -70,10 +70,9 @@ export default class Login extends React.Component {
 
         this.state = {
             IdAdmin: '',
-            Password: ''
+            Password: '',
+            IsAdmin: false
         }
-
-    
 
         this.onChange = {
             IdAdmin: this
@@ -82,37 +81,39 @@ export default class Login extends React.Component {
             Password: this
                 .handleChange
                 .bind(this, 'Password')
-        }
+           
+        },
 
-        this.onClick = {
-
-        }
-
-     
-
+         this.handleCheck =  this.handleCheck.bind(this)
+      
     }
 
     handleChange(name, event) {
-        
+
         this.setState({[name]: event.target.value})
+    }
+
+    handleCheck (event){
+         this.setState({IsAdmin: event.target.checked})
+
+         
     }
 
     handleSubmit(event) {
 
-        this.testApi();
+        this.kirimId();
 
     }
 
-    testApi() {
+    kirimId() {
 
-      
-       
         var body = {
             IdAdmin: this.state.IdAdmin,
-            password: this.state.Password
-           
+            password: this.state.Password,
+            IsAdmin: this.state.IsAdmin
+
         };
-        fetch('/ambil', {
+        fetch('/login', {
             method: 'POST',
             body: JSON.stringify(body),
                 headers: {
@@ -139,7 +140,10 @@ export default class Login extends React.Component {
                     <br/>
                     <Paper zDepth={4} style={style.paperLogin}>
                         <div>
-                            <form onSubmit={this.handleSubmit.bind(this)}>
+                            <form
+                                onSubmit={this
+                                .handleSubmit
+                                .bind(this)}>
                                 <div style={style.judulLogin}>
                                     <ListItem
                                         disabled={true}
@@ -204,7 +208,7 @@ export default class Login extends React.Component {
                                         paddingBottom: 15
                                     }}>
 
-                                        <Checkbox label="Masuk Sebagai Admin" style={style.checkbox}/>
+                                        <Checkbox label="Masuk Sebagai Admin" onCheck={this.handleCheck} style={style.checkbox}/>
 
                                     </div>
                                     <DividerMod/>
