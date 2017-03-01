@@ -78,7 +78,8 @@ exports.ambil = function(req, res) {
 
     console.log("Masuk");
 
-
+    console.log(req.body.IdAdmin);
+    console.log(req.body.password);
 
     db.find({ Admin: req.body.IdAdmin }, function(err, docs) {
 

@@ -24,7 +24,7 @@ const TombolNext = (
         }}
             label="Kembali"></RaisedButton>
         <RaisedButton
-            containerElement={< Link to = "/setting-database" />}
+            containerElement={< Link to = "/login" />}
             primary={true}
             label="Selesai"></RaisedButton>
     </div>

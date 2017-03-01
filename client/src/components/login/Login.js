@@ -68,17 +68,49 @@ export default class Login extends React.Component {
     constructor(props) {
         super(props);
 
-        this.onChange = {}
+        this.state = {
+            IdAdmin: '',
+            Password: ''
+        }
+
+    
+
+        this.onChange = {
+            IdAdmin: this
+                .handleChange
+                .bind(this, 'IdAdmin'),
+            Password: this
+                .handleChange
+                .bind(this, 'Password')
+        }
+
+        this.onClick = {
+
+        }
+
+     
 
     }
 
+    handleChange(name, event) {
+        
+        this.setState({[name]: event.target.value})
+    }
 
+    handleSubmit(event) {
 
+        this.testApi();
+
+    }
 
     testApi() {
 
+      
+       
         var body = {
-            IdAdmin: "faisalarkan21"
+            IdAdmin: this.state.IdAdmin,
+            password: this.state.Password
+           
         };
         fetch('/ambil', {
             method: 'POST',
@@ -107,89 +139,95 @@ export default class Login extends React.Component {
                     <br/>
                     <Paper zDepth={4} style={style.paperLogin}>
                         <div>
-                            <form onSubmit={this.testApi}>
-                            <div style={style.judulLogin}>
-                                <ListItem
-                                    disabled={true}
-                                    rightIcon={< Memory color = {
-                                    '#424242'
-                                }
-                                style = {{marginRight:80, width: 40, height: 40, marginTop:28}}/>}>
-                                    <h3
-                                        style={{
-                                        fontSize: 25,
-                                        color: '#424242'
-                                    }}>
-                                        CMS Laboratorium
-                                    </h3>
+                            <form onSubmit={this.handleSubmit.bind(this)}>
+                                <div style={style.judulLogin}>
+                                    <ListItem
+                                        disabled={true}
+                                        rightIcon={< Memory color = {
+                                        '#424242'
+                                    }
+                                    style = {{marginRight:80, width: 40, height: 40, marginTop:28}}/>}>
+                                        <h3
+                                            style={{
+                                            fontSize: 25,
+                                            color: '#424242'
+                                        }}>
+                                            CMS Laboratorium
+                                        </h3>
 
-                                </ListItem>
-                                <DividerMod/>
-                            </div>
+                                    </ListItem>
+                                    <DividerMod/>
+                                </div>
 
-                            <div className={"col-md-10 col-md-offset-1"}>
+                                <div className={"col-md-10 col-md-offset-1"}>
 
-                                <div style={style.bodyLogin}>
+                                    <div style={style.bodyLogin}>
 
-                                    <div>
-                                        <ListItem
-                                            leftIcon={< Orang color = {
-                                            '#424242'
-                                        }
-                                        style = {{marginLeft:25 , paddingTop:15}}/>}
-                                            disabled={true}>
-                                            <TextField style={style.lebarInput} hintText="Masukan Username"></TextField>
-                                        </ListItem>
+                                        <div>
+                                            <ListItem
+                                                leftIcon={< Orang color = {
+                                                '#424242'
+                                            }
+                                            style = {{marginLeft:25 , paddingTop:15}}/>}
+                                                disabled={true}>
+                                                <TextField
+                                                    onChange={this.onChange.IdAdmin}
+                                                    style={style.lebarInput}
+                                                    hintText="Masukan Username"></TextField>
+                                            </ListItem>
+                                        </div>
+                                        <div
+                                            style={{
+                                            marginTop: -17
+                                        }}>
+                                            <ListItem
+                                                leftIcon={< Lock color = {
+                                                '#424242'
+                                            }
+                                            style = {{marginLeft:25 , paddingTop:15}}/>}
+                                                disabled={true}>
+                                                <TextField
+                                                    onChange={this.onChange.Password}
+                                                    style={style.lebarInput}
+                                                    hintText="Masukan Password"></TextField>
+
+                                            </ListItem>
+
+                                        </div>
                                     </div>
+                                    <DividerMod/>
+                                    <div
+                                        className={"col-md-offset-1"}
+                                        style={{
+                                        marginLeft: 30,
+                                        paddingTop: 15,
+                                        paddingBottom: 15
+                                    }}>
+
+                                        <Checkbox label="Masuk Sebagai Admin" style={style.checkbox}/>
+
+                                    </div>
+                                    <DividerMod/>
                                     <div
                                         style={{
-                                        marginTop: -17
-                                    }}>
-                                        <ListItem
-                                            leftIcon={< Lock color = {
-                                            '#424242'
-                                        }
-                                        style = {{marginLeft:25 , paddingTop:15}}/>}
-                                            disabled={true}>
-                                            <TextField style={style.lebarInput} hintText="Masukan Password"></TextField>
+                                        paddingTop: 17
+                                    }}
+                                        className={"col-md-10 col-md-offset-1 row"}>
+                                        <div >
 
-                                        </ListItem>
+                                            <RaisedButton label="Submit Data"/>
 
-                                    </div>
-                                </div>
-                                <DividerMod/>
-                                <div
-                                    className={"col-md-offset-1"}
-                                    style={{
-                                    marginLeft: 30,
-                                    paddingTop: 15,
-                                    paddingBottom: 15
-                                }}>
+                                        </div>
 
-                                    <Checkbox label="Masuk Sebagai Admin" style={style.checkbox}/>
+                                        <div className={"col-md-offset-1"}>
+                                            <RaisedButton label="Masuk" primary={true} type="submit"/>
 
-                                </div>
-                                <DividerMod/>
-                                <div
-                                    style={{
-                                    paddingTop: 17
-                                }}
-                                    className={"col-md-10 col-md-offset-1 row"}>
-                                    <div >
-
-                                        <RaisedButton label="Submit Data"/>
-
-                                    </div>
-
-                                    <div className={"col-md-offset-1"}>
-                                        <RaisedButton label="Masuk" primary={true} type="submit"/>
+                                        </div>
 
                                     </div>
 
                                 </div>
-
-                            </div>
-                              </form>
+                            </form>
                         </div>
                     </Paper>
 
