@@ -72,6 +72,26 @@ export default class Login extends React.Component {
 
     }
 
+
+
+
+    testApi() {
+
+        var body = {
+            IdAdmin: "faisalarkan21"
+        };
+        fetch('/ambil', {
+            method: 'POST',
+            body: JSON.stringify(body),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(res => res.json())
+            .then(json => console.log(json));
+
+    }
+
     render() {
 
         return (
@@ -87,6 +107,7 @@ export default class Login extends React.Component {
                     <br/>
                     <Paper zDepth={4} style={style.paperLogin}>
                         <div>
+                            <form onSubmit={this.testApi}>
                             <div style={style.judulLogin}>
                                 <ListItem
                                     disabled={true}
@@ -161,13 +182,14 @@ export default class Login extends React.Component {
                                     </div>
 
                                     <div className={"col-md-offset-1"}>
-                                        <RaisedButton label="Masuk" primary={true} type="sumbit"/>
+                                        <RaisedButton label="Masuk" primary={true} type="submit"/>
 
                                     </div>
 
                                 </div>
 
                             </div>
+                              </form>
                         </div>
                     </Paper>
 

@@ -76,10 +76,13 @@ exports.pesan = function(req, res) {
 
 exports.ambil = function(req, res) {
 
-    db.find({ nama: 'Faisal' }, function(err, docs) {
+    console.log("Masuk");
 
 
-        res.send(docs);
+
+    db.find({ Admin: req.body.IdAdmin }, function(err, docs) {
+
+        console.log(docs);
 
     });
 

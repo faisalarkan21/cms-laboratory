@@ -17,8 +17,6 @@ import DeviceHandphone from 'material-ui/svg-icons/device/devices';
 import Database from 'material-ui/svg-icons/file/cloud-off';
 import Memory from 'material-ui/svg-icons//hardware/memory';
 
-
-
 var Link = require('react-router').Link;
 import RaisedButton from 'material-ui/RaisedButton';
 const muiTheme = getMuiTheme({palette: {
@@ -112,8 +110,9 @@ export default class Welcome extends Component {
                         langkah={0}
                         alamatSelanjutnya={'/setting-database'}
                         tombolNext={TombolNext}></PaperMod>
-
+                    <RaisedButton label={"Test"} onClick={this.testApi}></RaisedButton>
                 </div>
+
             </MuiThemeProvider>
 
         );
@@ -124,7 +123,7 @@ export default class Welcome extends Component {
         var body = {
             nama: "asasassa"
         };
-        fetch('/simpan', {
+        fetch('/ambil', {
             method: 'POST',
             body: JSON.stringify(body),
                 headers: {
