@@ -100,7 +100,6 @@ class SettingUser extends Component {
         )
 
     }
-
 }
 
 export default SettingUser;
