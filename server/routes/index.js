@@ -78,7 +78,7 @@ exports.login = function (req, res) {
 
         } else {
 
-            console.log("Invalid  !");
+            console.log("Invalid salah id / pass  !");
 
         }
 
