@@ -77,7 +77,8 @@ export default class Login extends React.Component {
             Password: '',
             IsAdmin: false,
             errorId: '',
-            errorPass: ''
+            errorPass: '',
+            errorMasuk: ''
         }
 
         this.onChange = {
@@ -121,7 +122,19 @@ export default class Login extends React.Component {
 
     componentDidMount() {
 
-        alert("Masuk");
+        this.setState({errorMasuk: "aaaa"})
+
+        fetch('/test').then(function (res) {
+            return res.json();
+        })
+            .then(function (json) {
+                console.log(json);
+            });
+
+    }
+
+    kirimId() {
+
         var body = {
             IdAdmin: this.state.IdAdmin,
             password: this.state.Password,
@@ -142,26 +155,9 @@ export default class Login extends React.Component {
             })
             .then(function (json) {
 
-                this.handleError(json);
-                this.setState({error:"Masuk Ke state"})
-               
+                this.setState({errorMasuk: "Orang"})
+
             });
-
-    }
-
-    kirimId() {
-
-        // var body = {
-        //     IdAdmin: this.state.IdAdmin,
-        //     password: this.state.Password,
-        //     IsAdmin: this.state.IsAdmin
-
-        // };
-        // fetch('/login', {     method: 'POST',     body: JSON.stringify(body),
-        // headers: {             'Content-Type': 'application/json'         }     })
-        //  .then(function (res) {         return res.json()     })     .then(function
-        // (json) {         this.handleError(json);         this.pesan.error = {
-        //     error: json.invalidLogin         }         alert(this.pesan);     });
 
     }
 
@@ -217,7 +213,7 @@ export default class Login extends React.Component {
                                                 <TextField
                                                     onChange={this.onChange.IdAdmin}
                                                     style={style.lebarInput}
-                                                    errorText={this.state.errorId}
+                                                    errorText={this.state.errorMasuk}
                                                     errorStyle={{
                                                     color: 'red'
                                                 }}

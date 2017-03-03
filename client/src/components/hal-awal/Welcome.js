@@ -68,7 +68,7 @@ const TombolNext = (
         }}
             label="Kembali"></RaisedButton>
         <RaisedButton
-            containerElement={< Link to = "/setting-database" />}
+            href={"/setting-database"}
             primary={true}
             label="Selanjutnya"></RaisedButton>
     </div>

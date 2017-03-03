@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 
 
 app.get('/pesan', routes.pesan);
-app.post('/test', routes.test);
+app.get('/test', routes.test);
 app.post('/login', routes.login);
 app.post('/simpan', routes.simpan);
 

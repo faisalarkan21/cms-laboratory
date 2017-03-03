@@ -80,7 +80,7 @@ exports.login = function (req, res) {
 
             console.log("Invalid Login");
             var respon = {
-                invalidLogin : "Salah pass / id broh !"
+                invalidLoginw : "Salah pass / id broh !"
             }
 
             res.json(respon);
@@ -118,8 +118,13 @@ exports.simpan = function (req, res) {
 
 exports.test = function (req, res) {
 
-    var user_id = req.body.nama;
+    const testing = {
 
-    res.send("nama lau : " + user_id);
+        nama: "faisal arkan",
+        job: "System Enginer"
+
+    }
+
+    res.json(testing);
 
 };
