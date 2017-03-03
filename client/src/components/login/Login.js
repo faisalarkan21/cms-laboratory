@@ -63,6 +63,10 @@ const muiTheme = getMuiTheme({
     }
 });
 
+const pesan = {
+    error: ''
+}
+
 export default class Login extends React.Component {
 
     constructor(props) {
@@ -90,9 +94,7 @@ export default class Login extends React.Component {
             .handleCheck
             .bind(this);
 
-        // this.handleError = this
-        //     .handleError
-        //     .bind(this);
+        // this.handleError = this     .handleError     .bind(this);
 
     }
 
@@ -108,8 +110,7 @@ export default class Login extends React.Component {
 
     handleError(json) {
         alert(json);
-      
-        
+
     }
 
     handleSubmit(event) {
@@ -118,19 +119,21 @@ export default class Login extends React.Component {
 
     }
 
-    kirimId() {
+    componentDidMount() {
 
+        alert("Masuk");
         var body = {
             IdAdmin: this.state.IdAdmin,
             password: this.state.Password,
             IsAdmin: this.state.IsAdmin
 
         };
+
         fetch('/login', {
             method: 'POST',
             body: JSON.stringify(body),
                 headers: {
-                   
+
                     'Content-Type': 'application/json'
                 }
             })
@@ -139,10 +142,26 @@ export default class Login extends React.Component {
             })
             .then(function (json) {
 
-
-           
-                alert(json.invalidLogin);
+                this.handleError(json);
+                this.setState({error:"Masuk Ke state"})
+               
             });
+
+    }
+
+    kirimId() {
+
+        // var body = {
+        //     IdAdmin: this.state.IdAdmin,
+        //     password: this.state.Password,
+        //     IsAdmin: this.state.IsAdmin
+
+        // };
+        // fetch('/login', {     method: 'POST',     body: JSON.stringify(body),
+        // headers: {             'Content-Type': 'application/json'         }     })
+        //  .then(function (res) {         return res.json()     })     .then(function
+        // (json) {         this.handleError(json);         this.pesan.error = {
+        //     error: json.invalidLogin         }         alert(this.pesan);     });
 
     }
 
