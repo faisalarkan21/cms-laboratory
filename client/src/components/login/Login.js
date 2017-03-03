@@ -71,7 +71,9 @@ export default class Login extends React.Component {
         this.state = {
             IdAdmin: '',
             Password: '',
-            IsAdmin: false
+            IsAdmin: false,
+            errorId: '',
+            errorPass: ''
         }
 
         this.onChange = {
@@ -81,11 +83,17 @@ export default class Login extends React.Component {
             Password: this
                 .handleChange
                 .bind(this, 'Password')
-           
+
         },
 
-         this.handleCheck =  this.handleCheck.bind(this)
-      
+        this.handleCheck = this
+            .handleCheck
+            .bind(this);
+
+        // this.handleError = this
+        //     .handleError
+        //     .bind(this);
+
     }
 
     handleChange(name, event) {
@@ -93,10 +101,15 @@ export default class Login extends React.Component {
         this.setState({[name]: event.target.value})
     }
 
-    handleCheck (event){
-         this.setState({IsAdmin: event.target.checked})
+    handleCheck(event) {
+        this.setState({IsAdmin: event.target.checked})
 
-         
+    }
+
+    handleError(json) {
+        alert(json);
+      
+        
     }
 
     handleSubmit(event) {
@@ -117,11 +130,19 @@ export default class Login extends React.Component {
             method: 'POST',
             body: JSON.stringify(body),
                 headers: {
+                   
                     'Content-Type': 'application/json'
                 }
             })
-            .then(res => res.json())
-            .then(json => console.log(json));
+            .then(function (res) {
+                return res.json()
+            })
+            .then(function (json) {
+
+
+           
+                alert(json.invalidLogin);
+            });
 
     }
 
@@ -177,6 +198,10 @@ export default class Login extends React.Component {
                                                 <TextField
                                                     onChange={this.onChange.IdAdmin}
                                                     style={style.lebarInput}
+                                                    errorText={this.state.errorId}
+                                                    errorStyle={{
+                                                    color: 'red'
+                                                }}
                                                     hintText="Masukan Username"></TextField>
                                             </ListItem>
                                         </div>
@@ -209,7 +234,10 @@ export default class Login extends React.Component {
                                         paddingBottom: 15
                                     }}>
 
-                                        <Checkbox label="Masuk Sebagai Admin" onCheck={this.handleCheck} style={style.checkbox}/>
+                                        <Checkbox
+                                            label="Masuk Sebagai Admin"
+                                            onCheck={this.handleCheck}
+                                            style={style.checkbox}/>
 
                                     </div>
                                     <DividerMod/>

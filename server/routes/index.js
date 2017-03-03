@@ -78,7 +78,12 @@ exports.login = function (req, res) {
 
         } else {
 
-            console.log("Invalid salah id / pass  !");
+            console.log("Invalid Login");
+            var respon = {
+                invalidLogin : "Salah pass / id broh !"
+            }
+
+            res.json(respon);
 
         }
 
