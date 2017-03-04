@@ -86,18 +86,18 @@ exports.login = function(req, res) {
 
                 console.log("Tolong login sebagai pengajar :)");
                 var respons = {
-                    tolongPeserta: "Tolong login sebagai pengajar :)"                    
+                    SnackPesan: "Tolong login sebagai pengajar :)"
                 }
 
                 res.json(respons);
 
             } else if (docs[0].statusAdmin === true) {
 
-                console.log("Tolong login sebagai pengajar :)");
-                 var respons = {
-                    tolongAdmin: "Tolong login sebagai admin :)"                    
+                console.log("anda masuk sebagai admin :)");
+                var respons = {
+                    SnackPesan: "Anda masuk sebagai admin!"
                 }
-                
+
                 res.json(respons);
             }
 
@@ -107,9 +107,22 @@ exports.login = function(req, res) {
 
                 console.log("Tolong Masuk Sebagai Admin !");
 
+
+                var respons = {
+                    SnackPesan: "Tolong Masuk Sebagai Admin !"
+                }
+
+                 res.json(respons);
+
             } else if (docs[0].statusAdmin === false) {
 
                 console.log("Anda Masuk sebagai Pengajar !");
+
+                var respons = {
+                    SnackPesan: "Anda Masuk sebagai Pengajar !"
+                }
+
+                 res.json(respons);
 
             }
 

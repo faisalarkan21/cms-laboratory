@@ -83,6 +83,7 @@ export default class Login extends React.Component {
             errorId: '',
             errorPass: '',
             Snackopen: false,
+            SnackPesan:''
             // errorMasuk: ''
         }
 
@@ -159,6 +160,7 @@ export default class Login extends React.Component {
             // json.password});
             this.setState({errorId: json.Id});
             this.setState({errorPass: json.password});
+            this.setState({SnackPesan: json.SnackPesan});
 
             // alert(json.password);
 
@@ -181,11 +183,7 @@ export default class Login extends React.Component {
                     <br/>
                     <Paper zDepth={4} style={style.paperLogin}>
                         <div>
-                            <Snackbar
-                                open={this.state.Snackopen}
-                                message="Event added to your calendar"
-                                autoHideDuration={4000}
-                                onRequestClose={this.handleRequestClose}/>
+
                             <form
                                 onSubmit={this
                                 .handleSubmit
@@ -284,7 +282,11 @@ export default class Login extends React.Component {
                                         </div>
 
                                         <div className={"col-md-offset-1"}>
-                                            <RaisedButton label="Masuk" primary={true} type="submit"   onTouchTap={this.handleTouchTap}  />
+                                            <RaisedButton
+                                                label="Masuk"
+                                                primary={true}
+                                                type="submit"
+                                                onTouchTap={this.handleTouchTap}/>
 
                                         </div>
 
@@ -294,6 +296,12 @@ export default class Login extends React.Component {
                             </form>
                         </div>
                     </Paper>
+
+                    <Snackbar
+                        open={this.state.Snackopen}
+                        message={this.state.SnackPesan}
+                        autoHideDuration={4000}
+                        onRequestClose={this.handleRequestClose}/>
 
                 </div>
             </MuiThemeProvider>
