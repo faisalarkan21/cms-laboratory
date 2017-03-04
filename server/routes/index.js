@@ -86,7 +86,7 @@ exports.login = function(req, res) {
 
                 console.log("Tolong login sebagai pengajar :)");
                 var respons = {
-                    tolongPeserta: "Tolong login sebagai pengajar :)",                    
+                    tolongPeserta: "Tolong login sebagai pengajar :)"                    
                 }
 
                 res.json(respons);
@@ -95,7 +95,7 @@ exports.login = function(req, res) {
 
                 console.log("Tolong login sebagai pengajar :)");
                  var respons = {
-                    tolongAdmin: "Tolong login sebagai admin :)",                    
+                    tolongAdmin: "Tolong login sebagai admin :)"                    
                 }
                 
                 res.json(respons);
