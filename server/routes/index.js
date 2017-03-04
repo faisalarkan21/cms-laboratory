@@ -80,7 +80,9 @@ exports.login = function (req, res) {
 
             console.log("Invalid Login");
             var respon = {
-                invalidLoginw : "Salah pass / id broh !"
+                invalidLogin : "Salah pass / id broh !",
+              
+
             }
 
             res.json(respon);

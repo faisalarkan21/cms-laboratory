@@ -102,6 +102,7 @@ export default class Login extends React.Component {
     handleChange(name, event) {
 
         this.setState({[name]: event.target.value})
+
     }
 
     handleCheck(event) {
@@ -115,49 +116,45 @@ export default class Login extends React.Component {
     }
 
     handleSubmit(event) {
-
+        event.preventDefault();
         this.kirimId();
 
-    }
-
-    componentDidMount() {
-
-        this.setState({errorMasuk: "aaaa"})
-
-        fetch('/test').then(function (res) {
-            return res.json();
-        })
-            .then(function (json) {
-                console.log(json);
-            });
+     
 
     }
+
+    // componentDidMount() {
+
+    //     this.kirimId();
+    // }
 
     kirimId() {
 
         var body = {
             IdAdmin: this.state.IdAdmin,
             password: this.state.Password,
-            IsAdmin: this.state.IsAdmin
+            Password: this.state.IsAdmin
 
         };
 
         fetch('/login', {
             method: 'POST',
             body: JSON.stringify(body),
-                headers: {
+            headers: {
+                'Content-Type': 'application/json'
+            }
 
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(function (res) {
-                return res.json()
-            })
-            .then(function (json) {
+        }).then(res => {
+            return res.json()
+        }).then(json => {
 
-                this.setState({errorMasuk: "Orang"})
+            // this.setState({IdAdmin: json.IdAdmin});
+            // this.setState({Password: json.password});
+            this.setState({errorMasuk: json.invalidLogin});
 
-            });
+            // alert(json.password);
+
+        });
 
     }
 
@@ -213,6 +210,7 @@ export default class Login extends React.Component {
                                                 <TextField
                                                     onChange={this.onChange.IdAdmin}
                                                     style={style.lebarInput}
+                                                    value={this.state.IdAdmin}
                                                     errorText={this.state.errorMasuk}
                                                     errorStyle={{
                                                     color: 'red'
@@ -233,6 +231,7 @@ export default class Login extends React.Component {
                                                 <TextField
                                                     onChange={this.onChange.Password}
                                                     style={style.lebarInput}
+                                                    value={this.state.Password}
                                                     type={"password"}
                                                     hintText="Masukan Password"></TextField>
 
