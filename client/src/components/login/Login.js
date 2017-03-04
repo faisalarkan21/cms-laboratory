@@ -24,6 +24,12 @@ import Divider from 'material-ui/Divider';
 import {List, ListItem} from 'material-ui/List';
 import {blue500, red500, greenA200, grey900} from 'material-ui/styles/colors';
 
+
+// import Snackbar from 'material-ui/Snackbar';
+export default class SnackbarExampleSimple extends React.Component {
+
+
+
 import './login.css'
 
 const style = {
