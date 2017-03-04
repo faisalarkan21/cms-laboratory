@@ -26,7 +26,6 @@ import {blue500, red500, greenA200, grey900} from 'material-ui/styles/colors';
 
 
 // import Snackbar from 'material-ui/Snackbar';
-export default class SnackbarExampleSimple extends React.Component {
 
 
 
