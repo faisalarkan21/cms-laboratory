@@ -39,6 +39,8 @@ exports.login = function (req, res) {
     var password = req.body.password;
     var IsAdmin = req.body.IsAdmin;
 
+    console.log(idAdmin);
+    console.log(password);
     console.log(IsAdmin);
 
     db.find({
@@ -80,9 +82,7 @@ exports.login = function (req, res) {
 
             console.log("Invalid Login");
             var respon = {
-                invalidLogin : "Salah pass / id broh !",
-              
-
+                invalidLogin : "Salah pass / id broh !"
             }
 
             res.json(respon);

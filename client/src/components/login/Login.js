@@ -133,7 +133,7 @@ export default class Login extends React.Component {
         var body = {
             IdAdmin: this.state.IdAdmin,
             password: this.state.Password,
-            Password: this.state.IsAdmin
+            IsAdmin: this.state.IsAdmin
 
         };
 
