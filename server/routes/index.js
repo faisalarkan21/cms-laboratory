@@ -53,7 +53,23 @@ exports.login = function (req, res) {
 
         console.log(docs);
 
-          if (docs.length < 1) {
+        if  ((idAdmin === "") && (password === "")) {
+
+            console.log("Kaga ada!");
+       
+
+               var respons = {
+                Id : "Tolong Masukan Id..",
+                password: "Tolong Masukan Password.."
+            }
+
+         
+
+            res.json(respons);
+
+        } 
+
+          else if (docs.length < 1) {
 
 
             console.log("Kaga ada!");
@@ -68,21 +84,7 @@ exports.login = function (req, res) {
 
             res.json(respons);
 
-        }else if  ((idAdmin === "") && (password === "")) {
-
-            console.log("Kaga ada!");
-       
-
-               var respons = {
-                Id : "Tolong Masukan Id..",
-                password: "Tolong Masukan Password.."
-            }
-
-         
-
-            res.json(respons);
-
-        }  else if ((idAdmin === docs[0].Admin) && (password === docs[0].passwordAdmin) && (IsAdmin === true)) {
+        } else if ((idAdmin === docs[0].Admin) && (password === docs[0].passwordAdmin) && (IsAdmin === true)) {
 
             if (docs[0].statusAdmin === false) {
                 console.log("Tolong masuk sebagai Pengajar !");
