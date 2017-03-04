@@ -24,10 +24,9 @@ import Divider from 'material-ui/Divider';
 import {List, ListItem} from 'material-ui/List';
 import {blue500, red500, greenA200, grey900} from 'material-ui/styles/colors';
 
+import SnackbarMod from '../../modify-components/Komponen-Divider/DividerMod.js';
 
-// import Snackbar from 'material-ui/Snackbar';
-
-
+import Snackbar from 'material-ui/Snackbar';
 
 import './login.css'
 
@@ -83,6 +82,7 @@ export default class Login extends React.Component {
             IsAdmin: false,
             errorId: '',
             errorPass: '',
+            Snackopen: false,
             // errorMasuk: ''
         }
 
@@ -122,11 +122,18 @@ export default class Login extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
+
         this.kirimId();
 
     }
 
-    // componentDidMount() {     this.kirimId(); }
+    handleTouchTap = () => {
+        this.setState({Snackopen: true});
+    };
+
+    handleRequestClose = () => {
+        this.setState({Snackopen: false});
+    };
 
     kirimId() {
 
@@ -174,6 +181,11 @@ export default class Login extends React.Component {
                     <br/>
                     <Paper zDepth={4} style={style.paperLogin}>
                         <div>
+                            <Snackbar
+                                open={this.state.Snackopen}
+                                message="Event added to your calendar"
+                                autoHideDuration={4000}
+                                onRequestClose={this.handleRequestClose}/>
                             <form
                                 onSubmit={this
                                 .handleSubmit
@@ -272,7 +284,7 @@ export default class Login extends React.Component {
                                         </div>
 
                                         <div className={"col-md-offset-1"}>
-                                            <RaisedButton label="Masuk" primary={true} type="submit"/>
+                                            <RaisedButton label="Masuk" primary={true} type="submit"   onTouchTap={this.handleTouchTap}  />
 
                                         </div>
 

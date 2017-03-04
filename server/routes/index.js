@@ -1,5 +1,5 @@
 var Datastore = require('nedb'),
-    db = new Datastore({filename: './database/database-cms', autoload: true});
+    db = new Datastore({ filename: './database/database-cms', autoload: true });
 
 // var people = []; var scott = {     name: 'Scott Robinson',     age: 28,
 // twitter: '@ScottWRobinson' }; var elon = {     name: 'Elon Musk',     age:
@@ -13,16 +13,14 @@ var Datastore = require('nedb'),
 // 44,     twitter: '@elonmusk' }; var jack = {     name: 'Jack Dorsey', age:
 // 39,     twitter: '@jack' }; people.push(scott, elon, jack);
 
-exports.pesan = function (req, res) {
+exports.pesan = function(req, res) {
 
     db
-        .insert([
-            {
-                nama: "Faisal"
-            }, {
-                nama: "orang"
-            }
-        ], function (err, newDocs) {
+        .insert([{
+            nama: "Faisal"
+        }, {
+            nama: "orang"
+        }], function(err, newDocs) {
 
             console.log(newDocs);
             res.send("Masuk");
@@ -31,7 +29,7 @@ exports.pesan = function (req, res) {
 
 }
 
-exports.login = function (req, res) {
+exports.login = function(req, res) {
 
     console.log("Masuk");
 
@@ -45,7 +43,7 @@ exports.login = function (req, res) {
 
     db.find({
         Admin: req.body.IdAdmin
-    }, function (err, docs) {
+    }, function(err, docs) {
 
         if (err) {
             console.log(err);
@@ -53,51 +51,60 @@ exports.login = function (req, res) {
 
         console.log(docs);
 
-        if  ((idAdmin === "") && (password === "")) {
+        if ((idAdmin === "") && (password === "")) {
 
             console.log("Kaga ada!");
-       
 
-               var respons = {
-                Id : "Tolong Masukan Id..",
+
+            var respons = {
+                Id: "Tolong Masukan Id..",
                 password: "Tolong Masukan Password.."
             }
 
-         
+
 
             res.json(respons);
 
-        } 
-
-          else if (docs.length < 1) {
+        } else if (docs.length < 1) {
 
 
             console.log("Kaga ada!");
-       
 
-               var respons = {
-                Id : "Username anda tidak ditemukan..",
+
+            var respons = {
+                Id: "Username anda tidak ditemukan..",
                 password: "Password anda Salah.."
             }
 
-         
+
 
             res.json(respons);
 
         } else if ((idAdmin === docs[0].Admin) && (password === docs[0].passwordAdmin) && (IsAdmin === true)) {
 
             if (docs[0].statusAdmin === false) {
-                console.log("Tolong masuk sebagai Pengajar !");
+
+                console.log("Tolong login sebagai pengajar :)");
+                var respons = {
+                    tolongPeserta: "Tolong login sebagai pengajar :)",                    
+                }
+
+                res.json(respons);
 
             } else if (docs[0].statusAdmin === true) {
-                console.log("Anda Masuk Sebagai Admin !");
 
+                console.log("Tolong login sebagai pengajar :)");
+                 var respons = {
+                    tolongAdmin: "Tolong login sebagai admin :)",                    
+                }
+                
+                res.json(respons);
             }
 
         } else if ((idAdmin === docs[0].Admin) && (password === docs[0].passwordAdmin) && (IsAdmin === false)) {
 
             if (docs[0].statusAdmin === true) {
-                
+
                 console.log("Tolong Masuk Sebagai Admin !");
 
             } else if (docs[0].statusAdmin === false) {
@@ -107,9 +114,9 @@ exports.login = function (req, res) {
             }
 
         } else {
-    
+
             var respons = {
-                password : "Password anda salah .."
+                password: "Password anda salah .."
             }
 
 
@@ -125,7 +132,7 @@ exports.login = function (req, res) {
 // db.insert({ nama: nama }, function (err, newDocs) {     console.log(newDocs);
 //     res.json(newDocs); }); }
 
-exports.simpan = function (req, res) {
+exports.simpan = function(req, res) {
 
     var namaLab = req.body.NamaLab;
     var namaAdmin = req.body.NamaAdmin;
@@ -138,7 +145,7 @@ exports.simpan = function (req, res) {
         Admin: namaAdmin,
         passwordAdmin: passwordAdmin,
         statusAdmin: status
-    }, function (err, newDocs) {
+    }, function(err, newDocs) {
 
         console.log(newDocs);
         res.json(newDocs);
@@ -146,7 +153,7 @@ exports.simpan = function (req, res) {
 
 }
 
-exports.test = function (req, res) {
+exports.test = function(req, res) {
 
     const testing = {
 
