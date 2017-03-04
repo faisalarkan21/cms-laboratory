@@ -58,7 +58,8 @@ exports.login = function(req, res) {
 
             var respons = {
                 Id: "Tolong Masukan Id..",
-                password: "Tolong Masukan Password.."
+                password: "Tolong Masukan Password..",
+                SnackPesan: "Tolong isi form login dengan benar :)" 
             }
 
 
@@ -73,7 +74,8 @@ exports.login = function(req, res) {
 
             var respons = {
                 Id: "Username anda tidak ditemukan..",
-                password: "Password anda Salah.."
+                password: "Password anda Salah..",
+                SnackPesan: "Username anda tidak ditemukan :)"
             }
 
 
@@ -86,7 +88,7 @@ exports.login = function(req, res) {
 
                 console.log("Tolong login sebagai pengajar :)");
                 var respons = {
-                    SnackPesan: "Tolong login sebagai pengajar :)"
+                    SnackPesan: "Tolong login sebagai pengajar " + idAdmin + " :)"
                 }
 
                 res.json(respons);
@@ -95,7 +97,7 @@ exports.login = function(req, res) {
 
                 console.log("anda masuk sebagai admin :)");
                 var respons = {
-                    SnackPesan: "Anda masuk sebagai admin!"
+                    SnackPesan: "Anda masuk sebagai admin "+ idAdmin + " :)"
                 }
 
                 res.json(respons);
@@ -109,27 +111,28 @@ exports.login = function(req, res) {
 
 
                 var respons = {
-                    SnackPesan: "Tolong Masuk Sebagai Admin !"
+                    SnackPesan: "Tolong Masuk Sebagai Admin  "+ idAdmin + " :)"
                 }
 
-                 res.json(respons);
+                res.json(respons);
 
             } else if (docs[0].statusAdmin === false) {
 
                 console.log("Anda Masuk sebagai Pengajar !");
 
                 var respons = {
-                    SnackPesan: "Anda Masuk sebagai Pengajar !"
+                    SnackPesan: "Anda Masuk sebagai Pengajar " +idAdmin + " :)"
                 }
 
-                 res.json(respons);
+                res.json(respons);
 
             }
 
         } else {
 
             var respons = {
-                password: "Password anda salah .."
+                password: "Password anda salah ..",
+                SnackPesan: "Tolong Periksa kembali passwordnya :)"
             }
 
 

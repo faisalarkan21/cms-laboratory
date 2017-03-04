@@ -27,12 +27,12 @@ import {blue500, red500, greenA200, grey900} from 'material-ui/styles/colors';
 import SnackbarMod from '../../modify-components/Komponen-Divider/DividerMod.js';
 
 import Snackbar from 'material-ui/Snackbar';
-
+import LinearProgress from 'material-ui/LinearProgress';
 import './login.css'
 
 const style = {
     paperLogin: {
-        height: 480,
+        height: 500,
         width: 450,
         marginTop: 10,
         display: 'inline-block'
@@ -83,7 +83,7 @@ export default class Login extends React.Component {
             errorId: '',
             errorPass: '',
             Snackopen: false,
-            SnackPesan:''
+            SnackPesan: ''
             // errorMasuk: ''
         }
 
@@ -123,7 +123,6 @@ export default class Login extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-
         this.kirimId();
 
     }
@@ -292,7 +291,13 @@ export default class Login extends React.Component {
 
                                     </div>
 
+                                    <LinearProgress
+                                        style={{
+                                        marginTop: 45
+                                    }}
+                                        mode="indeterminate"/>
                                 </div>
+
                             </form>
                         </div>
                     </Paper>
@@ -300,7 +305,7 @@ export default class Login extends React.Component {
                     <Snackbar
                         open={this.state.Snackopen}
                         message={this.state.SnackPesan}
-                        autoHideDuration={4000}
+                        autoHideDuration={5000}
                         onRequestClose={this.handleRequestClose}/>
 
                 </div>
