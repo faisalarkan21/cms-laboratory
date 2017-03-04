@@ -56,6 +56,12 @@ exports.login = function (req, res) {
         if (docs.length < 1) {
 
             console.log("Kaga ada!");
+            var respons = {
+                Id : "Tolong Masukan Id..",
+                password: "Tolong Masukan Password.."
+            }
+
+            res.json(respons);
 
         } else if ((idAdmin === docs[0].Admin) && (password === docs[0].passwordAdmin) && (IsAdmin === true)) {
 
