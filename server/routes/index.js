@@ -122,7 +122,8 @@ exports.login = function(req, res) {
                 console.log("Anda Masuk sebagai Pengajar !");
 
                 var respons = {
-                    SnackPesan: "Anda Masuk sebagai Pengajar " +idAdmin + " :)"
+                    SnackPesan: "Anda Masuk sebagai Pengajar " +idAdmin + " :)",
+                    Admin : docs[0].statusAdmin
                 }
 
                 res.json(respons);

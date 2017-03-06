@@ -9,7 +9,8 @@ import Database from './components/hal-awal/Setting-Database';
 import selesai from './components/hal-awal/selesai';
 
 import Login from './components/login/Login';
-import Dashboard from './components/dashboard/dashboard.js';
+import DashboardAdmin from './components/dashboard/dashboardAdmin.js';
+import DashboardPengajar from './components/dashboard/dashboardPengajar.js';
 
 // import About from './components/About'; import coba from './components/coba';
 import TidakDitemukan from './components/NotFound/404.js';
@@ -32,7 +33,8 @@ const Routes = (props) => (
     <Route path="setting-database" component={Database}/>
     <Route path="selesai" component={selesai}/>
     <Route path="login" component={Login}/>
-    <Route path="dashboard" component={Dashboard}/>
+    <Route path="dashboard-admin" component={DashboardAdmin}/>
+    <Route path="dashboard-pengajar" component={DashboardPengajar}/>
     <Route path="*" component={TidakDitemukan}/>
 
 

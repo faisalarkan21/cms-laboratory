@@ -179,7 +179,11 @@ export default class Login extends React.Component {
 
             if ((this.state.errorId === undefined) && (this.state.errorPass === undefined) && (this.state.AdminBackEnd === true)) {
 
-                browserHistory.push('/dashboard');
+                browserHistory.push('/dashboard-admin');
+
+            }else if ((this.state.errorId === undefined) && (this.state.errorPass === undefined) && (this.state.AdminBackEnd === false)){
+
+                  browserHistory.push('/dashboard-pengajar');
 
             }
 
