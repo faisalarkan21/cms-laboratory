@@ -9,6 +9,7 @@ import Database from './components/hal-awal/Setting-Database';
 import selesai from './components/hal-awal/selesai';
 
 import Login from './components/login/Login';
+import Dashboard from './components/dashboard/dashboard.js';
 
 // import About from './components/About'; import coba from './components/coba';
 import TidakDitemukan from './components/NotFound/404.js';
@@ -31,6 +32,7 @@ const Routes = (props) => (
     <Route path="setting-database" component={Database}/>
     <Route path="selesai" component={selesai}/>
     <Route path="login" component={Login}/>
+    <Route path="dashboard" component={Dashboard}/>
     <Route path="*" component={TidakDitemukan}/>
 
 

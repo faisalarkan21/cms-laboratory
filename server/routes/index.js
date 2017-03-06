@@ -97,7 +97,8 @@ exports.login = function(req, res) {
 
                 console.log("anda masuk sebagai admin :)");
                 var respons = {
-                    SnackPesan: "Anda masuk sebagai admin "+ idAdmin + " :)"
+                    SnackPesan: "Anda masuk sebagai admin "+ idAdmin + " :)",
+                    Admin : docs[0].statusAdmin
                 }
 
                 res.json(respons);

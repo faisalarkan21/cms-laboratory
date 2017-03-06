@@ -30,6 +30,15 @@ import Snackbar from 'material-ui/Snackbar';
 import LinearProgress from 'material-ui/LinearProgress';
 import './login.css'
 
+// temp 1
+import {browserHistory} from 'react-router';
+
+//temp 2
+import cookie from 'react-cookie';
+
+// function validasi(NamaId, Password) {     return {         NamaId:
+// NamaId.length === 0,         Password: Password.length === 0     }; }
+
 const style = {
     paperLogin: {
         height: 520,
@@ -83,7 +92,8 @@ export default class Login extends React.Component {
             errorId: '',
             errorPass: '',
             Snackopen: false,
-            SnackPesan: ''
+            SnackPesan: '',
+            AdminBackEnd: false
             // errorMasuk: ''
         }
 
@@ -160,8 +170,18 @@ export default class Login extends React.Component {
             this.setState({errorId: json.Id});
             this.setState({errorPass: json.password});
             this.setState({SnackPesan: json.SnackPesan});
+            this.setState({AdminBackEnd: json.Admin});
 
-            // alert(json.password);
+            console.log(this.state.errorId);
+            console.log(this.state.errorPass);
+            console.log(this.state.AdminBackEnd);
+            console.log(json);
+
+            if ((this.state.errorId === undefined) && (this.state.errorPass === undefined) && (this.state.AdminBackEnd === true)) {
+
+                browserHistory.push('/dashboard');
+
+            }
 
         });
 
