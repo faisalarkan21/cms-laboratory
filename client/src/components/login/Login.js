@@ -32,7 +32,7 @@ import './login.css'
 
 const style = {
     paperLogin: {
-        height: 500,
+        height: 520,
         width: 450,
         marginTop: 10,
         display: 'inline-block'
