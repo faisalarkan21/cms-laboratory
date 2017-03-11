@@ -32,17 +32,10 @@ module.exports = {
 
   },
 
-  masuk() {
+  masuk(token) {
 
-    const varToken = {
-      token: Math
-        .random()
-        .toString(36)
-        .substring(7)
-
-    }
-
-    localStorage.token = varToken.token
+   
+    localStorage.token = token
     return localStorage.token
 
   }

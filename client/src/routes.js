@@ -44,7 +44,7 @@ const Routes = (props) => (
     <Route path="selesai" component={selesai}/>
     <Route path="login" component={Login}/>
     <Route path="dashboard-admin" component={DashboardAdmin} onEnter={requireAuth}/>
-    <Route path="dashboard-pengajar" component={DashboardPengajar}/>
+    <Route path="dashboard-pengajar" component={DashboardPengajar}  onEnter={requireAuth}/>
     <Route path="*" component={TidakDitemukan}/>
 
   </Router>
