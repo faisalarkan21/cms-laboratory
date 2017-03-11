@@ -19,8 +19,12 @@ module.exports = {
     console.log(localStorage.token);
   },
 
-  checkToken (){
-      console.log(localStorage.token);
+  checkToken() {
+    console.log(localStorage.token);
+  },
+
+  loggedIn() {
+    return !localStorage.token
   }
 
   // loggedIn() {   return !!localStorage.token },

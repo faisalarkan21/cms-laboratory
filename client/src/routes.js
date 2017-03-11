@@ -18,8 +18,18 @@ import TidakDitemukan from './components/NotFound/404.js';
 // temp
 import InputDatabase from './modify-components/Komponen-Input/InputDatabase.js';
 
-// function requireAuth(nextState, replace) {   if (!loggedIn()) {     replace({
-//       pathname: '/login'     })   } }
+//temp2
+import auth from './auth/auth.js';
+
+
+function requireAuth(nextState, replace) {
+  if (!auth.loggedIn()) {
+    replace({
+      pathname: '/login',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  }
+}
 
 const Routes = (props) => (
   <Router {...props}>
@@ -33,7 +43,7 @@ const Routes = (props) => (
     <Route path="setting-database" component={Database}/>
     <Route path="selesai" component={selesai}/>
     <Route path="login" component={Login}/>
-    <Route path="dashboard-admin" component={DashboardAdmin}/>
+    <Route path="dashboard-admin" component={DashboardAdmin} onEnter={requireAuth}/>
     <Route path="dashboard-pengajar" component={DashboardPengajar}/>
     <Route path="*" component={TidakDitemukan}/>
 
