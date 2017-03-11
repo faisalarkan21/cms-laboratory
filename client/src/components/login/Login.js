@@ -97,7 +97,7 @@ export default class Login extends React.Component {
             Snackopen: false,
             SnackPesan: '',
             AdminBackEnd: false,
-            login: auth.loggedIn()
+            // login: auth.loggedIn()
             // userCookie: cookie.load('IdAdmin') errorMasuk: ''
         }
 
@@ -149,10 +149,7 @@ export default class Login extends React.Component {
         this.setState({Snackopen: false});
     };
 
-    componentWillMount() {
-        auth.onChange = this.updateAuth
-        auth.login()
-    }
+   
 
     kirimId() {
 
