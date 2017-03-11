@@ -5,6 +5,16 @@ import auth from '../../auth/auth.js';
 
 export default class Dashboard extends React.Component {
 
+
+    handleKeluar (){
+        auth.logout();
+    }
+
+    handleCek (){
+        auth.checkToken ();
+    }
+
+
     render() {
 
         const token = auth.getToken()
@@ -14,6 +24,8 @@ export default class Dashboard extends React.Component {
             <div>
                 <h1> Anda Admin ! </h1>
                 <p>{token}</p>
+                <button onClick={this.handleKeluar} > Keluar </button> 
+                <button onClick={this.handleCek} > Cek </button> 
             </div>
 
         )
