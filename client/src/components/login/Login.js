@@ -36,6 +36,9 @@ import {browserHistory} from 'react-router';
 //temp 2
 import cookie from 'react-cookie';
 
+//temp 3
+import auth from '../../auth/auth.js';
+
 // function validasi(NamaId, Password) {     return {         NamaId:
 // NamaId.length === 0,         Password: Password.length === 0     }; }
 
@@ -94,8 +97,8 @@ export default class Login extends React.Component {
             Snackopen: false,
             SnackPesan: '',
             AdminBackEnd: false,
-            userCookie: cookie.load('IdAdmin')
-            // errorMasuk: ''
+            login: auth.loggedIn()
+            // userCookie: cookie.load('IdAdmin') errorMasuk: ''
         }
 
         this.onChange = {
@@ -146,6 +149,11 @@ export default class Login extends React.Component {
         this.setState({Snackopen: false});
     };
 
+    componentWillMount() {
+        auth.onChange = this.updateAuth
+        auth.login()
+    }
+
     kirimId() {
 
         var body = {
@@ -172,7 +180,7 @@ export default class Login extends React.Component {
             this.setState({errorPass: json.password});
             this.setState({SnackPesan: json.SnackPesan});
             this.setState({AdminBackEnd: json.Admin});
-        
+
             console.log(this.state.errorId);
             console.log(this.state.errorPass);
             console.log(this.state.AdminBackEnd);
@@ -182,8 +190,6 @@ export default class Login extends React.Component {
 
                 browserHistory.push('/dashboard-admin');
                 cookie.save('IdAdmin', this.state.IdAdmin, {path: '/dashboard-admin'});
-
-                
 
             } else if ((this.state.errorId === undefined) && (this.state.errorPass === undefined) && (this.state.AdminBackEnd === false)) {
 
