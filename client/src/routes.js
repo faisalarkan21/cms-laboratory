@@ -23,7 +23,7 @@ import auth from './auth/auth.js';
 
 
 function requireAuth(nextState, replace) {
-  if (!auth.loggedIn()) {
+  if (auth.loggedIn() == undefined ) {
     replace({
       pathname: '/login',
       state: { nextPathname: nextState.location.pathname }

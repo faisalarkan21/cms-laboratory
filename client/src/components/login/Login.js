@@ -97,7 +97,7 @@ export default class Login extends React.Component {
             Snackopen: false,
             SnackPesan: '',
             AdminBackEnd: false,
-            // login: auth.loggedIn()
+            login: auth.loggedIn()
             // userCookie: cookie.load('IdAdmin') errorMasuk: ''
         }
 
@@ -150,7 +150,6 @@ export default class Login extends React.Component {
     };
 
    
-
     kirimId() {
 
         var body = {
@@ -177,6 +176,9 @@ export default class Login extends React.Component {
             this.setState({errorPass: json.password});
             this.setState({SnackPesan: json.SnackPesan});
             this.setState({AdminBackEnd: json.Admin});
+            this.setState({login: json.Admin});
+         
+            
 
             console.log(this.state.errorId);
             console.log(this.state.errorPass);
@@ -184,7 +186,7 @@ export default class Login extends React.Component {
             console.log(json);
 
             if ((this.state.errorId === undefined) && (this.state.errorPass === undefined) && (this.state.AdminBackEnd === true)) {
-
+                auth.masuk();
                 browserHistory.push('/dashboard-admin');
                 cookie.save('IdAdmin', this.state.IdAdmin, {path: '/dashboard-admin'});
 

@@ -7,6 +7,7 @@ module.exports = {
         .random()
         .toString(36)
         .substring(7)
+
     }
 
     localStorage.token = varToken.token
@@ -20,13 +21,30 @@ module.exports = {
   },
 
   checkToken() {
+    console.log("Dicek!");
     console.log(localStorage.token);
   },
 
   loggedIn() {
-    return !localStorage.token
-  }
 
-  // loggedIn() {   return !!localStorage.token },
+    alert(localStorage.token);
+    return localStorage.token;
+
+  },
+
+  masuk() {
+
+    const varToken = {
+      token: Math
+        .random()
+        .toString(36)
+        .substring(7)
+
+    }
+
+    localStorage.token = varToken.token
+    return localStorage.token
+
+  }
 
 }
