@@ -93,7 +93,8 @@ export default class Login extends React.Component {
             errorPass: '',
             Snackopen: false,
             SnackPesan: '',
-            AdminBackEnd: false
+            AdminBackEnd: false,
+            userCookie: cookie.load('IdAdmin')
             // errorMasuk: ''
         }
 
@@ -171,7 +172,7 @@ export default class Login extends React.Component {
             this.setState({errorPass: json.password});
             this.setState({SnackPesan: json.SnackPesan});
             this.setState({AdminBackEnd: json.Admin});
-
+        
             console.log(this.state.errorId);
             console.log(this.state.errorPass);
             console.log(this.state.AdminBackEnd);
@@ -180,10 +181,13 @@ export default class Login extends React.Component {
             if ((this.state.errorId === undefined) && (this.state.errorPass === undefined) && (this.state.AdminBackEnd === true)) {
 
                 browserHistory.push('/dashboard-admin');
+                cookie.save('IdAdmin', this.state.IdAdmin, {path: '/dashboard-admin'});
 
-            }else if ((this.state.errorId === undefined) && (this.state.errorPass === undefined) && (this.state.AdminBackEnd === false)){
+                
 
-                  browserHistory.push('/dashboard-pengajar');
+            } else if ((this.state.errorId === undefined) && (this.state.errorPass === undefined) && (this.state.AdminBackEnd === false)) {
+
+                browserHistory.push('/dashboard-pengajar');
 
             }
 
