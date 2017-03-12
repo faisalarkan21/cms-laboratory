@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { render } from 'react-dom'
 //temp 3
 import auth from '../../auth/auth.js';
+import {simpleRestClient, Admin, Resource} from 'admin-on-rest';
+import { PostList } from './posts';
 
 export default class Dashboard extends React.Component {
 
@@ -21,12 +23,9 @@ export default class Dashboard extends React.Component {
 
         return (
 
-            <div>
-                <h1> Anda Admin ! </h1>
-                <p>{token}</p>
-                <button onClick={this.handleKeluar} > Keluar </button> 
-                <button onClick={this.handleCek} > Cek </button> 
-            </div>
+          <Admin restClient={simpleRestClient('http://localhost:3000')}>
+               <Resource name="posts" list={PostList} />
+            </Admin>
 
         )
 
