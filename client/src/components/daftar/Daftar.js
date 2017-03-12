@@ -40,17 +40,33 @@ export default class Daftar extends React.Component {
         super(props);
 
         this.state = {
+            Nama: '',
             IdAdmin: '',
-            Password: ''
+            Email: '',
+            Hp: '',
+            Password: '',
+            PasswordConfrim: ''
         }
 
         this.onChange = {
+            Nama: this
+                .handleChange
+                .bind(this, 'Nama'),
             IdAdmin: this
                 .handleChange
                 .bind(this, 'IdAdmin'),
+            Email: this
+                .handleChange
+                .bind(this, 'Email'),
+            Hp: this
+                .handleChange
+                .bind(this, 'Hp'),
             Password: this
                 .handleChange
-                .bind(this, 'Password')
+                .bind(this, 'Password'),
+            PasswordConfrim: this
+                .handleChange
+                .bind(this, 'PasswordConfrim')
 
         }
 
@@ -98,13 +114,21 @@ export default class Daftar extends React.Component {
                                 marginLeft: 30,
                                 fontSize: 15
                             }}>
-                                Berikut ini adalah form submit untuk anggota baru, untuk selanjutnya admin akan confirm terlebih dahulu untuk bisa login.
+                                Berikut ini adalah form submit untuk anggota baru, untuk selanjutnya admin akan
+                                confirm terlebih dahulu untuk bisa login.
 
                             </p>
-                            <Divider style={{marginLeft:30}}/>
+                            <Divider
+                                style={{
+                                marginLeft: 30
+                            }}/>
                         </div>
 
-                        <div className={"col-md-12 col-md-offset-1"} style={{paddingTop:20}}>
+                        <div
+                            className={"col-md-12 col-md-offset-1"}
+                            style={{
+                            paddingTop: 20
+                        }}>
                             <form>
                                 <div
                                     className={"row"}
@@ -124,9 +148,9 @@ export default class Daftar extends React.Component {
                                             style = {{marginLeft:25 , paddingTop:15}}/>}
                                                 disabled={true}>
                                                 <TextField
-                                                    onChange={this.onChange.IdAdmin}
+                                                    onChange={this.onChange.Nama}
                                                     style={style.lebarInput}
-                                                    value={this.state.IdAdmin}
+                                                    value={this.state.Nama}
                                                     errorText={this.state.errorId}
                                                     errorStyle={{
                                                     color: 'red'
@@ -167,14 +191,13 @@ export default class Daftar extends React.Component {
                                             style = {{marginLeft:25 , paddingTop:15}}/>}
                                                 disabled={true}>
                                                 <TextField
-                                                    onChange={this.onChange.Password}
+                                                    onChange={this.onChange.Email}
                                                     style={style.lebarInput}
-                                                    value={this.state.Password}
+                                                    value={this.state.Email}
                                                     errorText={this.state.errorPass}
                                                     errorStyle={{
                                                     color: 'red'
                                                 }}
-                                                    type={"password"}
                                                     hintText="Email anda.."></TextField>
 
                                             </ListItem>
@@ -192,14 +215,14 @@ export default class Daftar extends React.Component {
                                             style = {{marginLeft:25 , paddingTop:15}}/>}
                                                 disabled={true}>
                                                 <TextField
-                                                    onChange={this.onChange.Password}
+                                                    onChange={this.onChange.Hp}
                                                     style={style.lebarInput}
-                                                    value={this.state.Password}
+                                                    value={this.state.Hp}
                                                     errorText={this.state.errorPass}
                                                     errorStyle={{
                                                     color: 'red'
                                                 }}
-                                                    type={"password"}
+                                                    type={'number'}
                                                     hintText="Handphone"></TextField>
 
                                             </ListItem>
@@ -241,9 +264,9 @@ export default class Daftar extends React.Component {
                                             style = {{marginLeft:25 , paddingTop:15}}/>}
                                                 disabled={true}>
                                                 <TextField
-                                                    onChange={this.onChange.Password}
+                                                    onChange={this.onChange.PasswordConfrim}
                                                     style={style.lebarInput}
-                                                    value={this.state.Password}
+                                                    value={this.state.PasswordConfrim}
                                                     errorText={this.state.errorPass}
                                                     errorStyle={{
                                                     color: 'red'
@@ -252,15 +275,15 @@ export default class Daftar extends React.Component {
                                                     hintText="Ulangi Password Anda"></TextField>
 
                                             </ListItem>
-                                        
+
                                         </div>
-   
+
                                         <div
                                             className={"col-md-12 col-md-offset-1 row"}
                                             style={{
                                             marginTop: 15
                                         }}>
-                                        
+
                                             <div className={"col-md-3 "}>
 
                                                 <RaisedButton label={"Kembali"}/>
