@@ -80,7 +80,7 @@ const Routes = (props) => (
     <Route path="selamat-datang" component={Welcome}/>
     <Route path="setting-database" component={Database}/>
     <Route path="selesai" component={Selesai}/>
-    <Route path="submit" component={Daftar}/>
+    <Route path="daftar" component={Daftar}/>
     <Route path="login" component={Login} onEnter={checkLogin}/>
     <Route
       path="dashboard-admin"
