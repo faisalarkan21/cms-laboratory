@@ -22,8 +22,18 @@ import InputDatabase from './modify-components/Komponen-Input/InputDatabase.js';
 import auth from './auth/auth.js';
 
 
-function requireAuth(nextState, replace) {
-  if (auth.loggedIn() == undefined ) {
+function requireAuthAdmin(nextState, replace) {
+  if (auth.loggedInAdmin() == undefined ) {
+    replace({
+      pathname: '/login',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  }
+}
+
+function requireAuthUser(nextState, replace) {
+  // console.log("ini user -> : "  +  auth.loggedInUser());
+  if (auth.loggedInUser() == undefined ) {
     replace({
       pathname: '/login',
       state: { nextPathname: nextState.location.pathname }
@@ -43,8 +53,8 @@ const Routes = (props) => (
     <Route path="setting-database" component={Database}/>
     <Route path="selesai" component={selesai}/>
     <Route path="login" component={Login}/>
-    <Route path="dashboard-admin" component={DashboardAdmin} onEnter={requireAuth}/>
-    <Route path="dashboard-pengajar" component={DashboardPengajar}  onEnter={requireAuth}/>
+    <Route path="dashboard-admin" component={DashboardAdmin} onEnter={requireAuthAdmin}/>
+    <Route path="dashboard-pengajar" component={DashboardPengajar}  onEnter={requireAuthUser}/>
     <Route path="*" component={TidakDitemukan}/>
 
   </Router>

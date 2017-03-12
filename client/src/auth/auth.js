@@ -1,42 +1,54 @@
 module.exports = {
 
-  getToken() {
+  getTokenAdmin() {
 
-    const varToken = {
-      token: Math
-        .random()
-        .toString(36)
-        .substring(7)
+    // const varToken = {   token: Math     .random()     .toString(36)
+    // .substring(7) }
 
-    }
+    return localStorage.admin;
+  },
 
-    localStorage.token = varToken.token
-    return localStorage.token
+  getTokenUser() {
+    return localStorage.user;
   },
 
   logout() {
-    delete localStorage.token
+    delete localStorage.admin
+    delete localStorage.user
     console.log("Dibuang!");
-    console.log(localStorage.token);
+    console.log(localStorage.admin);
   },
 
   checkToken() {
     console.log("Dicek!");
-    console.log(localStorage.token);
+    console.log(localStorage.admin);
+    console.log(localStorage.user);
   },
 
-  loggedIn() {
+  loggedInAdmin() {
 
-    alert(localStorage.token);
-    return localStorage.token;
+    alert(localStorage.admin);
+    return localStorage.admin;
 
   },
 
-  masuk(token) {
+  loggedInUser() {
+    alert(localStorage.user);
+    alert(localStorage.admin);
+    return localStorage.user;
 
-   
-    localStorage.token = token
-    return localStorage.token
+  },
+
+  masukAdmin(token) {
+
+    localStorage.admin = token
+    // return localStorage.admin
+
+  },
+  masukUser(token) {
+
+    localStorage.user = token
+    // return localStorage.admin
 
   }
 

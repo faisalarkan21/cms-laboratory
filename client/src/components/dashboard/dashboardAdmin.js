@@ -10,14 +10,14 @@ export default class Dashboard extends React.Component {
         auth.logout();
     }
 
-    handleCek (){
-        auth.checkToken ();
-    }
+    // handleCek (){
+    //     auth.checkToken ();
+    // }
 
 
     render() {
 
-        const token = auth.getToken()
+        const token = auth.getTokenAdmin()
 
         return (
 

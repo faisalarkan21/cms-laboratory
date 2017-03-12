@@ -97,7 +97,8 @@ export default class Login extends React.Component {
             Snackopen: false,
             SnackPesan: '',
             AdminBackEnd: false,
-            login: auth.loggedIn()
+            // loginAdmin: auth.loggedInUser(),
+            // loginUser: auth.loggedInAdmin()
             
         }
 
@@ -186,12 +187,12 @@ export default class Login extends React.Component {
             console.log(json);
 
             if ((this.state.errorId === undefined) && (this.state.errorPass === undefined) && (this.state.AdminBackEnd === true)) {
-                auth.masuk(json.Token);
+                auth.masukAdmin(json.TokenAdmin);
                 browserHistory.push('/dashboard-admin');
               
 
             } else if ((this.state.errorId === undefined) && (this.state.errorPass === undefined) && (this.state.AdminBackEnd === false)) {
-                 auth.masuk();
+                auth.masukUser(json.TokenPengajar);
                 browserHistory.push('/dashboard-pengajar');
 
             }

@@ -102,7 +102,7 @@ exports.login = function (req, res) {
                 var respons = {
                     SnackPesan: "Anda masuk sebagai admin " + idAdmin + " :)",
                     Admin: docs[0].statusAdmin,
-                    Token:varToken.token
+                    TokenAdmin: varToken.token
                 }
 
                 res.json(respons);
@@ -122,13 +122,20 @@ exports.login = function (req, res) {
 
             } else if (docs[0].statusAdmin === false) {
 
-                //token
+                const varToken = {
+                    token: Math
+                        .random()
+                        .toString(36)
+                        .substring(7)
+
+                }
 
                 console.log("Anda Masuk sebagai Pengajar !");
 
                 var respons = {
                     SnackPesan: "Anda Masuk sebagai Pengajar " + idAdmin + " :)",
-                    Admin: docs[0].statusAdmin
+                    Admin: docs[0].statusAdmin,
+                    TokenPengajar: varToken.token
                 }
 
                 res.json(respons);
