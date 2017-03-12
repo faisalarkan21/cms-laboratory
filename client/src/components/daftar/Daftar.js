@@ -11,6 +11,11 @@ import {browserHistory} from 'react-router';
 import Paper from 'material-ui/Paper';
 import Orang from 'material-ui/svg-icons/action/account-circle';
 
+import IdOrang from 'material-ui/svg-icons/action/assignment-ind';
+import Email from 'material-ui/svg-icons/content/mail';
+import Phone from 'material-ui/svg-icons/hardware/phone-android';
+import Lock from 'material-ui/svg-icons/action/lock';
+
 const muiTheme = getMuiTheme({palette: {
         // accent1Color: red500
     }});
@@ -18,9 +23,14 @@ const muiTheme = getMuiTheme({palette: {
 const style = {
     paperDaftar: {
         height: 520,
-        width: 600,
+        width: 850,
         marginTop: 10,
         display: 'inline-block'
+    },
+    lebarInput: {
+
+        width: '90%'
+
     }
 }
 
@@ -34,16 +44,15 @@ export default class Daftar extends React.Component {
             Password: ''
         }
 
-         this.onChange = {
+        this.onChange = {
             IdAdmin: this
                 .handleChange
                 .bind(this, 'IdAdmin'),
             Password: this
                 .handleChange
                 .bind(this, 'Password')
-        
+
         }
-              
 
     }
 
@@ -53,8 +62,6 @@ export default class Daftar extends React.Component {
         // console.log(this.state.Password);
     }
 
-  
-
     render() {
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
@@ -62,7 +69,7 @@ export default class Daftar extends React.Component {
                     style={{
                     paddingRight: 60
                 }}
-                    className={"col-md-10 col-md-offset-3"}>
+                    className={"col-md-12 col-md-offset-3"}>
 
                     <br/>
                     <br/>
@@ -80,50 +87,148 @@ export default class Daftar extends React.Component {
                         </div>
                         <Divider/>
 
-                        <div>
+                        <div className={"col-md-12 col-md-offset-1 "}>
                             <form>
-                                <div>
-                                    <ListItem
-                                        leftIcon={< Orang color = {
-                                        '#424242'
-                                    }
-                                    style = {{marginLeft:25 , paddingTop:15}}/>}
-                                        disabled={true}>
-                                        <TextField
-                                            onChange={this.onChange.IdAdmin}
-                                            style={style.lebarInput}
-                                            value={this.state.IdAdmin}
-                                            errorText={this.state.errorId}
-                                            errorStyle={{
-                                            color: 'red'
-                                        }}
-                                            hintText="Masukan Username"></TextField>
-                                    </ListItem>
-                                </div>
+                                <div className={"row"}>
+                                    <div className={"col-md-5"}>
+                                        <div >
+                                            <ListItem
+                                                leftIcon={< Orang color = {
+                                                '#424242'
+                                            }
+                                            style = {{marginLeft:25 , paddingTop:15}}/>}
+                                                disabled={true}>
+                                                <TextField
+                                                    onChange={this.onChange.IdAdmin}
+                                                    style={style.lebarInput}
+                                                    value={this.state.IdAdmin}
+                                                    errorText={this.state.errorId}
+                                                    errorStyle={{
+                                                    color: 'red'
+                                                }}
+                                                    hintText="Nama Lengkap"></TextField>
+                                            </ListItem>
+                                        </div>
 
-                                <div
-                                    style={{
-                                    marginTop: -17
-                                }}>
-                                    <ListItem
-                                        leftIcon={< VisibilityOff color = {
-                                        '#424242'
-                                    }
-                                    style = {{marginLeft:25 , paddingTop:15}}/>}
-                                        disabled={true}>
-                                        <TextField
-                                            onChange={this.onChange.Password}
-                                            style={style.lebarInput}
-                                            value={this.state.Password}
-                                            errorText={this.state.errorPass}
-                                            errorStyle={{
-                                            color: 'red'
-                                        }}
-                                            type={"password"}
-                                            hintText="Masukan Password"></TextField>
+                                        <div
+                                            style={{
+                                            marginTop: -17
+                                        }}>
+                                            <ListItem
+                                                leftIcon={< IdOrang color = {
+                                                '#424242'
+                                            }
+                                            style = {{marginLeft:25 , paddingTop:15}}/>}
+                                                disabled={true}>
+                                                <TextField
+                                                    onChange={this.onChange.IdAdmin}
+                                                    style={style.lebarInput}
+                                                    value={this.state.IdAdmin}
+                                                    errorText={this.state.errorId}
+                                                    errorStyle={{
+                                                    color: 'red'
+                                                }}
+                                                    hintText="Username"></TextField>
+                                            </ListItem>
+                                        </div>
+                                        <div
+                                            style={{
+                                            marginTop: -17
+                                        }}>
+                                            <ListItem
+                                                leftIcon={< Email color = {
+                                                '#424242'
+                                            }
+                                            style = {{marginLeft:25 , paddingTop:15}}/>}
+                                                disabled={true}>
+                                                <TextField
+                                                    onChange={this.onChange.Password}
+                                                    style={style.lebarInput}
+                                                    value={this.state.Password}
+                                                    errorText={this.state.errorPass}
+                                                    errorStyle={{
+                                                    color: 'red'
+                                                }}
+                                                    type={"password"}
+                                                    hintText="Email anda.."></TextField>
 
-                                    </ListItem>
+                                            </ListItem>
 
+                                        </div>
+
+                                    </div>
+
+                                    <div className={"col-md-4"}>
+                                        <div>
+                                            <ListItem
+                                                leftIcon={< Phone color = {
+                                                '#424242'
+                                            }
+                                            style = {{marginLeft:25 , paddingTop:15}}/>}
+                                                disabled={true}>
+                                                <TextField
+                                                    onChange={this.onChange.Password}
+                                                    style={style.lebarInput}
+                                                    value={this.state.Password}
+                                                    errorText={this.state.errorPass}
+                                                    errorStyle={{
+                                                    color: 'red'
+                                                }}
+                                                    type={"password"}
+                                                    hintText="Handphone"></TextField>
+
+                                            </ListItem>
+
+                                        </div>
+
+                                        <div
+                                            style={{
+                                            marginTop: -17
+                                        }}>
+                                            <ListItem
+                                                leftIcon={< Lock color = {
+                                                '#424242'
+                                            }
+                                            style = {{marginLeft:25 , paddingTop:15}}/>}
+                                                disabled={true}>
+                                                <TextField
+                                                    onChange={this.onChange.Password}
+                                                    style={style.lebarInput}
+                                                    value={this.state.Password}
+                                                    errorText={this.state.errorPass}
+                                                    errorStyle={{
+                                                    color: 'red'
+                                                }}
+                                                    type={"password"}
+                                                    hintText="Password Anda"></TextField>
+
+                                            </ListItem>
+
+                                        </div>
+                                        <div
+                                            style={{
+                                            marginTop: -17
+                                        }}>
+                                            <ListItem
+                                                leftIcon={< VisibilityOff color = {
+                                                '#424242'
+                                            }
+                                            style = {{marginLeft:25 , paddingTop:15}}/>}
+                                                disabled={true}>
+                                                <TextField
+                                                    onChange={this.onChange.Password}
+                                                    style={style.lebarInput}
+                                                    value={this.state.Password}
+                                                    errorText={this.state.errorPass}
+                                                    errorStyle={{
+                                                    color: 'red'
+                                                }}
+                                                    type={"password"}
+                                                    hintText="Ulangi Password Anda"></TextField>
+
+                                            </ListItem>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>
