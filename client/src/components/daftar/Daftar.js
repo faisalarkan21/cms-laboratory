@@ -34,6 +34,10 @@ const style = {
     }
 }
 
+function isInteger(x) {
+    return x % 1 === 0;
+}
+
 export default class Daftar extends React.Component {
 
     constructor(props) {
@@ -44,6 +48,7 @@ export default class Daftar extends React.Component {
             IdAdmin: '',
             Email: '',
             Hp: '',
+            HpCheck: false,
             Password: '',
             PasswordConfrim: ''
         }
@@ -58,9 +63,7 @@ export default class Daftar extends React.Component {
             Email: this
                 .handleChange
                 .bind(this, 'Email'),
-            Hp: this
-                .handleChange
-                .bind(this, 'Hp'),
+
             Password: this
                 .handleChange
                 .bind(this, 'Password'),
@@ -70,12 +73,29 @@ export default class Daftar extends React.Component {
 
         }
 
+        this.handphoneChange = this
+            .handphoneChange
+            .bind(this);
+
     }
 
     handleChange(name, event) {
 
         this.setState({[name]: event.target.value})
         // console.log(this.state.Password);
+    }
+
+    handphoneChange(event) {
+
+        const NoHP = event.target.value;
+
+        console.log(NoHP);
+
+        this.setState({HpCheck: isInteger(NoHP)})
+        this.setState({Hp: NoHP})
+
+        console.log(this.state.HpCheck);
+
     }
 
     render() {
@@ -215,14 +235,13 @@ export default class Daftar extends React.Component {
                                             style = {{marginLeft:25 , paddingTop:15}}/>}
                                                 disabled={true}>
                                                 <TextField
-                                                    onChange={this.onChange.Hp}
+                                                    onChange={this.handphoneChange}
                                                     style={style.lebarInput}
                                                     value={this.state.Hp}
                                                     errorText={this.state.errorPass}
                                                     errorStyle={{
                                                     color: 'red'
                                                 }}
-                                                    type={'number'}
                                                     hintText="Handphone"></TextField>
 
                                             </ListItem>
