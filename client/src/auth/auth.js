@@ -27,14 +27,14 @@ module.exports = {
 
   loggedInAdmin() {
 
-    alert(localStorage.admin);
+    // alert(localStorage.admin);
     return localStorage.admin;
 
   },
 
   loggedInUser() {
-    alert(localStorage.user);
-    alert(localStorage.admin);
+    // alert(localStorage.user);
+    // alert(localStorage.admin);
     return localStorage.user;
 
   },
