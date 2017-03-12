@@ -22,14 +22,14 @@ const muiTheme = getMuiTheme({palette: {
 
 const style = {
     paperDaftar: {
-        height: 520,
-        width: 850,
+        height: 470,
+        width: 700,
         marginTop: 10,
         display: 'inline-block'
     },
     lebarInput: {
 
-        width: '90%'
+        width: '120%'
 
     }
 }
@@ -81,16 +81,41 @@ export default class Daftar extends React.Component {
                         }}>
 
                             <h2>
-                                Submit Data
+                                Form Submit Data
                             </h2>
 
                         </div>
                         <Divider/>
 
-                        <div className={"col-md-12 col-md-offset-1 "}>
+                        <div
+                            className={"col-md-9 col-md-offset-1"}
+                            style={{
+                            marginTop: 15
+                        }}>
+
+                            <p
+                                style={{
+                                marginLeft: 30,
+                                fontSize: 15
+                            }}>
+                                Berikut ini adalah form submit untuk anggota baru, untuk selanjutnya admin akan confirm terlebih dahulu untuk bisa login.
+
+                            </p>
+                            <Divider style={{marginLeft:30}}/>
+                        </div>
+
+                        <div className={"col-md-12 col-md-offset-1"} style={{paddingTop:20}}>
                             <form>
-                                <div className={"row"}>
-                                    <div className={"col-md-5"}>
+                                <div
+                                    className={"row"}
+                                    style={{
+                                    marginTop: -20
+                                }}>
+                                    <div
+                                        className={"col-md-5"}
+                                        style={{
+                                        marginRight: -10
+                                    }}>
                                         <div >
                                             <ListItem
                                                 leftIcon={< Orang color = {
@@ -158,7 +183,7 @@ export default class Daftar extends React.Component {
 
                                     </div>
 
-                                    <div className={"col-md-4"}>
+                                    <div className={"col-md-5"}>
                                         <div>
                                             <ListItem
                                                 leftIcon={< Phone color = {
@@ -227,6 +252,22 @@ export default class Daftar extends React.Component {
                                                     hintText="Ulangi Password Anda"></TextField>
 
                                             </ListItem>
+                                        
+                                        </div>
+   
+                                        <div
+                                            className={"col-md-12 col-md-offset-1 row"}
+                                            style={{
+                                            marginTop: 15
+                                        }}>
+                                        
+                                            <div className={"col-md-3 "}>
+
+                                                <RaisedButton label={"Kembali"}/>
+                                            </div>
+                                            <div className={"col-md-5 col-md-offset-3"}>
+                                                <RaisedButton primary={true} label={"Submit"}/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
