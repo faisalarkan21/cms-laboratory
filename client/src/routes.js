@@ -18,6 +18,9 @@ import TidakDitemukan from './components/NotFound/404.js';
 // temp
 import InputDatabase from './modify-components/Komponen-Input/InputDatabase.js';
 
+import daftar from './components/daftar/daftar';
+
+
 //temp2
 import auth from './auth/auth.js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -77,6 +80,7 @@ const Routes = (props) => (
     <Route path="selamat-datang" component={Welcome}/>
     <Route path="setting-database" component={Database}/>
     <Route path="selesai" component={selesai}/>
+    <Route path="submit" component={daftar}/>
     <Route path="login" component={Login} onEnter={checkLogin}/>
     <Route
       path="dashboard-admin"
