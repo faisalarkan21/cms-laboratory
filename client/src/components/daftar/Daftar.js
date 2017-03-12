@@ -12,7 +12,7 @@ import Paper from 'material-ui/Paper';
 
 const muiTheme = getMuiTheme({
     palette: {
-        accent1Color: red500
+        // accent1Color: red500
     }
 });
 

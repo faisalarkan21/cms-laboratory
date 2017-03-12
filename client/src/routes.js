@@ -6,7 +6,7 @@ import {Router, Route, IndexRedirect} from 'react-router';
 import Test from './components/Ex/Test';
 import Welcome from './components/hal-awal/Welcome';
 import Database from './components/hal-awal/Setting-Database';
-import selesai from './components/hal-awal/selesai';
+import Selesai from './components/hal-awal/selesai';
 
 import Login from './components/login/Login';
 import DashboardAdmin from './components/dashboard/dashboardAdmin.js';
@@ -18,7 +18,7 @@ import TidakDitemukan from './components/NotFound/404.js';
 // temp
 import InputDatabase from './modify-components/Komponen-Input/InputDatabase.js';
 
-import daftar from './components/daftar/daftar';
+import Daftar from './components/daftar/Daftar';
 
 
 //temp2
@@ -79,8 +79,8 @@ const Routes = (props) => (
     </Route>
     <Route path="selamat-datang" component={Welcome}/>
     <Route path="setting-database" component={Database}/>
-    <Route path="selesai" component={selesai}/>
-    <Route path="submit" component={daftar}/>
+    <Route path="selesai" component={Selesai}/>
+    <Route path="submit" component={Daftar}/>
     <Route path="login" component={Login} onEnter={checkLogin}/>
     <Route
       path="dashboard-admin"
