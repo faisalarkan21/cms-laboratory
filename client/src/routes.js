@@ -20,7 +20,7 @@ import InputDatabase from './modify-components/Komponen-Input/InputDatabase.js';
 
 //temp2
 import auth from './auth/auth.js';
-
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 function requireAuthAdmin(nextState, replace) {
   if (auth.loggedInAdmin() == undefined ) {
