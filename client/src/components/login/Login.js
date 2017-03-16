@@ -132,8 +132,7 @@ export default class Login extends React.Component {
     }
 
     handleError(json) {
-        alert(json);
-
+        alert(json);         
     }
 
     handleSubmit(event) {

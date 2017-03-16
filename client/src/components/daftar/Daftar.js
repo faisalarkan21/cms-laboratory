@@ -38,6 +38,13 @@ function isInteger(x) {
     return x % 1 === 0;
 }
 
+function checkEmail(email) {
+    if (email.match(/@/)) {
+        return true;
+    }
+    return false;
+}
+
 export default class Daftar extends React.Component {
 
     constructor(props) {
@@ -60,9 +67,6 @@ export default class Daftar extends React.Component {
             IdAdmin: this
                 .handleChange
                 .bind(this, 'IdAdmin'),
-            Email: this
-                .handleChange
-                .bind(this, 'Email'),
 
             Password: this
                 .handleChange
@@ -77,12 +81,25 @@ export default class Daftar extends React.Component {
             .handphoneChange
             .bind(this);
 
+        this.emailChange = this
+            .emailChange
+            .bind(this);
     }
 
     handleChange(name, event) {
 
         this.setState({[name]: event.target.value})
         // console.log(this.state.Password);
+    }
+
+    emailChange(event) {
+
+        var check = checkEmail(event.target.value)
+
+        this.setState({Email: event.target.value})
+
+        console.log(check);
+
     }
 
     handphoneChange(event) {
@@ -94,7 +111,7 @@ export default class Daftar extends React.Component {
         this.setState({HpCheck: isInteger(NoHP)})
         this.setState({Hp: NoHP})
 
-        console.log(this.state.HpCheck);
+        console.log(this.state.HpCheck); //LAST!
 
     }
 
@@ -211,7 +228,7 @@ export default class Daftar extends React.Component {
                                             style = {{marginLeft:25 , paddingTop:15}}/>}
                                                 disabled={true}>
                                                 <TextField
-                                                    onChange={this.onChange.Email}
+                                                    onChange={this.emailChange}
                                                     style={style.lebarInput}
                                                     value={this.state.Email}
                                                     errorText={this.state.errorPass}
