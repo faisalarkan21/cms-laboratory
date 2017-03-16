@@ -40,9 +40,11 @@ function isInteger(x) {
 
 function checkEmail(email) {
     if (email.match(/@/)) {
-        return true;
+        return false;
+    }else{
+
+    return "Isi email dengan Benar";
     }
-    return false;
 }
 
 export default class Daftar extends React.Component {
@@ -57,7 +59,8 @@ export default class Daftar extends React.Component {
             Hp: '',
             HpCheck: false,
             Password: '',
-            PasswordConfrim: ''
+            PasswordConfrim: '',
+            errorEmail: false  
         }
 
         this.onChange = {
@@ -94,11 +97,13 @@ export default class Daftar extends React.Component {
 
     emailChange(event) {
 
-        var check = checkEmail(event.target.value)
-
         this.setState({Email: event.target.value})
 
-        console.log(check);
+        this.setState({
+            errorEmail: checkEmail(event.target.value)
+        })
+
+        // console.log(this.state.errorEmail);
 
     }
 
@@ -188,7 +193,7 @@ export default class Daftar extends React.Component {
                                                     onChange={this.onChange.Nama}
                                                     style={style.lebarInput}
                                                     value={this.state.Nama}
-                                                    errorText={this.state.errorId}
+                                                    errorText={this.state.errorId }
                                                     errorStyle={{
                                                     color: 'red'
                                                 }}
@@ -231,7 +236,7 @@ export default class Daftar extends React.Component {
                                                     onChange={this.emailChange}
                                                     style={style.lebarInput}
                                                     value={this.state.Email}
-                                                    errorText={this.state.errorPass}
+                                                    errorText={this.state.errorEmail }
                                                     errorStyle={{
                                                     color: 'red'
                                                 }}
