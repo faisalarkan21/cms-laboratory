@@ -35,7 +35,13 @@ const style = {
 }
 
 function isInteger(x) {
-    return x % 1 === 0;
+    if ( x % 1 === 0){
+        
+        return false;
+
+    }else{
+        return "Isi No Hp dengan benar..";
+    }
 }
 
 function checkEmail(email) {
@@ -60,7 +66,8 @@ export default class Daftar extends React.Component {
             HpCheck: false,
             Password: '',
             PasswordConfrim: '',
-            errorEmail: false  
+            errorEmail: false,
+            errorHp: false  
         }
 
         this.onChange = {
@@ -113,10 +120,10 @@ export default class Daftar extends React.Component {
 
         console.log(NoHP);
 
-        this.setState({HpCheck: isInteger(NoHP)})
+        this.setState({errorHp: isInteger(NoHP)})
         this.setState({Hp: NoHP})
 
-        console.log(this.state.HpCheck); //LAST!
+    
 
     }
 
@@ -260,7 +267,7 @@ export default class Daftar extends React.Component {
                                                     onChange={this.handphoneChange}
                                                     style={style.lebarInput}
                                                     value={this.state.Hp}
-                                                    errorText={this.state.errorPass}
+                                                    errorText={this.state.errorHp}
                                                     errorStyle={{
                                                     color: 'red'
                                                 }}
