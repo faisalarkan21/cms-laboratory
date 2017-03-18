@@ -35,11 +35,11 @@ const style = {
 }
 
 function isInteger(x) {
-    if ( x % 1 === 0){
-        
+    if (x % 1 === 0) {
+
         return false;
 
-    }else{
+    } else {
         return "Isi No Hp dengan benar..";
     }
 }
@@ -47,11 +47,41 @@ function isInteger(x) {
 function checkEmail(email) {
     if (email.match(/@/)) {
         return false;
-    }else{
+    } else {
 
-    return "Isi email dengan Benar";
+        return "Isi email dengan Benar";
     }
 }
+
+function validasi(password) {
+
+    if ((password.length <= 6)) {
+
+        return "harus lebih dari 6 karakter";
+
+    } else {
+
+        return false;
+
+    }
+
+};
+
+function validasiKonfirm(passwordKonfirm) {
+
+    if ((passwordKonfirm.length <= 6)) {
+
+        return "harus lebih dari 6 karakter";
+
+    } else {
+        return false;
+
+    }
+
+};
+
+// const errors = validasi(this.state.NamaLab, this.state.NamaAdmin,
+// this.state.PasswordAdmin);
 
 export default class Daftar extends React.Component {
 
@@ -67,7 +97,9 @@ export default class Daftar extends React.Component {
             Password: '',
             PasswordConfrim: '',
             errorEmail: false,
-            errorHp: false  
+            errorHp: false,
+            errorPass: false,
+            errorPasskonf: false
         }
 
         this.onChange = {
@@ -76,15 +108,7 @@ export default class Daftar extends React.Component {
                 .bind(this, 'Nama'),
             IdAdmin: this
                 .handleChange
-                .bind(this, 'IdAdmin'),
-
-            Password: this
-                .handleChange
-                .bind(this, 'Password'),
-            PasswordConfrim: this
-                .handleChange
-                .bind(this, 'PasswordConfrim')
-
+                .bind(this, 'IdAdmin')
         }
 
         this.handphoneChange = this
@@ -94,12 +118,38 @@ export default class Daftar extends React.Component {
         this.emailChange = this
             .emailChange
             .bind(this);
+        this.passwordHandle = this
+            .passwordHandle
+            .bind(this);
+        this.passwordHandleKonfirm = this
+            .passwordHandleKonfirm
+            .bind(this);
     }
 
     handleChange(name, event) {
 
         this.setState({[name]: event.target.value})
         // console.log(this.state.Password);
+    }
+
+    passwordHandle(event) {
+
+        this.setState({Password: event.target.value});
+      
+        this.setState({
+            errorPass: validasi(event.target.value)
+        });
+
+    }
+
+    passwordHandleKonfirm(event) {
+
+        this.setState({PasswordConfrim: event.target.value});
+       
+
+        this.setState({
+            errorPasskonf: validasiKonfirm(event.target.value)
+        });
     }
 
     emailChange(event) {
@@ -122,8 +172,6 @@ export default class Daftar extends React.Component {
 
         this.setState({errorHp: isInteger(NoHP)})
         this.setState({Hp: NoHP})
-
-    
 
     }
 
@@ -200,7 +248,7 @@ export default class Daftar extends React.Component {
                                                     onChange={this.onChange.Nama}
                                                     style={style.lebarInput}
                                                     value={this.state.Nama}
-                                                    errorText={this.state.errorId }
+                                                    errorText={this.state.errorId}
                                                     errorStyle={{
                                                     color: 'red'
                                                 }}
@@ -243,7 +291,7 @@ export default class Daftar extends React.Component {
                                                     onChange={this.emailChange}
                                                     style={style.lebarInput}
                                                     value={this.state.Email}
-                                                    errorText={this.state.errorEmail }
+                                                    errorText={this.state.errorEmail}
                                                     errorStyle={{
                                                     color: 'red'
                                                 }}
@@ -288,7 +336,7 @@ export default class Daftar extends React.Component {
                                             style = {{marginLeft:25 , paddingTop:15}}/>}
                                                 disabled={true}>
                                                 <TextField
-                                                    onChange={this.onChange.Password}
+                                                    onChange={this.passwordHandle}
                                                     style={style.lebarInput}
                                                     value={this.state.Password}
                                                     errorText={this.state.errorPass}
@@ -312,10 +360,10 @@ export default class Daftar extends React.Component {
                                             style = {{marginLeft:25 , paddingTop:15}}/>}
                                                 disabled={true}>
                                                 <TextField
-                                                    onChange={this.onChange.PasswordConfrim}
+                                                    onChange={this.passwordHandleKonfirm}
                                                     style={style.lebarInput}
                                                     value={this.state.PasswordConfrim}
-                                                    errorText={this.state.errorPass}
+                                                    errorText={this.state.errorPasskonf}
                                                     errorStyle={{
                                                     color: 'red'
                                                 }}

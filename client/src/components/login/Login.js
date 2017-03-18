@@ -39,8 +39,12 @@ import cookie from 'react-cookie';
 //temp 3
 import auth from '../../auth/auth.js';
 
-// function validasi(NamaId, Password) {     return {         NamaId:
-// NamaId.length === 0,         Password: Password.length === 0     }; }
+function validasi(NamaId, Password) {
+    return {
+        NamaId: NamaId.length === 0,
+        Password: Password.length === 0
+    };
+}
 
 const style = {
     paperLogin: {
@@ -97,9 +101,8 @@ export default class Login extends React.Component {
             Snackopen: false,
             SnackPesan: '',
             AdminBackEnd: false,
-            // loginAdmin: auth.loggedInUser(),
-            // loginUser: auth.loggedInAdmin()
-            
+            // loginAdmin: auth.loggedInUser(), loginUser: auth.loggedInAdmin()
+
         }
 
         this.onChange = {
@@ -132,7 +135,7 @@ export default class Login extends React.Component {
     }
 
     handleError(json) {
-        alert(json);         
+        alert(json);
     }
 
     handleSubmit(event) {
@@ -149,7 +152,6 @@ export default class Login extends React.Component {
         this.setState({Snackopen: false});
     };
 
-   
     kirimId() {
 
         var body = {
@@ -177,8 +179,6 @@ export default class Login extends React.Component {
             this.setState({SnackPesan: json.SnackPesan});
             this.setState({AdminBackEnd: json.Admin});
             this.setState({login: json.Admin});
-         
-            
 
             console.log(this.state.errorId);
             console.log(this.state.errorPass);
@@ -188,7 +188,6 @@ export default class Login extends React.Component {
             if ((this.state.errorId === undefined) && (this.state.errorPass === undefined) && (this.state.AdminBackEnd === true)) {
                 auth.masukAdmin(json.TokenAdmin);
                 browserHistory.push('/dashboard-admin');
-              
 
             } else if ((this.state.errorId === undefined) && (this.state.errorPass === undefined) && (this.state.AdminBackEnd === false)) {
                 auth.masukUser(json.TokenPengajar);
