@@ -20,6 +20,13 @@ const muiTheme = getMuiTheme({palette: {
         // accent1Color: red500
     }});
 
+var konfrim = {
+
+    konfrimPass1: "aaaaa",
+    konfrimPass2: false
+
+}
+
 const style = {
     paperDaftar: {
         height: 470,
@@ -99,7 +106,9 @@ export default class Daftar extends React.Component {
             errorEmail: false,
             errorHp: false,
             errorPass: false,
-            errorPasskonf: false
+            errorPasskonf: false,
+            passSama1: false,
+            passSama2: false
         }
 
         this.onChange = {
@@ -135,21 +144,25 @@ export default class Daftar extends React.Component {
     passwordHandle(event) {
 
         this.setState({Password: event.target.value});
-      
+
         this.setState({
             errorPass: validasi(event.target.value)
         });
+
+        this.setState({passSama1: event.target.value});
 
     }
 
     passwordHandleKonfirm(event) {
 
         this.setState({PasswordConfrim: event.target.value});
-       
 
         this.setState({
             errorPasskonf: validasiKonfirm(event.target.value)
         });
+
+        this.setState({passSama2: event.target.value});
+
     }
 
     emailChange(event) {
@@ -159,8 +172,6 @@ export default class Daftar extends React.Component {
         this.setState({
             errorEmail: checkEmail(event.target.value)
         })
-
-        // console.log(this.state.errorEmail);
 
     }
 
@@ -172,6 +183,24 @@ export default class Daftar extends React.Component {
 
         this.setState({errorHp: isInteger(NoHP)})
         this.setState({Hp: NoHP})
+
+    }
+
+    componentDidUpdate() {
+
+        if ((this.state.errorPass === false) && (this.state.errorPasskonf === false)) {
+
+            if (this.state.passSama1 === this.state.passSama2) {
+
+                console.log("Password sama");
+
+            } else {
+                console.log("tidak sama");
+            }
+
+        }else{
+             console.log("kurang dari 6");
+        }
 
     }
 
