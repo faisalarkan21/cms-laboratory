@@ -108,7 +108,8 @@ export default class Daftar extends React.Component {
             errorPass: false,
             errorPasskonf: false,
             passSama1: false,
-            passSama2: false
+            passSama2: false,
+            errorEqualPass:false 
         }
 
         this.onChange = {
@@ -188,18 +189,18 @@ export default class Daftar extends React.Component {
 
     componentDidUpdate() {
 
-        if ((this.state.errorPass === false) && (this.state.errorPasskonf === false)) {
+        if ((this.state.errorPass === false) && (this.state.errorPasskonf === false) && (this.state.PasswordConfrim.length >= 6)) {
 
             if (this.state.passSama1 === this.state.passSama2) {
 
-                console.log("Password sama");
+                alert("Password sama");
 
             } else {
-                console.log("tidak sama");
+                alert("tidak sama");
             }
 
-        }else{
-             console.log("kurang dari 6");
+        } else {
+            console.log("kurang dari 6");
         }
 
     }
